@@ -45,7 +45,7 @@ your chosen sprite pack should work to fill the few known stadium models missing
 
 ### Current Incompatibilities
 
-- ✖ Kanto in First Person (currently awaiting an update for Dramatic Shape 1.6.1 compatibility)
+- ✖ Kanto in First Person 1.8.3 (currently awaiting an update for Dramatic Shape 1.6.1 compatibility)
 
 ---
 
