@@ -1,76 +1,55 @@
-***Battle Cinematics currently modifies a copy of Dramatic Shape. Always keep an untouched official Dramatic Shape ZIP. To uninstall Battle Cinematics completely, remove the patched Dramatic Shape installation and reinstall the official release. Please do not report issues to the Dramatic Shape developer unless they also occur on an unmodified installation. Remnants are sadly unavoidable due to the current nature of patching, Lua file will remain altered.***
+# 🎥 Battle Cinematics
 
-clean uninstall: Delete the patched Dramatic Shape + Battle Cinematics installation completely.
-Reinstall a fresh official Dramatic Shape ZIP.
-Re-enable any compatible dependants.
+**Battle Cinematics** is a standalone cinematic battle-camera companion for Pokémon Gen1 Recomp and Dramatic Shape.
 
-# Battle Cinematics
+It adds cinematic camera movement to idle moments during Stadium battles, allowing players to appreciate their Pokémon, their opponents and the battlefield from more dramatic perspectives.
 
-Battle Cinematics is a cinematic battle camera framework for Pokémon Gen1 Recomp.
+## Latest Release
 
-The first public release, **DW3 Classic Alpha**, is inspired by the slower, more deliberate battle presentation of Digimon World 3. Rather than changing gameplay, it enhances idle moments with cinematic camera movement, allowing players to appreciate their Pokémon and the battlefield.
+### Battle Cinematics v0.6.0 — Standalone Quality of Life Update
 
-This project is built on top of Dramatic Shape and serves as the foundation for the future **Director** system, a dynamic camera framework designed to make each battle feel unique.
+Battle Cinematics is now installed as its own mod.
 
----
+It no longer modifies or replaces Dramatic Shape files. Installation, updating and removal are now clean and straightforward.
 
-## Features
+**[Download the latest release](../../releases/latest)**
 
-- Cinematic idle battle camera
-- Smooth establishing shots
-- Dynamic over-the-shoulder portraits
-- Natural, cinematic pacing
-- Designed for Stadium battles
-- Built as an extension for Dramatic Shape
+## Requirements
 
----
+- Pokémon Gen1 Recomp
+- Dramatic Shape 1.6.1 or later
+- Stadium battle presentation enabled
 
 ## Installation
 
-1. Install **Dramatic Shape**.
+1. Install Dramatic Shape normally.
 2. Download the latest Battle Cinematics release.
-3. Copy the overlay files into the Dramatic Shape archive, replacing the existing files.
-4. Import the modified archive into Pokémon Gen1 Recomp.
-5. Enable Stadium battles in-game.
+3. Import Battle Cinematics as a separate mod.
+4. Enable both mods.
+5. Open **Mods → Battle Cinematics** to configure the camera.
 
----
+Do not merge the Battle Cinematics ZIP into Dramatic Shape.
 
-## Compatibility
+## DW3 Classic
 
-### Confirmed Compatible
+The first preset is **DW3 Classic**, inspired by the slower cinematic battle presentation of Digimon World 3.
 
-- ✔ Pokémon Gen1 Recomp
-- ✔ Dramatic Shape 1.6.1
-- (and stadium models)
-- ✔ PokéPC Followers 0.5.1
-- ✔ Followers EX 0.19.1
-- ✔ Wilds 1.9.0
+After the selected idle delay, the camera begins a cinematic sequence featuring:
 
-your chosen sprite pack should work to fill the few known stadium models missing.
+- sweeping battlefield orbits;
+- over-the-shoulder Pokémon portraits;
+- smooth approaches and departures;
+- deliberate pauses that allow each Pokémon to remain the focus;
+- an automatic return to the normal battle view before actions.
 
-### Current Incompatibilities
+DW3 Classic is the preserved reference preset and will remain available as future camera systems are developed.
 
-- ✖ Kanto in First Person 1.8.3 (currently awaiting an update for Dramatic Shape 1.6.1 compatibility)
+## Settings
 
----
+Battle Cinematics has its own dedicated settings menu:
 
-## Roadmap
-
-### Complete
-
-- DW3 Classic Alpha
-
-### In Development
-
-- Director Alpha
-
-### Planned
-
-- Context-aware shot selection
-  (already partially implemented - shoulder shots account for a Pokémons registered height)
-- Form-aware framing
-- Species-aware camera behaviour
-- Dynamic cinematic direction
-- Additional Director
-- Presets for various known Camera systems, e.g stadium, colosseum.
--  first person focus on Pokémon while attacking and reacting, in line with modern generation standards.
+- **Enabled** — turn Battle Cinematics on or off;
+- **Preset** — currently DW3 Classic;
+- **Orbit Speed** — Slowest, Slow, Medium or Fast;
+- **Initial Delay** — 6, 9, 12 or 15 seconds;
+- **Input Return** — return
