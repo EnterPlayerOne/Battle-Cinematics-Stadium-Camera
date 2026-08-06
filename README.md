@@ -39,7 +39,7 @@ This project is built on top of Dramatic Shape and serves as the foundation for 
 - (and stadium models)
 - ✔ PokéPC Followers 0.5.1
 - ✔ Followers EX 0.19.1
-- ✔ Wilds
+- ✔ Wilds 1.9.0
 
 your chosen sprite pack should work to fill the few known stadium models missing.
 
