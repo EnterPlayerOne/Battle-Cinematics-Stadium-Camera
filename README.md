@@ -1,3 +1,4 @@
+***Battle Cinematics currently modifies a copy of Dramatic Shape. Always keep an untouched official Dramatic Shape ZIP. To uninstall Battle Cinematics completely, remove the patched Dramatic Shape installation and reinstall the official release. Please do not report issues to the Dramatic Shape developer unless they also occur on an unmodified installation. ***
 
 # Battle Cinematics
 
