@@ -37,8 +37,8 @@ This project is built on top of Dramatic Shape and serves as the foundation for 
 - ✔ Pokémon Gen1 Recomp
 - ✔ Dramatic Shape 1.6.1
 - (and stadium models)
-- ✔ PokéPC Followers
-- ✔ Followers EX
+- ✔ PokéPC Followers 0.5.1
+- ✔ Followers EX 0.19.1
 - ✔ Wilds
 
 your chosen sprite pack should work to fill the few known stadium models missing.
