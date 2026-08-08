@@ -1,4 +1,4 @@
-# Battle Cinematics v0.7.3 — Stadium Classic
+# Battle Cinematics v0.7.3 — Stadium Classic | Pokémon Stadium Camera Recreation
 
 Battle Cinematics v0.7.3 introduces **Stadium Classic**, a new cinematic battle-camera preset based directly on the camera choreography of the original Pokémon Stadium.
 
