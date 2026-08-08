@@ -271,7 +271,7 @@ Controls how long Battle Cinematics waits before passive cinematography begins.
 - **Long — 12 Seconds**
 - **Extra Long — 15 Seconds**
 
-**Standard — 9 Seconds** remains the default.
+**Standard — 9 Seconds** remains the default, though 4-6 is recommended.
 
 Immediate removes the intentional waiting period, although Battle Cinematics will still wait until a usable battle camera exists.
 
