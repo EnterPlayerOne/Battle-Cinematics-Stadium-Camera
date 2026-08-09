@@ -1,0 +1,95 @@
+diff --git a/main.lua b/main.lua
+index 163daa9..954404f 100644
+--- a/main.lua
++++ b/main.lua
+@@ -302,6 +302,40 @@ local function speedScale()
+   for _,e in ipairs(SPEEDS) do if e.value==value then return e.scale end end
+   return 1.0
+ end
++
++-- Gen1Recomp fast-forward runs the fixed 1/60 logic step multiple times per
++-- real frame. Battle Cinematics is presentation-only, so advancing its timers
++-- by the raw input.step dt makes every camera run N times faster at N X game
++-- speed. Convert the logic-step delta back to real presentation time here and
++-- keep every camera system on this one clock.
++local function effectiveLogicSpeed(game)
++  if game and type(game.logicSpeed)=="function" then
++    local ok,value=pcall(game.logicSpeed,game)
++    value=ok and tonumber(value) or nil
++    if value and value>0 then return value end
++  end
++  -- Compatibility fallback for older supported Gen1Recomp builds that expose
++  -- the saved speed option but not Game:logicSpeed(). Current builds should
++  -- always take the authoritative runtime path above (speed override/link-safe).
++  local options=game and game.save and game.save.options
++  local value=options and tonumber(options.speed) or nil
++  return (value and value>0) and value or 1
++end
++
++local function cameraDelta(game,dt)
++  dt=math.max(0,tonumber(dt) or 0)
++  return dt/effectiveLogicSpeed(game)
++end
++
++local CAMERA_FPS=60
++local function advanceAttackProgress(progress,target,animTotal,dt)
++  progress=math.max(0,math.min(1,tonumber(progress) or 0))
++  target=math.max(progress,math.min(1,tonumber(target) or progress))
++  animTotal=tonumber(animTotal) or 0
++  if animTotal<=0 then return target end
++  local maxAdvance=math.max(0,tonumber(dt) or 0)*CAMERA_FPS/animTotal
++  return math.min(target,progress+maxAdvance)
++end
+ local function diagnosticsOn()
+   return mod.options:get("diagnostics") == "on"
+ end
+@@ -1704,7 +1738,8 @@ end
+ for _,backend in ipairs(backends) do installBackendCamera(backend) end
+ 
+ mod.hooks:wrap("input.step",function(nextFn,game,dt)
+-  local result=nextFn(game,dt); dt=tonumber(dt) or 0
++  local result=nextFn(game,dt)
++  dt=cameraDelta(game,dt)
+   state.noRig=state.noRig+dt
+   if state.noRig>0.75 and state.rigSeen then
+     state.rigSeen=false; resetBattle()
+@@ -1754,20 +1789,31 @@ mod.hooks:wrap("input.step",function(nextFn,game,dt)
+       local player=battle.animPlayer
+       local elapsed=player and tonumber(player.elapsed) or nil
+       if elapsed and state.attack.animTotal>0 then
+-        state.attack.progress=math.max(0,math.min(1,elapsed/state.attack.animTotal))
++        -- AnimPlayer.elapsed advances on the accelerated battle logic clock.
++        -- Treat it as the choreography target, but limit the physical camera
++        -- to the amount of progress that can occur in real presentation time.
++        local targetProgress=math.max(0,math.min(1,elapsed/state.attack.animTotal))
++        state.attack.progress=advanceAttackProgress(
++          state.attack.progress,targetProgress,state.attack.animTotal,dt)
+       else
+         -- Defensive fallback for alternate animation players that do not expose
+-        -- compiled step durations. The real AnimPlayer path above is preferred.
++        -- compiled step durations. state.attack.time already uses camera time.
+         state.attack.progress=math.max(state.attack.progress,math.min(0.98,state.attack.time/2.0))
+       end
+       state.attack.tail=0
+     elseif state.attack.sawAnimation then
+-      -- Let the finishing shot breathe for a fraction of a second after the FX
+-      -- releases the animation player, then hand the camera back to the normal
+-      -- BC lifecycle cleanly.
+-      state.attack.progress=1
+-      state.attack.tail=state.attack.tail+dt
+-      if state.attack.tail>=0.25 then
++      -- Fast-forward may finish the battle animation before the real-time camera
++      -- has traversed the shot. Finish the camera choreography at presentation
++      -- speed; a later battle.move_used event can still replace it immediately.
++      if state.attack.animTotal>0 and state.attack.progress<1 then
++        state.attack.progress=advanceAttackProgress(
++          state.attack.progress,1,state.attack.animTotal,dt)
++        state.attack.tail=0
++      else
++        state.attack.progress=1
++        state.attack.tail=state.attack.tail+dt
++      end
++      if state.attack.progress>=1 and state.attack.tail>=0.25 then
+         local faintHandoff=state.faint.pending and faintCameraOn()
+         clearAttack()
+         if faintHandoff then
