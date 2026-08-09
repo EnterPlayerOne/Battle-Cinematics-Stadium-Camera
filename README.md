@@ -1,309 +1,309 @@
-# Battle Cinematics v0.7.3 — Stadium Classic | Pokémon Stadium Camera Recreation
+# 🎥 Battle Cinematics - Stadium Camera
 
-Battle Cinematics v0.7.3 introduces **Stadium Classic**, a new cinematic battle-camera preset based directly on the camera choreography of the original Pokémon Stadium.
+A standalone, modular battle-camera system for **Pokémon Gen1Recomp**.
 
-This isn't simply a camera inspired by Stadium.
+Battle Cinematics adds cinematic passive cameras, battle introductions, attack cinematography and faint presentation while remaining independent of the battle sprites, models and renderer you choose to use.
 
-The original Pokémon Stadium camera was captured frame-by-frame from a clean US v1.0 ROM, including its camera position, look target, field of view, timing, cuts and transitions. That choreography was then translated into Battle Cinematics' existing camera system and adapted to work safely inside Gen1Recomp / Dramatic Shape environments.
+> ⚠️ **Stadium models are NOT required!**
+>
+> Battle Cinematics works with **supported 2D sprites, custom battle-art packages, voxel/model renderers and Pokémon Stadium model setups**.
+>
+> The Stadium features refer to the **camera style and cinematography**. They are designed to mix naturally with the wider Stadium-themed mod ecosystem, but Pokémon Stadium models are not a requirement.
+>
+> **From the beginning, Battle Cinematics has been designed as an adaptable top-level camera system — fitting around the active battle presentation rather than being tied to one renderer, model set, preset or visual style.**
 
-The result is a recreation of the original Stadium battle-camera language while retaining Battle Cinematics' existing safety systems and compatibility with modern battle presentation mods.
+---
+## 🎥 See Battle Cinematics in Action
+
+### Stadium Classic
+
+Pokémon Stadium camera choreography, reverse-engineered from runtime capture and translated through **Battle Cinematics' own subject-relative Gen1Recomp camera system**.
+
+[![Battle Cinematics - Stadium Classic](https://img.youtube.com/vi/Lc37dOoFhBs/maxresdefault.jpg)](https://youtu.be/Lc37dOoFhBs)
+
+### Dynamic Battle Direction
+
+Attack-aware framing, self-move cinematography, faint reactions and passive camera systems working together as a **modular battle-direction layer**, independently of the chosen battle-art setup.
+
+[![Battle Cinematics - Dynamic Battle Direction](https://img.youtube.com/vi/ch1kvbhVqeM/maxresdefault.jpg)](https://youtu.be/ch1kvbhVqeM)
+
+### 2D / 2D-3D Compatibility
+
+Battle Cinematics is not limited to Stadium-model battles. The same camera systems also operate across supported **2D and 2D-3D battle presentations**, with backend-aware framing and safety fallbacks.
+
+[![Battle Cinematics - 2D / 2D-3D Compatibility](https://img.youtube.com/vi/aXX6RjYRUzc/hqdefault.jpg)](https://youtu.be/aXX6RjYRUzc)
 
 ---
 
-## 🎥 New Preset — Stadium Classic
+## ✨ What Battle Cinematics Does
 
-The Preset menu now includes:
+Battle Cinematics separates battle presentation into modular camera systems.
+
+Choose your passive camera style, then independently decide whether you want a battle intro, attack cinematography and faint-camera behaviour.
+
+Current systems include:
+
+- **DW3 Classic** — orbiting and cinematic battle framing inspired by Digimon World 3
+- **Hero Portrait** — close three-quarter Pokémon portrait cinematography
+- **Stadium Classic** — Pokémon Stadium's passive battle-camera choreography, reverse-engineered from runtime capture and translated onto Battle Cinematics' own subject-relative Gen1Recomp camera rig
+- **BC Hero Battle Intro** — cinematic introductions when Pokémon enter battle
+- **Stadium Attack Camera** — move-aware attack cinematography synchronized to the real move-animation window
+- **Faint Camera** — keeps focus on a defeated Pokémon through its faint presentation
+
+These systems are intentionally independent and can be mixed and matched.
+
+---
+
+# 🎬 Camera Presets
+
+## DW3 Classic
+
+Battle cinematography inspired by **Digimon World 3**, combining:
+
+- Aerial orbiting
+- Pokémon portrait framing
+- Over-the-shoulder compositions
+- Enemy/player focus changes
+- Cinematic transitions
+
+DW3 Classic has its own configurable preset menu.
+
+## Hero Portrait
+
+A closer cinematic preset built around moving three-quarter Pokémon portrait shots.
+
+Designed for players who want character-focused battle framing without the longer Stadium or DW3 camera sequences.
+
+## Stadium Classic
+
+Recreates the passive battle-camera language of the original **Pokémon Stadium**.
+
+The original Stadium camera was captured at runtime, including:
+
+- Camera position
+- Camera target
+- FOV
+- Timing
+- Cuts
+- Holds
+- Sweeps and orbital movement
+- Shot ordering
+
+Rather than copying N64 world coordinates, the captured choreography was **reverse-translated into Battle Cinematics' existing subject-relative camera system**.
+
+Stadium supplied the original cinematography; Battle Cinematics' own camera rig reproduces that language dynamically around Gen1Recomp Pokémon, arenas and supported rendering backends.
+
+---
+
+# ⚔️ Stadium Attack Camera
+
+**Attack Camera — Stadium / Off**
+
+The Stadium Attack Camera follows the **real move-animation window**, allowing the same system to work with both vanilla Gen1Recomp move animations and compatible animation mods such as Stadium Battle FX.
+
+It is move-aware:
+
+- **Targeted attacks** — attacker → battlefield/travel → target/impact
+- **Self-targeting moves** — remain focused on the Pokémon using the move
+- **Field-style effects** — use broader neutral framing
+- Player and opponent attacks mirror automatically
+
+Because this system is independent from the passive preset, Stadium attack cinematography can be used with:
+
+- DW3 Classic
+- Hero Portrait
+- Stadium Classic
+
+Or simply set **Attack Camera — Off** if another mod should control attack cinematography.
+
+---
+
+# 💥 Faint Camera
+
+**Faint Camera — On / Off**
+
+Default: **On**
+
+When a Pokémon faints, Battle Cinematics can retain focus on the defeated Pokémon instead of immediately returning the camera to the surviving battler.
+
+Where supported, BC follows the actual model faint state. Other presentation setups use a safe timed fallback.
+
+---
+
+# ⚙️ Options
+
+## Preset
+
+Selects the passive cinematic camera:
 
 - **DW3 Classic**
 - **Hero Portrait**
 - **Stadium Classic**
 
-Stadium Classic recreates the passive cinematic camera sequence used by Pokémon Stadium.
+## Configure Preset
 
-The captured sequence lasts roughly **32 seconds** before cycling and includes:
-
-- Three-quarter horseshoe shots
-- Moving Pokémon portrait shots
-- Wide battlefield establishing shots
-- Opponent tracking shots
-- High circular / aerial camera movement
-- Close player and opponent portraits
-- Long sweeping battlefield transitions
-- Alternating shot variants between cycles
-
-The sequence uses the original Stadium timing and shot ordering rather than randomly selecting cinematic angles.
-
----
-
-## 🏟️ Recreated from the Original Pokémon Stadium Camera
-
-For this update, the original Pokémon Stadium battle camera was recorded directly at runtime.
-
-The capture included:
-
-- Camera eye position
-- Camera target
-- FOV
-- Shot duration
-- Camera movement
-- Cuts
-- Holds
-- Transition timing
-- Repeating passive-camera cycle
-
-Rather than copying Stadium's raw N64 world coordinates, those shots were converted into **relative cinematic compositions**.
-
-That means Battle Cinematics can reproduce the same visual language while adapting it to different Pokémon sizes, battlefields and Dramatic Shape environments.
-
-Several parts of Stadium's original camera turned out to closely resemble systems Battle Cinematics already had:
-
-- Stadium portrait sweeps map naturally onto the **Hero Portrait** rig
-- Stadium's high circular camera maps onto the existing **DW3 orbit** technology
-- Mirrored player/opponent shots use BC's existing subject-target system
-- Wide Stadium compositions use BC's battlefield-relative camera system
-
-This allowed the original choreography to be recreated without replacing the safety work already developed for Battle Cinematics.
-
----
-
-## 🛡️ Stadium Camera Safety
-
-Some original Stadium camera positions are extremely wide and would place the camera outside certain enclosed Gen1Recomp battle arenas.
-
-v0.7.3 adds additional protection for the Stadium camera family.
-
-### Outer Arena Boundary Protection
-
-Wide Stadium shots, sweeps and orbital cameras now respect a safe physical camera envelope.
-
-When an original Stadium-style composition would push the camera too far outside an enclosed arena:
-
-- physical camera travel is limited
-- the camera stays inside a safer usable region
-- FOV compensates to retain the intended wide composition
-
-Open environments can still use the full large-scale Stadium shot.
-
-This sits alongside Battle Cinematics' existing protections against the rendering dead zones that can temporarily cause 3D models to fall back to sprites.
-
----
-
-## 👤 Improved Portrait Headroom
-
-Very tall Pokémon could occasionally extend beyond the top of the frame during one of Stadium Classic's closest portrait shots.
-
-That shot now includes a subtle upward target movement during the composition.
-
-The camera itself remains physically stable while its focus rises, providing additional headroom without sacrificing the close portrait or introducing additional dead-zone risk.
-
-This was specifically useful for tall models such as Mewtwo and Charizard.
-
----
-
-## 🎬 Dynamic Intro Compatibility
-
-Stadium Classic works with Battle Cinematics' existing **Dynamic Intro** system.
-
-The two systems remain independent.
-
-You can therefore use:
-
-- Stadium Classic + Dynamic Intro
-- Stadium Classic without Dynamic Intro
-- DW3 Classic + Dynamic Intro
-- Hero Portrait + Dynamic Intro
-
-Dynamic Intro has not been replaced or tied permanently to Stadium Classic.
-
-The original Pokémon Stadium **battle introduction camera has also now been successfully captured** and is being researched separately.
-
-The long-term intention is to keep intro styles modular so players can mix and match intro cinematography and passive camera presets.
-
----
-
-## 🔌 Multi-Backend Camera Architecture
-
-Battle Cinematics remains a standalone camera companion.
-
-It does not overwrite the files of the battle-rendering mod it attaches to.
-
-The camera backend layer introduced in previous releases allows Battle Cinematics to attach to compatible BattleCam implementations rather than containing or modifying their renderer code.
-
-Current compatibility work covers the Dramatic Shape family and compatible Battle Art camera implementations.
-
-Further compatibility with newly maintained/repackaged renderer branches is being tested carefully so that alternate backends do not alter Battle Cinematics' established framing.
-
----
-
-## ⚙️ Preset Configuration
-
-Battle Cinematics keeps its contextual preset configuration system.
-
-Select a preset, then choose:
-
-**Configure Preset**
-
-The available controls depend on the selected camera preset rather than placing every setting into one large menu.
+Opens settings belonging specifically to the selected preset.
 
 ### DW3 Classic
 
-Current DW3 configuration controls:
-
-- **Framing**
-  - Standard
-  - Near
-  - Close
-
-- **Orbit Speed**
-  - Slowest
-  - Slow
-  - Medium
-  - Fast
-
-- **Height**
-  - Low
-  - Standard
-  - High
-
-- **Angle**
-  - Shallow
-  - Standard
-  - Strong
-
+- **Framing:** Standard / Near / Close
+- **Orbit Speed:** Slowest / Slow / Medium / Fast
+- **Height:** Low / Standard / High
+- **Angle:** Shallow / Standard / Strong
 - **Reset to Default**
 
-These settings are stored persistently.
+Preset settings are persistent.
 
-### Stadium Classic
+## Battle Intro
 
-Stadium Classic currently prioritises the authentic captured choreography.
+- **BC Hero**
+- **Off**
 
-Its timing and major compositions are intentionally kept close to the original Pokémon Stadium camera rather than exposing raw camera coordinates.
-
-Additional safe Stadium-specific configuration may be added later.
-
----
-
-# Controls / Options Refresher
-
-## Preset
-
-Chooses the passive cinematic camera style.
-
-**DW3 Classic**  
-Aerial orbit and cinematic over-the-shoulder / Pokémon portrait camera inspired by Digimon World 3.
-
-**Hero Portrait**  
-Close cinematic three-quarter Pokémon portrait sweeps.
-
-**Stadium Classic**  
-Recreation of Pokémon Stadium's original passive battle-camera choreography.
-
----
-
-## Configure Preset
-
-Opens the configuration page belonging to the currently selected preset.
-
-This keeps preset-specific controls separate from the main Battle Cinematics menu.
-
----
-
-## Dynamic Intro
-
-**On / Off**
-
-Plays a cinematic Pokémon introduction when Pokémon enter battle.
-
-Opponent Pokémon receive their introduction first, followed by the player's Pokémon.
-
-The system also works when Pokémon are switched or newly sent into battle.
-
----
+Controls cinematic Pokémon introductions at the beginning of battle and when new Pokémon enter.
 
 ## Intro Speed
 
-Controls the speed of Dynamic Intro cinematography.
+- Slow
+- Normal
+- Fast
 
-- **Slow**
-- **Normal**
-- **Fast**
+## Intro Reset Camera
 
-**Fast** retains the established original Dynamic Intro timing.
+Controls whether input can interrupt the Battle Intro:
 
----
+- Off
+- On Move/Item
+- Any Input
 
-## Intro Reset Cam
+## Attack Camera
 
-Controls whether player input is allowed to interrupt/reset the Dynamic Intro camera.
-
-- **Off**
-- **On Move/Item**
-- **Any Input**
-
-**Off** allows the intro to complete regardless of menu input.
-
----
-
-## Reset Camera
-
-Controls when passive cinematics return to the normal battle camera.
-
-- **On Move/Item**
-- **Any Input**
+- **Stadium**
 - **Off**
 
-Default behaviour is **On Move/Item**.
+Default: **Stadium**
 
-This remains separate from Intro Reset Cam.
+## Faint Camera
 
----
+- **On**
+- **Off**
+
+Default: **On**
 
 ## Initial Delay
 
-Controls how long Battle Cinematics waits before passive cinematography begins.
+Controls how long Battle Cinematics waits before passive cinematography begins:
 
-- **Immediate**
-- **2 Seconds**
-- **4 Seconds**
-- **Short — 6 Seconds**
-- **Standard — 9 Seconds**
-- **Long — 12 Seconds**
-- **Extra Long — 15 Seconds**
+- Immediate
+- 2 Seconds
+- **4 Seconds — Default**
+- 6 Seconds
+- 9 Seconds
+- 12 Seconds
+- 15 Seconds
 
-**Standard — 9 Seconds** remains the default, though 4-6 is recommended.
+## Reset Camera
 
-Immediate removes the intentional waiting period, although Battle Cinematics will still wait until a usable battle camera exists.
+Controls when passive cinematography returns to the standard battle camera:
 
----
-
-## Notes
-
-Battle Cinematics controls the **camera only**.
-
-Pokémon models and battle presentation remain the responsibility of the active compatible renderer.
-
-Move-effect mods such as Stadium-style battle-animation projects can operate independently while naturally following Battle Cinematics' moving camera through the shared battle scene.
+- **On Move/Item — Default**
+- Any Input
+- Off
 
 ---
 
-## v0.7.3
+# ✅ Broad Renderer / Battle-Art Compatibility
 
-- Added **Stadium Classic**
-- Recreated Pokémon Stadium passive camera choreography from runtime capture
-- Added Stadium wide-shot arena-boundary protection
-- Added improved portrait headroom for tall Pokémon
-- Retained existing rendering dead-zone protection
-- Retained DW3 Classic
-- Retained Hero Portrait
-- Retained Dynamic Intro
-- Retained per-preset configuration
-- Retained persistent settings
-- Retained multi-backend architecture
-- Corrected version reporting so `manifest.json` and Battle Cinematics' exported/logged version remain synchronized
+Battle Cinematics is designed as an **independent camera layer** and adapts its framing, geometry and fallback behaviour to the supported battle environment currently active.
+
+Tested compatibility includes:
+
+- [Dramatic Shape Voxel Mod](https://github.com/DramaticShape/DramaticShapeVoxelMod) — including v1.8.0
+- [Dramaless Shape](https://github.com/artyrambles/DRAMALESS_SHAPE) — including altered camera rigging used by the ST fork
+- [Pokémon Stadium Overworld Models](https://github.com/randyadr/3D-Pokemon-Sprites)
+- [Stadium Battle FX](https://github.com/anxiousintrovert/StadiumBattleFX)
+- **Dramatic Shape Battle Art** variants
+- **Battle Art Voxel Fork**
+- Standard 2D and compatible custom battle-art setups
+
+These are **supported presentation systems, not required dependencies**.
+
+Battle Cinematics does not require another project to implement BC-specific camera behaviour. Its compatibility layer detects and adapts to supported battle-camera environments itself.
 
 ---
 
-Battle Cinematics is still evolving from a camera preset mod into a broader cinematic battle-camera framework.
+# 🛡️ Camera Safety & Fallbacks
 
-DW3, Hero Portrait and Stadium can remain independent styles, while systems such as intros and future attack cinematography can be mixed and matched rather than locked to a single presentation mode.
+Different Gen1Recomp battle environments provide very different amounts of safe physical camera space.
+
+Battle Cinematics includes fallback behaviour designed to preserve cinematography without breaking the active renderer.
+
+Current protections include:
+
+- Arena-boundary handling
+- Rendering dead-zone protection
+- Safe-eye / zero-travel fallback where physical camera movement is unsafe
+- FOV compensation to preserve framing
+- Tall-Pokémon headroom handling
+- Backend camera-rig normalization
+- Real constrained arenas distinguished from synthetic 2D-3D battle stages
+- Support for 2D-3D A/B presentation modes across supported backends
+- Clean camera ownership and reset between passive, intro, attack and faint systems
+
+On constrained areas such as Routes 22 and 24, BC can preserve the intended composition optically rather than forcing unsafe physical camera travel.
+
+On synthetic battle stages such as compatible 2D-3D B environments, full physical choreography remains available where safe.
+
+The goal is always the same:
+
+**preserve the cinematic composition without breaking the battle presentation.**
+
+---
+
+# 🔌 Mix and Match
+
+Battle Cinematics is intended to sit at the **camera layer** of a modular Gen1Recomp setup.
+
+For example:
+
+**Battle renderer / sprite package**  
++ **Pokémon models or sprites of your choice**  
++ **Stadium Battle FX or vanilla animations**  
++ **Battle Cinematics camera system**
+
+None of those visual choices force you to use Stadium Classic.
+
+Likewise, Stadium Classic does not require Stadium models.
+
+Use the combination you prefer.
+
+---
+
+# 📥 Download
+
+Download the newest version from:
+
+[**Battle Cinematics - Latest Release**](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest)
+
+For detailed development history, compatibility changes and additional videos, see the individual release pages.
+
+---
+
+# 🔭 Development
+
+Battle Cinematics continues to develop as a broader cinematic camera framework.
+
+Future work may include:
+
+- Additional battle-intro styles
+- Further Stadium camera research
+- Duration-aware attack-camera grammar
+- Additional camera presets
+- Continued compatibility work as new Gen1Recomp renderers and battle environments appear
+
+New camera systems are developed on top of the last confirmed-good release, with existing backend and safety fallbacks treated as part of the compatibility contract.
+
+---
+
+## License
+
+MIT
