@@ -1,0 +1,48 @@
+name: Materialize fixed v0.7.7 main.lua
+
+on:
+  push:
+    branches:
+      - fix/game-speed-camera-timing
+    paths:
+      - .github/workflows/materialize-v077.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/game-speed-camera-timing
+
+      - name: Download official v0.7.7 release source
+        run: |
+          set -euo pipefail
+          curl -L --fail \
+            "https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/download/V0.7.7/Battle_Cinematics-v0.7.7.zip" \
+            -o /tmp/battle-cinematics.zip
+          rm -rf /tmp/battle-cinematics
+          mkdir -p /tmp/battle-cinematics
+          unzip -q /tmp/battle-cinematics.zip -d /tmp/battle-cinematics
+          source_file="$(find /tmp/battle-cinematics -type f -name main.lua | head -n 1)"
+          test -n "$source_file"
+          cp "$source_file" ./main.lua
+
+      - name: Apply game-speed camera fix
+        run: |
+          set -euo pipefail
+          git apply --check patches/v0.7.7-game-speed-camera.patch
+          git apply patches/v0.7.7-game-speed-camera.patch
+
+      - name: Commit materialized fixed source
+        run: |
+          set -euo pipefail
+          rm .github/workflows/materialize-v077.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add main.lua .github/workflows/materialize-v077.yml
+          git commit -m "add fixed v0.7.7 main.lua"
+          git push origin HEAD:fix/game-speed-camera-timing
