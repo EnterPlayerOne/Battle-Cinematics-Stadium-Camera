@@ -308,7 +308,8 @@ These are **presentation systems, not required dependencies**.
 
 ### ⚠️ Important 2D sprite note
 
-> **2D sprite presentation requirements**
+**2D sprite presentation requirements**
+> 
 > Battle Art: PLAYER SPRITE → FRONT
 > 
 > Back Sprites options in compatible 3D hosts: BACK SPRITES → OFF
