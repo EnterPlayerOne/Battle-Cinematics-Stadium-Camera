@@ -11,7 +11,8 @@ Recommended: one of the short v1.0.6/v1.0.7 GIFs — Articuno is the strongest o
 Example once uploaded:
 ![Battle Cinematics](YOUR_GIF_URL_HERE)
 -->
-![Articuno presentation-aware framing](media/articuno-apb-opening.gif)
+
+![Articuno attack and faint showcase](media/articuno-attack-faint.gif)
 
 [▶ Watch the full Battle Cinematics APB Showcase](Battle_Cinematics_v1.0.6_APB_Showcase_v2.mp4)
 
@@ -54,7 +55,7 @@ BC's source-faithful translation of the **Pokémon Stadium** battle-camera langu
 Wide establishing movement, sweeping opponent and player compositions, rising horseshoe rotations and classic Stadium battlefield framing — adapted to the physical environment available in Recomp rather than blindly replaying unsafe coordinates.
 
 <!-- MEDIA SLOT: Pidgeotto rising Stadium horseshoe / Articuno wide opening -->
-
+![Stadium Mewtwo full passive cycle](media/stadium-mewtwo-full-cycle.gif)
 ![Pidgeotto rising Stadium horseshoe](media/pidgeotto-apb-origin.gif)
 
 ## DW3 Classic
@@ -62,6 +63,8 @@ Wide establishing movement, sweeping opponent and player compositions, rising ho
 The original Battle Cinematics camera language.
 
 DW3 is more intimate and interpretive than Stadium 64, built around orbital movement, shoulder compositions and environmental close framing. Its framing, orbit speed, height and angle are configurable independently.
+
+![Crystal Mewtwo at sea – DW3 preset](media/crystal-mewtwo-dw3.gif)
 
 ## Hero Portrait
 
@@ -206,7 +209,7 @@ Suggested order: Pidgeotto / Onix / Snorlax / Hoothoot
 
 ### Onix: tall and grounded are different things
 
-![Onix Rock Throw and faint resolution](media/onix-rock-throw-faint-small.gif)
+![Onix Rock Throw and faint resolution](onix-rock-throw-faint-small.gif)
 
 ### Snorlax: breadth is its own presentation axis
 
@@ -218,7 +221,7 @@ Suggested order: Pidgeotto / Onix / Snorlax / Hoothoot
 
 ### Gold / Stadium2: the same presentation language reaches Gen 2
 
-![Hoothoot Gold presentation awareness](media/hoothoot-gold-apb.gif)
+![Hoothoot Gold presentation awareness](hoothoot-gold-apb.gif)
 
 ### 2D sprites
 
@@ -265,7 +268,7 @@ Randyadr's Diorama, Third Person and First Person views remain host features and
 
 ### Randy third-person provider control through BC presets
 
-![Randy third-person provider control through BC presets](media/randy-third-provider-control.gif)
+![Randy third-person provider control through BC presets](randy-third-provider-control.gif)
 
 ### Randy first-person provider control through BC presets
 
