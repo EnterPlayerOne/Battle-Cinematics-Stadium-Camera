@@ -191,6 +191,10 @@ No species, type, Flying-type, Stadium-model-name or route hardcodes are require
 <!-- MEDIA SLOT: 2–4 APB GIF strip
 Suggested order: Pidgeotto / Onix / Snorlax / Hoothoot
 -->
+<img width="476" height="254" alt="Pidgeotto" src="https://github.com/user-attachments/assets/aa7ba4a8-0d70-4744-acaf-213affd46995" />
+<img width="514" height="276" alt="onix" src="https://github.com/user-attachments/assets/3dc361c8-12d1-4d97-870d-d1d05f19975f" />
+
+
 
 ### 2D sprites
 
@@ -449,7 +453,7 @@ Recommended: reuse Battle_Cinematics_v1.0.6_APB_Showcase_v2.mp4 or an uploaded G
 Suggested caption:
 Presentation-aware framing • Gen 1 + Gold • Backend interoperability
 -->
-
+https://github.com/user-attachments/assets/17dbbe90-0cfe-4148-bd5c-d7c355aec533
 ---
 
 # Installation
