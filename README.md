@@ -357,11 +357,8 @@ Small local roofs test whether a camera can establish the required viewing heigh
 When nothing prevents the authored movement, BC stays out of its own way and allows the full Stadium or DW3 choreography to breathe.
 
 
-<img width="320" height="137" alt="Power Plant structural camera safety" src="https://github.com/user-attachments/assets/8919c000-286e-4a01-bbaa-6a30aecf24ad" />
-<img width="278" height="120" alt="Cerulean cinematography" src="https://github.com/user-attachments/assets/4cba44b8-cee8-4463-b412-422590b1ee3f" />
-<img width="288" height="124" alt="Celadon cinematography" src="https://github.com/user-attachments/assets/128128b6-321b-4f63-a442-c9705b354dec" />
-
 </details>
+
 
 ---
 
