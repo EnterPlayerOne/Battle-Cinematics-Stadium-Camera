@@ -11,6 +11,8 @@ Recommended: one of the short v1.0.6/v1.0.7 GIFs — Articuno is the strongest o
 Example once uploaded:
 ![Battle Cinematics](YOUR_GIF_URL_HERE)
 -->
+![Articuno presentation-aware framing](media/articuno-apb-opening.gif)
+
 [▶ Watch the full Battle Cinematics APB Showcase](Battle_Cinematics_v1.0.6_APB_Showcase_v2.mp4)
 
 **Battle Cinematics (BC)** is a complete battle-camera director for Pokémon Recomp.
@@ -195,7 +197,25 @@ Suggested order: Pidgeotto / Onix / Snorlax / Hoothoot
 <img width="476" height="254" alt="Pidgeotto" src="https://github.com/user-attachments/assets/aa7ba4a8-0d70-4744-acaf-213affd46995" />
 <img width="514" height="276" alt="onix" src="https://github.com/user-attachments/assets/3dc361c8-12d1-4d97-870d-d1d05f19975f" />
 
+### Pidgeotto: where APB began
 
+![Pidgeotto APB origin](media/pidgeotto-apb-origin.gif)
+
+### Onix: tall and grounded are different things
+
+![Onix Rock Throw and faint resolution](media/onix-rock-throw-faint-small.gif)
+
+### Snorlax: breadth is its own presentation axis
+
+![Snorlax breadth-aware framing](media/snorlax-breadth.gif)
+
+### Mew: presentation-aware, still cinematic
+
+![Mew presentation-aware framing](media/mew-presentation-aware.gif)
+
+### Gold / Stadium2: the same presentation language reaches Gen 2
+
+![Hoothoot Gold presentation awareness](media/hoothoot-gold-apb.gif)
 
 ### 2D sprites
 
@@ -239,6 +259,14 @@ With Randyadr's battle camera enabled, **Randy's native right-stick control rema
 `PRESET → EXTERNAL` is only required when you also want the **host to author the passive camera itself**.
 
 Randyadr's Diorama, Third Person and First Person views remain host features and coexist with BC's phase-scoped direction.
+
+### Randy third-person provider control through BC presets
+
+![Randy third-person provider control through BC presets](media/randy-third-provider-control.gif)
+
+### Randy first-person provider control through BC presets
+
+![Randy first-person provider control through BC presets](media/randy-first-provider-control.gif)
 
 ---
 
@@ -455,7 +483,8 @@ Suggested caption:
 Presentation-aware framing • Gen 1 + Gold • Backend interoperability
 -->
 [▶ Watch the full Battle Cinematics APB Showcase](Battle_Cinematics_v1.0.6_APB_Showcase_v2.mp4)
-
+> Full showcase: APB / presentation-aware framing across Gen 1 + Gen 2.
+> 
 ---
 
 # Installation
