@@ -492,7 +492,7 @@ Recommended: reuse Battle_Cinematics_v1.0.6_APB_Showcase_v2.mp4 or an uploaded G
 Suggested caption:
 Presentation-aware framing • Gen 1 + Gold • Backend interoperability
 -->
-[▶ Watch the full Battle Cinematics APB Showcase](Battle_Cinematics_v1.0.6_APB_Showcase_v2.mp4)
+[▶ Watch the full Battle Cinematics APB Showcase](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/download/V1.0.7/Battle_Cinematics_v1.0.6_APB_Showcase_v2.1.mp4)
 > Full showcase: APB / presentation-aware framing across Gen 1 + Gen 2.
 > 
 ---
