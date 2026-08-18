@@ -27,6 +27,8 @@ Choose a dynamic passive camera, then independently configure cinematic Pokémon
 
 ## ✅ Verified on real setups — Backend Assurance
 
+https://github.com/user-attachments/assets/725a3706-2047-49c7-8897-7ab2e0e0911e
+
 <!-- INLINE VIDEO: attach Battle_Cinematics_v1.0.8_Backend_Assurance_INLINE_under10MB.mp4 HERE -->
 
 **This is direct gameplay footage, not a compatibility claim on paper.** Battle Cinematics is shown running across independent presentation hosts, renderers, sprite systems and Gold providers using the configurations below.
