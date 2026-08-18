@@ -14,6 +14,7 @@ Example once uploaded:
 
 ![Articuno attack and faint showcase](media/articuno-attack-faint.gif)
 
+[▶ Watch the full Battle Cinematics APB Showcase](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/download/V1.0.7/Battle_Cinematics_v1.0.6_APB_Showcase_v2.1.mp4)
 
 **Battle Cinematics (BC)** is a complete battle-camera director for Pokémon Recomp.
 
