@@ -300,7 +300,7 @@ The following configurations have been directly tested on the current BC line:
 
 - StadiumBattleFX 2.1.7 — validated.
 BC remains the active camera director for any BC-enabled phases; SBFX effects continue underneath normally.
-No special SBFX camera configuration is required for BC. If BC Attack Camera is enabled, BC owns the attack camera. id you prefer SBFX attack camera, simply toggle off BC Attack camera.
+No special SBFX camera configuration is required for BC. If BC Attack Camera is enabled, BC owns the attack camera. If you prefer SBFX attack camera, simply toggle off BC Attack camera.
 
 These are **presentation systems, not required dependencies**.
 
