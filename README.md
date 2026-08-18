@@ -11,6 +11,7 @@ Recommended: one of the short v1.0.6/v1.0.7 GIFs — Articuno is the strongest o
 Example once uploaded:
 ![Battle Cinematics](YOUR_GIF_URL_HERE)
 -->
+[▶ Watch the full Battle Cinematics APB Showcase](Battle_Cinematics_v1.0.6_APB_Showcase_v2.mp4)
 
 **Battle Cinematics (BC)** is a complete battle-camera director for Pokémon Recomp.
 
@@ -453,7 +454,8 @@ Recommended: reuse Battle_Cinematics_v1.0.6_APB_Showcase_v2.mp4 or an uploaded G
 Suggested caption:
 Presentation-aware framing • Gen 1 + Gold • Backend interoperability
 -->
-https://github.com/user-attachments/assets/17dbbe90-0cfe-4148-bd5c-d7c355aec533
+[▶ Watch the full Battle Cinematics APB Showcase](Battle_Cinematics_v1.0.6_APB_Showcase_v2.mp4)
+
 ---
 
 # Installation
