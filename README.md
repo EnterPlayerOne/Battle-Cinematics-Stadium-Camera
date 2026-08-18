@@ -88,7 +88,7 @@ In other words:
 > **EXTERNAL CAMERA — HOST OWNED**  
 > **BC PHASE MODULES — STILL INDEPENDENT**
 
-External is generic BC architecture, not a Randy-specific preset.
+External is generic BC architecture, not a Randy-specific preset. Battle Voxels own idle camera will similarly occupy an external slot.
 
 ---
 
