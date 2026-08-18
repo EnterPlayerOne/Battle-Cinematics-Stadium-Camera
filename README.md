@@ -293,8 +293,8 @@ The following configurations have been directly tested on the current BC line:
 - **Dramaless Shape 2.0.2**
 - **PotatoVoxel 1.7.11**
 - **Voxel Ascendant 0.1.1**
-- **Battle Art Voxel Fork 1.9.4**
-- **StadiumBattleFX 2.1.5** presentation on compatible Gen 1 hosts
+- **Battle Art Voxel Fork 1.9.4** ⚠️ Player Sprite= FRONT is the BC compatible choice presently.
+- **StadiumBattleFX 2.1.5+** presentation on compatible Gen 1 hosts
 - **Gen2-3D-Sprites / STADIUM2_OVERWORLD_MODELS** by randyadr on Gold
 - standard and compatible custom 2D sprite presentations
 
