@@ -316,6 +316,11 @@ Small local roofs test whether a camera can establish the required viewing heigh
 
 When nothing prevents the authored movement, BC stays out of its own way and allows the full Stadium or DW3 choreography to breathe.
 
+
+<img width="320" height="137" alt="Power Plant structural camera safety" src="https://github.com/user-attachments/assets/8919c000-286e-4a01-bbaa-6a30aecf24ad" />
+<img width="278" height="120" alt="Cerulean cinematography" src="https://github.com/user-attachments/assets/4cba44b8-cee8-4463-b412-422590b1ee3f" />
+<img width="288" height="124" alt="Celadon cinematography" src="https://github.com/user-attachments/assets/128128b6-321b-4f63-a442-c9705b354dec" />
+
 </details>
 
 ---
@@ -519,113 +524,7 @@ MIT
 
 
 
-
-
-
-
-
-
 ---
-
-## Pokémon Intro
-
-The BC Hero Intro is its own configurable presentation system.
-
-Pokémon are introduced through a dedicated cinematic portrait before BC hands cleanly into the passive battle camera. The in-game selector is **PKMN INTRO CAM**, with its settings organised under **CONFIGURE INTRO** so additional Intro styles can be added later without redesigning the menu.
-
-Current BC Hero controls include framing, speed, **Hero Tilt**, Intro cancellation and reset-to-default.
-
-Intro cancellation defaults to the logical **Game Boy B button**, respecting the player's Gen1Recomp controller mapping rather than assuming a particular physical controller button.
-
-For players who prefer less movement, **Hero Tilt can be disabled** while retaining the portrait framing and replacing the upward tilt with a subtle reverse-horizontal movement.
-
-And every Intro can still simply be skipped with a press of B.
-
-<img width="320" height="137" alt="BC Hero Pokémon Intro" src="https://github.com/user-attachments/assets/a3a994e3-4163-4033-ab1c-6b9a2a61f716" />
-
----
-
-## Stadium Attack Camera
-
-Battle Cinematics does not stop when the menu closes.
-
-The optional Stadium Attack Camera provides move-aware cinematic presentation during attacks while remaining synchronised with the actual battle animation window.
-
-Short attacks, longer attacks, self-targeting moves and impact sequences are treated differently rather than forcing every move into one camera template.
-
-BC also accounts for accelerated game speeds, keeping cinematic timing tied to the actual battle rather than assuming the default logic speed.
-
-<img width="400" height="171" alt="Stadium Attack Camera" src="https://github.com/user-attachments/assets/1fc0f71f-43e4-40c7-8ce5-24bfc7fbf28d" />
-
----
-
-## Faint Camera
-
-Optional faint presentation gives defeated Pokémon a dedicated final composition without requiring a different battle renderer or model package.
-
-Like every other BC camera module, it passes through the same arena and geometry safety systems as the passive cameras.
-
-<img width="400" height="171" alt="Faint Camera" src="https://github.com/user-attachments/assets/a6480ed2-a0ef-4600-a12e-e8006a3efbc9" />
-
----
-
-# Built for Kanto — not an empty test arena
-
-Kanto contains narrow paths, caves, forests, ledges, trees, rocks, rooftops, building façades and arena boundaries that simply do not exist in the original Stadium battlefields.
-
-BC understands enough about those environments to preserve cinematic movement without treating every foreground object as something that must be avoided.
-
-A tree appearing beautifully in the foreground is allowed.
-
-A camera physically travelling through that tree is not.
-
-A rooftop forming part of a composition is allowed.
-
-A camera occupying the building beneath it is not.
-
-That distinction is fundamental to the way BC works.
-
-## Viridian Forest
-
-Viridian became the proving ground for BC's foliage camera language.
-
-Canopy can remain cinematic foreground while still acting as a physical surface the camera cannot simply descend through. BC can rise to a readable canopy crest, preserve that useful height during the authored shot, and release the correction cleanly at the next camera cut.
-
-The result preserves the forest rather than sterilising it.
-
-<img width="348" height="150" alt="Viridian Forest cinematography" src="https://github.com/user-attachments/assets/8fc32bc6-c572-408e-9e03-e6cbf660035c" />
-
-## Power Plant
-
-Large building geometry presents a very different problem.
-
-BC derives its own private semantic understanding of building **body/façade ↔ roof/top**, allowing large structures to participate in camera occupancy, physical path safety and visibility without changing the underlying battle renderer.
-
-Impossible authored shots can gracefully yield to a safe cinematic substitute instead of repeatedly slamming against the structure. High building façades, low roofs and roof traversal are handled through the same generic system rather than map-specific Power Plant hacks.
-
-<img width="320" height="137" alt="Power Plant structural camera safety" src="https://github.com/user-attachments/assets/8919c000-286e-4a01-bbaa-6a30aecf24ad" />
-
-## Route 12
-
-Small roofs are an equally important test.
-
-BC recognises an authored camera genuinely entering below a local roof and establishes the required viewing height as the camera reaches it, allowing the shot to continue smoothly across the structure.
-
-## Cerulean and open-route cinematography
-
-Safety does not mean flattening the camera.
-
-Open environments remain free to use the full Stadium and DW3 choreography when nothing prevents it. Cerulean in particular is a great example of the camera simply being allowed to breathe.
-
-<img width="278" height="120" alt="Cerulean cinematography" src="https://github.com/user-attachments/assets/4cba44b8-cee8-4463-b412-422590b1ee3f" />
-
-<img width="288" height="124" alt="Celadon cinematography" src="https://github.com/user-attachments/assets/128128b6-321b-4f63-a442-c9705b354dec" />
-
-## Foreground is still part of the cinematography
-
-Routes such as 1, 6 and 8 remain important positive controls for BC.
-
-Ledges, bollards, rocks and other environment pieces are allowed to pass through the foreground when the resulting shot remains readable and physically valid.
 
 BC is designed to **protect cinematography, not remove it**.
 
