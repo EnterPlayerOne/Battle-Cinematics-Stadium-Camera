@@ -55,6 +55,8 @@ Wide establishing movement, sweeping opponent and player compositions, rising ho
 
 <!-- MEDIA SLOT: Pidgeotto rising Stadium horseshoe / Articuno wide opening -->
 
+![Pidgeotto rising Stadium horseshoe](media/pidgeotto-apb-origin.gif)
+
 ## DW3 Classic
 
 The original Battle Cinematics camera language.
@@ -144,6 +146,7 @@ Camera timing follows the real battle presentation and remains compatible with a
 With Actor Presentation Bounds active, Attack Camera framing also understands the presented attacker and recipient rather than assuming both occupy the same vertical space.
 
 <!-- MEDIA SLOT: Onix Rock Throw -> recipient -> faint sequence -->
+
 <img width="514" height="276" alt="onix" src="https://github.com/user-attachments/assets/3dc361c8-12d1-4d97-870d-d1d05f19975f" />
 
 ---
