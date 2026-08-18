@@ -127,6 +127,7 @@ Existing users receive this change **once** through BC's one-time migration syst
 And every Intro can still simply be skipped with a press of B.
 
 <img width="320" height="137" alt="BC Hero Pokémon Intro" src="https://github.com/user-attachments/assets/a3a994e3-4163-4033-ab1c-6b9a2a61f716" />
+
 ---
 
 # Stadium Attack Camera
