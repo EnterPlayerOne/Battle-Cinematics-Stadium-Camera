@@ -41,7 +41,7 @@ https://github.com/user-attachments/assets/725a3706-2047-49c7-8897-7ab2e0e0911e
 | **[Dramaless Shape](https://github.com/artyrambles/DRAMALESS_SHAPE) by artyrambles — 2.0.2** + **[StadiumBattleFX](https://github.com/anxiousintrovert/StadiumBattleFX) by RootBeer / anxiousintrovert — 2.1.7** | BC camera + SBFX effects together | **`BACK SPRITES = OFF`** · no special SBFX camera setup required · **BC ❤️ StadiumBattleFX** |
 | **[Dramatic Shape](https://github.com/DramaticShape/DramaticShapeVoxelMod) by KingofSpain** | BC passive / Attack / Faint presentation | **`BACK SPRITES = OFF`** |
 | **[Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS`](https://github.com/randyadr/Gen2-3D-Sprites) by randyadr** | Gold / Gen 2; provider First / Third Person + BC phases | Provider owns Gold right stick; BC remains phase-scoped |
-| **[Voxel Ascendant](https://github.com/Roxas2712/voxel-ascendant) — 0.1.1** | Validated BC backend | No special BC camera setting required |
+| **[Voxel Ascendant](https://github.com/Roxas2712/voxel-ascendant) by Roxas2717 — 0.1.1** | Validated BC backend | No special BC camera setting required |
 | **Compatible 2D / animated sprite presentations** | Includes fixed-card and animated sprite stacks | Avoid fixed player-back presentation with moving BC cameras |
 
 > [!IMPORTANT]
