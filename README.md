@@ -1,4 +1,4 @@
-# Battle Cinematics – Stadium Camera
+# Battle Cinematics – Dynamic 3D Camera • Passives, Intros, Attacks & Faint • Gen 1+2
 
 **A complete cinematic camera layer for Pokémon Gen1Recomp.**
 
