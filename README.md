@@ -298,6 +298,10 @@ The following configurations have been directly tested on the current BC line:
 - **Gen2-3D-Sprites / STADIUM2_OVERWORLD_MODELS** by randyadr on Gold
 - standard and compatible custom 2D sprite presentations
 
+- StadiumBattleFX 2.1.7 — validated.
+BC remains the active camera director for any BC-enabled phases; SBFX effects continue underneath normally.
+No special SBFX camera configuration is required for BC. If BC Attack Camera is enabled, BC owns the attack camera. id you prefer SBFX attack camera, simply toggle off BC Attack camera.
+
 These are **presentation systems, not required dependencies**.
 
 > **BC respects what the underlying system provides, then makes the best cinematic use of it.**
