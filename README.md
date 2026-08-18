@@ -306,10 +306,17 @@ These are **presentation systems, not required dependencies**.
 
 > **BC respects what the underlying system provides, then makes the best cinematic use of it.**
 
-### Important 2D sprite note
+### ⚠️ Important 2D sprite note
 
-> **Keep any fixed `Back Sprites` option OFF when using BC's moving cameras unless you specifically want that fixed presentation.**
-
+> **2D sprite presentation requirements**
+> Battle Art: PLAYER SPRITE → FRONT
+> 
+> Back Sprites options in compatible 3D hosts: BACK SPRITES → OFF
+>
+>  3D model presentations: no sprite-facing restriction
+> 
+BC uses moving world-space cameras. Fixed player-back presentation is intentionally camera-facing/static presentation and will not remain spatially convincing as BC moves around the battle.
+> 
 A forced back-sprite card does not become a world-facing 3D actor simply because BC moves around it. During large camera movements it can therefore appear camera-locked or spatially incorrect even though the camera itself is behaving normally.
 
 ---
