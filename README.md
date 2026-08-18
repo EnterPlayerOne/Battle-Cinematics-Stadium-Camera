@@ -359,11 +359,9 @@ When nothing prevents the authored movement, BC stays out of its own way and all
 
 </details>
 
-![Cerulean APB origin](media/Cerulean 1.0.0_1 (1) (1) (3).gif)
 
 ![Celadon  APB origin](media/Celadon1.0.gif)
 
-![Power Plant APB origin](media/Plant(1).gif)
 ---
 
 # Camera Authority
