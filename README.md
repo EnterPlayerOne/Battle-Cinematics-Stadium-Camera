@@ -1,5 +1,5 @@
 
-# 🎥 Battle Cinematics – Dynamic 3D Camera
+# 🎥 Battle Cinematics – Dynamic 3D Battle Camera
 
 ### Passive cameras • Pokémon Intros • Move-aware Attacks • Faints • Gen 1 + Gen 2
 
