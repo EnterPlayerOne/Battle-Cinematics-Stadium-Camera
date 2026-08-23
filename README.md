@@ -607,6 +607,8 @@ New work is developed on top of the last confirmed-good behaviour. Established c
 
 **Darkatek7** — identified and traced the accelerated `input.Step / Game:logicSpeed()` timing issue and supplied the original patch that led to BC's game-speed compatibility implementation.
 
+StadiumBattleFX / Root Beer Ronin — for helping spur Battle Cinematics forward as a cousin Stadium-focused project, and for the shared push toward richer Stadium-style battle presentation and interoperability.
+
 Thanks to the developers of the Recomp battle renderers, model systems, sprite packs and presentation hosts that BC interoperates with, and to everyone who has tested Battle Cinematics across different routes, generations, backends, presets and increasingly unreasonable camera situations.
 
 A great deal of BC exists because somebody found the arena where the camera finally said no.
