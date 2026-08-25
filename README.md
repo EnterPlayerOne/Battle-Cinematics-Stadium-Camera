@@ -5,12 +5,7 @@ Battle Cinematics is a top-level battle-camera/director layer for Gen1Recomp. It
 
 ## v1.2.1 — Permissions & licensing
 
-v1.2.1 is **functionally identical to the validated v1.2.0 release**. No camera, renderer, provider, menu, Sprite Facing, Secondary View, Gen 1 or Gen 2 behavior has been changed.
-
-Starting with v1.2.1, Battle Cinematics is distributed under the **Battle Cinematics Source-Available License 1.0** included in `LICENSE`. Source remains public for inspection, learning, private/personal modification and contributions back to the official project. Public redistribution, repackaging, rebranding, sublicensing, or distribution of derivative/forked Battle Cinematics projects requires prior written permission from EnterPlayerOne.
-
-Historical releases that were already distributed under the MIT License remain available under the terms that accompanied those releases. The new license governs v1.2.1 and later Battle Cinematics releases and future project code to the extent EnterPlayerOne holds the applicable rights.
-
+Historical releases that were already distributed under the MIT License remain governed by the terms that accompanied those copies. Those historical downloads are no longer officially distributed. The new license governs v1.2.1 and later Battle Cinematics releases and future project code to the extent EnterPlayerOne holds the applicable rights.”
 ## v1.2.0 — Secondary View
 
 v1.2.0 adds **SECOND VIEW PIP**: an optional live second battle camera rendered inside a movable picture-in-picture window while the main Battle Cinematics camera continues normally.
