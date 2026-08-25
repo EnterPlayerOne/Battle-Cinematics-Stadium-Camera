@@ -1,0 +1,34 @@
+{
+  "id": "BATTLE_CINEMATICS",
+  "name": "Battle Cinematics - Dynamic 3D Battle Camera",
+  "version": "1.2.1",
+  "api": 2,
+  "entry": "main.lua",
+  "profile": "content",
+  "category": "GRAPHICS",
+  "game_version": "0.0.0-dev || >=0.1.37 <2.0.0",
+  "priority": 120,
+  "dependencies": [],
+  "optional_dependencies": [
+    "DRAMATIC_SHAPE",
+    "DRAMALESS_SHAPE",
+    "BATTLE_ART_VOXEL_FORK",
+    "STADIUM2_OVERWORLD_MODELS",
+    "STADIUM_BATTLE_FX",
+    "potato_voxel",
+    "VOXEL_ASCENDANT",
+    "STADIUM2_IMPORTER",
+    "crystal_animated_sprites_with_shiny_visuals"
+  ],
+  "conflicts": [],
+  "permissions": [
+    "engine_internals"
+  ],
+  "affects_link": false,
+  "description": "Dynamic 3D battle-camera director with optional live Secondary View/PiP, dynamic sprite facing, cinematic intros/attacks/faints, and broad provider-aware Gen 1 + Gen 2 compatibility.",
+  "github": "EnterPlayerOne/Battle-Cinematics-Stadium-Camera",
+  "games": [
+    "gen1",
+    "gen2"
+  ]
+}

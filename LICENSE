@@ -1,21 +1,52 @@
-MIT License
+Battle Cinematics Source-Available License 1.0
 
-Copyright (c) 2026 EnterPlayerOne
+Copyright (c) 2026 EnterPlayerOne. All rights reserved except as expressly granted below.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This license applies to Battle Cinematics version 1.2.1 and later releases, and to future Battle Cinematics source code and documentation to the extent the applicable rights are held by EnterPlayerOne. Historical Battle Cinematics releases that were distributed under another license remain governed by the license that accompanied those historical releases.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. PERMITTED USE
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+You may, without separate written permission:
+
+(a) download, install, and run official Battle Cinematics releases for personal or non-commercial use;
+(b) inspect and study the publicly available source code and documentation;
+(c) make private modifications for your own personal use, provided those modified copies are not publicly distributed;
+(d) create and submit patches, pull requests, issue reproductions, or other proposed contributions to the official Battle Cinematics project; and
+(e) link to the official Battle Cinematics repository or official Battle Cinematics release downloads.
+
+2. REDISTRIBUTION AND DERIVATIVE PROJECTS
+
+Except with prior written permission from EnterPlayerOne, you may not:
+
+(a) publicly redistribute Battle Cinematics, whether modified or unmodified;
+(b) publish, host, mirror, repackage, or re-upload Battle Cinematics as a separately distributed copy;
+(c) publish or distribute a fork, successor, continuation, rebrand, port, or other derivative project based substantially on Battle Cinematics source code;
+(d) incorporate substantial portions of Battle Cinematics source code into another publicly distributed mod, application, framework, or project;
+(e) sublicense, sell, rent, license for a fee, or commercially redistribute Battle Cinematics or a derivative work; or
+(f) use the Battle Cinematics name, branding, release identity, or project presentation in a manner that suggests an unofficial derivative is the official Battle Cinematics project or an authorized successor.
+
+A GitHub or similar source-control fork created solely as technically necessary to prepare a contribution back to the official Battle Cinematics repository is permitted, provided it is not promoted, released, packaged, or maintained as an independent Battle Cinematics distribution or successor project.
+
+3. CONTRIBUTIONS
+
+By intentionally submitting source code or documentation for inclusion in the official Battle Cinematics project, you grant EnterPlayerOne a perpetual, worldwide, non-exclusive, royalty-free license to use, reproduce, modify, distribute, and relicense that contribution as part of Battle Cinematics. This does not transfer ownership of your original contribution unless separately agreed in writing.
+
+4. THIRD-PARTY WORKS
+
+Battle Cinematics interoperates with and references third-party mods, renderers, assets, APIs, and projects. Those works remain the property of their respective authors and are governed by their own licenses. This license grants no rights in third-party works that EnterPlayerOne does not own.
+
+5. NO TRADEMARK OR ENDORSEMENT RIGHTS
+
+No permission is granted to use the Battle Cinematics name or branding to identify, market, or imply endorsement of an independent derivative, successor, or competing redistribution. Descriptive references to Battle Cinematics for compatibility, commentary, criticism, or attribution are permitted.
+
+6. TERMINATION
+
+Any rights granted by this license terminate automatically if you materially breach these terms and do not cure the breach after written notice where a cure is reasonably possible.
+
+7. DISCLAIMER
+
+THE SOFTWARE AND DOCUMENTATION ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COPYRIGHT HOLDER SHALL NOT BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM USE OF THE SOFTWARE.
+
+8. PERMISSION REQUESTS
+
+Permission for redistribution, derivative projects, ports, integrations that require copying Battle Cinematics code, or other uses outside these terms must be obtained in writing from EnterPlayerOne through the official Battle Cinematics repository/project contact channels before distribution.
