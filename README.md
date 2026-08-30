@@ -91,7 +91,7 @@ The tables below describe the **current tested state**, not every historical ver
 
 >StadiumBattleFX can provide a separate Gen1 Stadium-model presentation while compatible voxel backends continue to provide the battle environment. This is provider-specific and should not be assumed to work identically across every backend.
 
-| Voxel provider | SBFX Stadium model state v0.2.8.1|
+| Voxel provider | SBFX Stadium model state v2.1.8.1|
 |---|---|
 | **Dramaless Shape 2.0.3** | ✅ **Validated.** Select its registered voxel arena in SBFX `BATTLE ARENA`. Stadium models + voxel world + BC cameras + Secondary View work correctly. |
 | **Dramatic Shape 1.9.0** | ⚠️ **Partial / not currently recommended.** Its voxel arena is recognised, but current testing can lose the battle UI |
