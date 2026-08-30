@@ -76,8 +76,9 @@ The tables below describe the **current tested state**, not every historical ver
 | **Stadium2 Importer 0.12.0 — Gen 1** | ✅ | 3D yield | ✅ | Genuine Stadium presentation retained. Can use supported **BATTLE ARENA OVERRIDE** providers below. |
 | **Crystal Animated Sprites 2.0.2** | ✅ | ✅ | ✅ | Animated sprite presentation supported on established compatible host paths. Fixed animated FRONT Secondary View remains independent from the main 4-Way view. |
 | **Compatible vanilla / ROM sprite presentation** | ✅ | ✅ | ✅ where host-supported | BC uses the host's actual sprite presentation rather than replacing the artwork. |
+| **StadiumBattleFX** | ✅* | 3D yield | ✅ | **Gen1 Stadium model presentation supported.** Proven with **Dramaless Shape 2.0.3** when SBFX `BATTLE ARENA` is set to the registered **VOXEL ARENA** provider. Other voxel-provider combinations are provider/version-specific; see notes below. |
 
-### Gen 1 LIVE VOXEL ARENA providers for Stadium2 Importer
+### Gen 1 LIVE VOXEL ARENA providers for Stadium 2 Importer
 
 - **Dramaless Shape 2.0.3**
 - **Dramatic Shape 1.9.0**
@@ -85,6 +86,15 @@ The tables below describe the **current tested state**, not every historical ver
 - **PotatoVoxel 1.9.6 — MAP / 2D-3D A**
 
 **Battle Art Voxel Fork 1.9.9** already supplies its Importer environment through its own established integration rather than BC's arena-override bridge.
+
+>### StadiumBattleFX + voxel providers
+
+StadiumBattleFX can provide a separate Gen1 Stadium-model presentation while compatible voxel backends continue to provide the battle environment. This is provider-specific and should not be assumed to work identically across every backend.
+
+| Voxel provider | SBFX Stadium model state v0.2.8.1|
+|---|---|
+| **Dramaless Shape 2.0.3** | ✅ **Validated.** Select its registered voxel arena in SBFX `BATTLE ARENA`. Stadium models + voxel world + BC cameras + Secondary View work correctly. |
+| **Dramatic Shape 1.9.0** | ⚠️ **Partial / not currently recommended.** Its voxel arena is recognised, but current testing can lose the battle UI and leave a dark GB-screen-bound overlay/shadow across much of the presentation. |
 
 ## Gen 2 / GSC
 
@@ -446,6 +456,9 @@ Set:
 `IDLE PRESET → EXTERNAL`
 
 Then leave Pokémon Intro / Attack / Faint enabled as desired.
+
+> **Using StadiumBattleFX models?**  
+> **Dramaless Shape 2.0.3** is the currently validated voxel-world companion. In SBFX, set `BATTLE ARENA` to the registered **VOXEL ARENA** entry for Dramaless, then let Battle Cinematics handle camera direction.
 
 ---
 
