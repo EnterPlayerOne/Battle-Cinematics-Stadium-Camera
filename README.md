@@ -313,6 +313,8 @@ Different hosts expose different safe private-render seams. BC therefore does no
 
 Heavy 3D Secondary View paths use bounded private targets and conservative draw scheduling where required.
 
+>⚠️ Secondary View maintains its own lightweight presentation of the battle. Current 3D backends mirror battle state and major transitions like fainting, but individual model animation timing may differ from the primary presentation at this stage of development.
+
 ---
 
 ## 10. Battle Arena Override
