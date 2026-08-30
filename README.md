@@ -1,730 +1,526 @@
 
-
 # 🎥 Battle Cinematics – Dynamic 3D Battle Camera
 
-### Passive cameras • Pokémon Intros • Move-aware Attacks • Faints • Gen 1 + Gen 2
+### A top-level cinematic battle director for Pokémon Gen1Recomp
+
+**Stadium 64 • 4-Way Sprite View • Pokémon Intro • Attack & Faint Cameras • Secondary View • Live Voxel Arenas • Gen 1 + Gen 2**
 
 [![Latest Release](https://img.shields.io/github/v/release/EnterPlayerOne/Battle-Cinematics-Stadium-Camera?label=Latest%20Release)](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest)
 
-<!-- HERO MEDIA SLOT
-Recommended: one of the short v1.0.6/v1.0.7 GIFs — Articuno is the strongest opener.
-Example once uploaded:
-![Battle Cinematics](YOUR_GIF_URL_HERE)
+<!-- PRIME SHOWCASE
+Final target: media/Battle_Cinematics_Prime_Showcase.mp4
+Optional short looping preview: media/Battle_Cinematics_Prime_Showcase.gif
+The reel should show, in order: 4-Way sprites -> Crystal -> Gen5 animated -> genuine Stadium 3D -> Stadium/Intro/Attack/Faint -> Secondary View -> Live Voxel Arena.
 -->
 
-![Articuno attack and faint showcase](media/articuno-attack-faint.gif)
+[▶ Watch the full Battle Cinematics showcase](media/Battle_Cinematics_README_Prime_Showcase.mp4)
 
-[▶ Watch the full Battle Cinematics APB Showcase](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/download/V1.0.7/Battle_Cinematics_v1.0.6_APB_Showcase_v2.1.mp4)
 
-**Battle Cinematics (BC)** is a complete battle-camera director for Pokémon Recomp.
+**Battle Cinematics (BC)** is the camera/director layer for battles. It brings the cinematic language of Pokémon Stadium into Recomp, then adapts that language around the presentation you choose: classic sprites, animated sprites, voxel worlds, genuine Stadium models and supported live battle hosts.
 
-Choose a dynamic passive camera, then independently configure cinematic Pokémon introductions, a move-aware Attack Camera and Faint Camera. BC adapts its framing to the presentation you use — 3D models, animated sprites, alternative battle renderers and different arena layouts — while preserving each backend's own visual identity.
+BC does **not** replace those renderers, models, animations or assets. It directs the camera around them.
 
 > **Stadium supplied the cinematography. BC supplied the camera system.**
 >
-> **Stadium models are not required.**
+> **BC directs. Providers present. Renderers render. Assets remain theirs.**
 
-**[Download the latest release](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest)**
+Stadium models are optional. Battle Cinematics is designed to make the presentation you already use look intentional from a moving cinematic camera.
 
-## ✅ Verified on real setups — Backend Assurance
+**Battle Cinematics v1.2.4 has been tested with Gen1Recomp through v0.2.38.**
 
-https://github.com/user-attachments/assets/725a3706-2047-49c7-8897-7ab2e0e0911e
-
-<!-- INLINE VIDEO: attach Battle_Cinematics_v1.0.8_Backend_Assurance_INLINE_under10MB.mp4 HERE -->
-
-**This is direct gameplay footage, not a compatibility claim on paper.** Battle Cinematics is shown running across independent presentation hosts, renderers, sprite systems and Gold providers using the configurations below.
-
-| Presentation host / backend | Proven configuration | Required / important setting |
-|---|---|---|
-| **[Pokémon Stadium 2 Importer](https://github.com/Deftones565/gen1recomp-mod-stadium2-importer) by Deftones565** / `STADIUM2_IMPORTER` **0.10.13** | Gen 1 + Gold; Stadium 64, DW3 Classic, Hero Portrait, Intro, Attack, Faint, External | Native Stadium2 presentation remains host-owned; BC directs enabled camera phases |
-| **[Battle Art Voxel Fork](https://github.com/absol89/DramaticShapeVoxelMod) by absol89 — 1.9.4** | 5th Gen animated sprites + BC passive / Attack Camera | **`PLAYER SPRITE = FRONT`** · **`SPRITE FLIP = BATTLE ART`** |
-| **[PotatoVoxel](https://github.com/ShaneMcGovernIE/potato_voxel) by ShaneMcGovernIE — 1.7.11** | BC passive / Attack / Faint presentation | **`BACK SPRITES = OFF`** |
-| **[Dramaless Shape](https://github.com/artyrambles/DRAMALESS_SHAPE) by artyrambles — 2.0.2** + **[StadiumBattleFX](https://github.com/anxiousintrovert/StadiumBattleFX) by RootBeer / anxiousintrovert — 2.1.7** | BC camera + SBFX effects together | **`BACK SPRITES = OFF`** · no special SBFX camera setup required · **BC ❤️ StadiumBattleFX** |
-| **[Dramatic Shape](https://github.com/DramaticShape/DramaticShapeVoxelMod) by KingofSpain** | BC passive / Attack / Faint presentation | **`BACK SPRITES = OFF`** |
-| **[Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS`](https://github.com/randyadr/Gen2-3D-Sprites) by randyadr** | Gold / Gen 2; provider First / Third Person + BC phases | Provider owns Gold right stick; BC remains phase-scoped |
-| **[Voxel Ascendant](https://github.com/Roxas2712/voxel-ascendant) by Roxas2717 — 0.1.1** | Validated BC backend | No special BC camera setting required |
-| **Compatible 2D / animated sprite presentations** | Includes fixed-card and animated sprite stacks | Avoid fixed player-back presentation with moving BC cameras |
-
-> [!IMPORTANT]
-> **If your setup does not resemble the validated footage above, first verify your Recomp version, host/backend version and the required presentation settings before assuming BC itself is malfunctioning.**
->
-> BC does not claim or redistribute the work of any linked project. Each presentation host, renderer, sprite system and effects mod remains the work of its respective author; BC is the camera/director layer operating around what that system provides.
+[**Download the latest release**](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest)
 
 ---
 
-> [!IMPORTANT]
-> ### v1.0.8 — Stadium2 Importer support across Gen 1 + 2
->
-> Battle Cinematics now supports **Stadium2 Importer / `STADIUM2_IMPORTER` 0.10.13** as a first-class live 3D presentation host on both RBY / Gen 1 and Gold / Gen 2.
->
-> The importer keeps ownership of its Stadium2 models, stage, shadows, HUD and battle animation lifecycle. BC attaches to the importer's live camera seam and directs only the camera phases the user has enabled.
->
-> - **Stadium 64, DW3 Classic and Hero Portrait** run directly over the importer's native Stadium2 battle presentation.
-> - **BC Hero Intro, Attack Camera and Faint Camera** retain their normal phase-scoped ownership.
-> - **External** yields the passive camera back to the importer's native camera.
-> - On **Gold**, the importer's own right-stick orbit / pitch / zoom remains visible through compatible BC passive presets; BC does not revive the separate RBY manual-camera subsystem.
-> - Existing **Randy / `STADIUM2_OVERWORLD_MODELS`** Gold behaviour remains independently supported and unchanged.
-> - The established Gen 1 backend matrix from v1.0.7 remains intact.
->
-> **No new saved-setting migration is required for v1.0.8.** The v1.0.6 one-time WIDE Intro / Hero Tilt OFF migration remains exactly as before.
+## What Battle Cinematics changes during a battle
 
----
+BC is modular. Use the complete presentation or only the camera phases you want.
 
-## What BC changes during a battle
-
-BC is modular. Its major camera phases can be enabled and configured independently.
-
-| Battle phase | What BC can do |
+| Battle moment | Battle Cinematics |
 |---|---|
-| **Passive / idle battle** | Stadium 64, DW3 Classic, Hero Portrait, or External host camera |
-| **Pokémon Send-In** | BC Hero FULL / COMPACT cinematic introductions |
+| **Idle / command menu** | Stadium 64, DW3 Classic, Hero Portrait or External host camera |
+| **Flat sprites** | Camera-aware **4-Way Sprite View** where supported |
+| **Pokémon send-in** | BC Hero FULL / COMPACT cinematic introductions |
 | **Moves** | Stadium-inspired, move-aware Attack Camera |
 | **Faint** | Dedicated final composition for the defeated Pokémon |
-| **Manual camera** | BC-owned manual camera on Gen 1; compatible host/provider control on Gold |
+| **Secondary view** | Optional independent PiP camera, including CONTINUOUS monitor mode |
+| **Stadium2 Importer arena** | Optional **LIVE VOXEL ARENA** override on supported Gen 1 stacks |
+| **Manual camera** | BC-owned on Gen 1; compatible provider-owned control on Gen 2 |
 
-You can use the whole package or only the pieces you want.
+The core rule underneath all of it is:
+
+> **Every BC option produces a good, readable battle everywhere, with BC free to gracefully degrade its physical camera language when the environment cannot support it.**
 
 ---
 
-# Passive battle cameras
+# Compatibility
 
-The passive camera is what BC uses while you are navigating the battle and no higher-priority cinematic phase is active.
+Battle Cinematics is a director, not a battle renderer. A supported presentation host still owns the world, sprites, models and animation it provides.
 
-## Stadium 64 — default
+The tables below describe the **current tested state**, not every historical version that has ever worked. As compatibility is refined, these tables should be replaced rather than accumulated.
 
-BC's source-faithful translation of the **Pokémon Stadium** battle-camera language.
+## Gen 1 / RBY
 
-Wide establishing movement, sweeping opponent and player compositions, rising horseshoe rotations and classic Stadium battlefield framing — adapted to the physical environment available in Recomp rather than blindly replaying unsafe coordinates.
+| Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | Stadium2 Importer / arena notes |
+|---|:---:|:---:|:---:|---|
+| **Dramaless Shape 2.0.3** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer validated. **LIVE VOXEL ARENA** supported. Provider-native bounded manual fallback retained for the Dramaless + Importer combination. |
+| **Battle Art Voxel Fork 1.9.9** | ✅ | ✅ | ✅ | Vanilla, animated / Gen 5 and Stadium2 Importer presentation validated. Battle Art retains its own Importer environment path; BC keeps narrow projection recovery for strong camera compositions. |
+| **Dramatic Shape 1.9.0** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer validated. **LIVE VOXEL ARENA** supported. |
+| **Voxel Ascendant 2.0.2 — MAP** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer MAP validated. **LIVE VOXEL ARENA** supported. ARENA / DISCS are not currently claimed. |
+| **PotatoVoxel 1.9.6 — Gen 1 MAP / 2D-3D A** | ✅ | ✅ | ✅ | Gen 1 validated with Stadium2 Importer **LIVE VOXEL ARENA**. |
+| **Voxel Ultimate 1.0.7 — Gen 1** | ✅ | ✅ | ✅ | Integrated host path validated. Avoid stacking duplicate systems that Voxel Ultimate already integrates. |
+| **Stadium2 Importer 0.12.0 — Gen 1** | ✅ | 3D yield | ✅ | Genuine Stadium presentation retained. Can use supported **BATTLE ARENA OVERRIDE** providers below. |
+| **Crystal Animated Sprites 2.0.2** | ✅ | ✅ | ✅ | Animated sprite presentation supported on established compatible host paths. Fixed animated FRONT Secondary View remains independent from the main 4-Way view. |
+| **Compatible vanilla / ROM sprite presentation** | ✅ | ✅ | ✅ where host-supported | BC uses the host's actual sprite presentation rather than replacing the artwork. |
 
-<!-- MEDIA SLOT: Pidgeotto rising Stadium horseshoe / Articuno wide opening -->
-![Stadium Mewtwo full passive cycle](media/stadium-mewtwo-full-cycle.gif)
-![Pidgeotto rising Stadium horseshoe](media/pidgeotto-apb-origin.gif)
+### Gen 1 LIVE VOXEL ARENA providers for Stadium2 Importer
 
-## DW3 Classic
+- **Dramaless Shape 2.0.3**
+- **Dramatic Shape 1.9.0**
+- **Voxel Ascendant 2.0.2 — MAP**
+- **PotatoVoxel 1.9.6 — MAP / 2D-3D A**
 
-The original Battle Cinematics camera language.
+**Battle Art Voxel Fork 1.9.9** already supplies its Importer environment through its own established integration rather than BC's arena-override bridge.
 
-DW3 is more intimate and interpretive than Stadium 64, built around orbital movement, shoulder compositions and environmental close framing. Its framing, orbit speed, height and angle are configurable independently.
+## Gen 2 / GSC
 
-![Crystal Mewtwo at sea – DW3 preset](media/crystal-mewtwo-dw3.gif)
+| Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | Current state |
+|---|:---:|:---:|:---:|---|
+| **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ✅ | Genuine Stadium 3D, vanilla 2D and Crystal presentation validated. Provider owns Gen 2 right-stick behavior. |
+| **Voxel Ultimate 1.0.7 — Gen 2** | ✅ | ✅ on supported flat-card path | ✅ | Integrated live-world Gen 2 host validated. Provider-native manual camera retained with BC battle-boundary neutral protection. |
+| **Crystal Animated Sprites 2.0.2** | ✅ | ✅ on compatible world-card paths | ✅ | Crystal artwork/animation remains provider-owned; BC supplies camera-relative orientation and secondary composition where supported. |
 
-## Hero Portrait
+> [!NOTE]
+> **Current ecosystem boundary:** direct Stadium2 Importer 0.12.0 Gen 2 3D and PotatoVoxel Gen 2 3D are **not currently claimed**. Fresh Crystal and Silver testing does not establish those providers' own standalone 3D battle path even with BC disabled. BC does not build compatibility workarounds around a provider path that is not presently functioning independently.
 
-A calmer passive style centred around strong Pokémon portrait compositions.
+`STADIUM2_OVERWORLD_MODELS` 0.4.33 is also not currently claimed; 0.2.81 is the validated compatibility ceiling for this BC line.
 
-Hero Portrait keeps the subject visually dominant with less physical camera travel, making it a useful option for players who want cinematic framing without constant large movement.
+---
 
-## External
+# Using Battle Cinematics
 
-**External yields the passive / idle camera to the active presentation host.**
+The sections below follow the in-game Battle Cinematics menu. New permanent features should be added to this sequence; version-specific history belongs in GitHub Releases instead of being appended to the README.
 
-BC remains installed and its other phase modules remain independent:
+---
 
-- BC Hero Send-Ins can remain enabled;
-- Attack Camera can remain enabled;
-- Faint Camera can remain enabled;
-- Camera Authority still applies to the phases BC is configured to own.
+## 1. Camera Authority
 
-In other words:
+`CAMERA AUTHORITY` is the top-level BC ownership control.
+
+- **BC PRIORITY — default:** BC owns the camera phases you have enabled.
+- **COOPERATIVE:** allows compatible presentation systems more room to participate where supported.
+- **BC DISABLED:** leaves BC installed but stops BC camera ownership.
+
+Ownership is **phase-scoped**, not battle-wide. A host can own the idle camera through External while BC still owns Pokémon Intro, Attack or Faint.
+
+---
+
+## 2. 4-Way Sprite View
+
+
+![4-Way Sprite View](media/Battle_Cinematics_4-Way_Sprite_View_V2.gif)
+
+
+A separate vanilla / ROM-sprite example shows the same camera-relative presentation on the flat-card path:
+
+
+![Vanilla 4-Way Sprite View](media/Battle_Cinematics_Vanilla_4-Way_Sprite_View_V2.gif)
+
+**4-WAY SPRITE VIEW** makes supported flat-card Pokémon behave like world-facing actors instead of cards permanently locked to one battle-screen direction.
+
+BC can independently resolve each battler's normal **FRONT / BACK** representation and then orient it **LEFT / RIGHT** toward the fight as the final camera moves.
+
+This creates a practical four-way presentation without requiring four separate sprite assets.
+
+- **DYNAMIC — default:** full camera-aware four-way behavior. BC selects FRONT/BACK per battler and applies LEFT/RIGHT facing.
+- **TURN ONLY:** keep the host/provider's FRONT/BACK choice and apply only horizontal turning.
+- **HOST DEFAULT:** zero-touch host presentation.
+
+Genuine 3D Pokémon models automatically yield from this system.
+
+### Animated sprite presentations
+
+![Gen 5 Animated](media/Battle_Cinematics_Gen5_Animated_Showcase_V2b.gif)
+
+![Crystal Animated](media/Battle_Cinematics_Crystal_Animated_Showcase_V2b.gif)
+
+BC does not replace animated sprite providers. The provider keeps the artwork, animation, scale and lifecycle; BC supplies the camera-relative presentation layer where that host exposes a compatible path.
+
+---
+
+## 3. Idle Preset
+
+The idle preset controls BC's passive camera while you are navigating the battle and no higher-priority cinematic phase is active.
+
+### Stadium 64 — default
+
+![Stadium full camera cycle](media/stadium-mewtwo-full-cycle.gif)
+
+BC's source-faithful translation of the original **Pokémon Stadium** passive battle-camera language: wide establishing shots, player/opponent portraits, sweeping battlefield movement and rising horseshoe-style rotations.
+
+The Stadium choreography was captured from the original game and translated into relative compositions rather than blindly replaying N64 world coordinates. That lets BC preserve the visual language while adapting it to Recomp's actual battle environment.
+
+### DW3 Classic
+
+The original Battle Cinematics camera language. DW3 is more intimate and interpretive, with orbital movement, shoulder compositions and close environmental framing.
+
+### Hero Portrait
+
+A calmer passive style that keeps the Pokémon visually dominant with less physical camera travel.
+
+### External
+
+`EXTERNAL` yields the passive / idle camera to the active compatible host.
 
 > **EXTERNAL CAMERA — HOST OWNED**  
 > **BC PHASE MODULES — STILL INDEPENDENT**
 
-External is generic BC architecture, not a Randy-specific preset. Battle Voxels own idle camera will similarly occupy an external opening that yields to their design.
+Pokémon Intro, Attack Camera, Faint Camera and Secondary View can remain independently enabled.
 
----
+### Configure Preset
 
-# Pokémon Intro — BC Hero
+Stadium 64, DW3 Classic and Hero Portrait each expose contextual tuning without cluttering the main menu:
 
-BC Hero gives newly presented Pokémon a dedicated cinematic Send-In before handing cleanly into the passive battle camera.
-
-The lifecycle is battle-aware rather than simply replaying the same intro every time:
-
-- opening Pokémon → **FULL**;
-- enemy replacement → **FULL**;
-- forced player replacement after faint → **FULL**;
-- later voluntary player switch against an established opponent → **COMPACT**;
-- battle progression / move commitment always wins immediately.
-
-### Current Intro controls
-
-- **Framing:** Extra Wide / **Wide** / Near / Close
-- **Speed:** Slow / Normal / Fast / Faster
-- **Hero Tilt:** **Off** / On
-- **Cancel:** B Button / Any Input / On Move/Item / Off
-- Reset to Default
-
-### v1.0.6+ Intro baseline
-
-Presentation-aware framing made the old Intro defaults unnecessarily tight/high.
-
-The current intended baseline is:
-
-- **Framing → WIDE**
-- **Hero Tilt → OFF**
-
-Existing users receive this change **once** through BC's one-time migration system, then BC permanently respects whatever they choose afterward.
-
-
-And every Intro can still simply be skipped with a press of B.
-
-<img width="320" height="137" alt="BC Hero Pokémon Intro" src="https://github.com/user-attachments/assets/a3a994e3-4163-4033-ab1c-6b9a2a61f716" />
-
----
-
-# Stadium Attack Camera
-
-Battle Cinematics does not stop when the menu closes.
-
-The optional Stadium Attack Camera follows the actual move presentation rather than forcing every move through one generic camera animation.
-
-BC understands semantic move roles such as:
-
-- attacker declaration / launch;
-- travel / tracking;
-- recipient / impact;
-- SELF moves;
-- FIELD-style actions;
-- short and long animation windows.
-
-Camera timing follows the real battle presentation and remains compatible with accelerated game speed.
-
-With Actor Presentation Bounds active, Attack Camera framing also understands the presented attacker and recipient rather than assuming both occupy the same vertical space.
-
-<!-- MEDIA SLOT: Onix Rock Throw -> recipient -> faint sequence -->
-
-<img width="514" height="276" alt="onix" src="https://github.com/user-attachments/assets/3dc361c8-12d1-4d97-870d-d1d05f19975f" />
-
----
-
-# Faint Camera
-
-Optional Faint Camera gives the defeated Pokémon a dedicated final composition.
-
-It remains phase-scoped and renderer-independent. On Gold, BC follows the host's real visible faint presentation rather than artificially freezing a Pokémon after the game has already removed it.
-
-
-<img width="400" height="171" alt="Faint Camera" src="https://github.com/user-attachments/assets/a6480ed2-a0ef-4600-a12e-e8006a3efbc9" />
-
----
-
-# Actor Presentation Bounds — APB
-
-BC no longer assumes every Pokémon occupies the same visual volume.
-
-**Actor Presentation Bounds (APB)** is BC's renderer-neutral subject-presentation language. Compatible presentation adapters can tell BC about the actor currently being shown; the camera then decides how that information should affect each authored shot.
-
-APB can reason about:
-
-- visible bottom / top;
-- visual centre;
-- presented height;
-- elevation above the battle origin;
-- horizontal breadth;
-- source / confidence of the presentation evidence.
-
-The governing rule is simple:
-
-> **APB understands the whole presented actor; the authored shot decides how much of that actor it wants to show.**
-
-Presentation awareness therefore does **not** mean forcing every Pokémon into a full-body shot.
-
-### Why it matters
-
-Different actors can require completely different interpretations:
-
-- **Pidgeotto** can be genuinely elevated rather than merely "a Flying type";
-- **Onix** is tall while remaining grounded;
-- **Articuno / Moltres** can present extreme breadth;
-- **Snorlax** is bulky without needing to be treated as the same shape class as a wide-winged bird;
-- **Hoothoot** on Stadium2 can have a visibly elevated idle presentation without the camera following every animation bob.
-
-No species, type, Flying-type, Stadium-model-name or route hardcodes are required for those decisions.
-
-<!-- MEDIA SLOT: 2–4 APB GIF strip
-Suggested order: Pidgeotto / Onix / Snorlax / Hoothoot
--->
-
-
-### Pidgeotto: where APB began
-
-![Pidgeotto APB origin](media/pidgeotto-apb-origin.gif)
-
-### Onix: tall and grounded are different things
-
-![Onix Rock Throw and faint resolution](onix-rock-throw-faint-small.gif)
-
-### Snorlax: breadth is its own presentation axis
-
-![Snorlax breadth-aware framing](media/snorlax-breadth.gif)
-
-### Mew: presentation-aware, still cinematic
-
-![Mew presentation-aware framing](media/mew-presentation-aware.gif)
-
-### Gold / Stadium2: the same presentation language reaches Gen 2
-
-![Hoothoot Gold presentation awareness](hoothoot-gold-apb.gif)
-
-### 2D sprites
-
-BC can also translate compatible sprite/card presentation into the same APB language.
-
-For classic fixed-card Gen 1 / Gen 2 sprite art, the correct result is often deliberately subtle: those sprites were authored to fit inside a constrained battle-picture frame already, so BC should usually leave an already-good composition alone.
-
-That is still useful evidence — a different presentation medium can enter the same BC subject language without forcing a different camera aesthetic.
-
----
-
-# Gen 1 + Gen 2
-
-Battle Cinematics supports both generations, but it deliberately does **not** pretend their presentation stacks are identical.
-
-| Feature | Gen 1 / RBY | Gen 2 / Gold |
-|---|---:|---:|
-| Stadium 64 | ✅ | ✅ |
-| DW3 Classic | ✅ | ✅ |
-| Hero Portrait | ✅ | ✅ |
-| External | ✅ | ✅ |
-| BC Hero Send-In | ✅ | ✅ |
-| Attack Camera | ✅ | ✅ |
-| Faint Camera | ✅ | ✅ |
-| Actor Presentation Bounds | ✅ | ✅ |
-| BC-owned manual right stick | ✅ | — |
-| Host/provider right stick | Backend-dependent | ✅ with current Randy and Stadium2 Importer hosts |
-
-## Gen 1 manual camera
-
-On RBY, BC owns its manual camera system directly:
-
-> **grab current shot → free orbit / look → release → soft return to authored BC camera**
-
-## Gold / provider manual camera
-
-Gold deliberately does **not** run RBY's separate BC-owned right-stick subsystem on top of an active Gold presentation host. Provider-owned input remains provider-owned.
-
-### Randyadr / `STADIUM2_OVERWORLD_MODELS`
-
-With Randyadr's battle camera enabled, **Randy's native right-stick control remains available through compatible BC passive presets**. BC still authors its Stadium / DW3 / Hero compositions; Randy supplies the provider-owned manual input layer.
-
-Randyadr's Diorama, Third Person and First Person views remain host features and coexist with BC's phase-scoped direction.
-
-### Stadium2 Importer / `STADIUM2_IMPORTER`
-
-On Gold, **the importer's own right-stick orbit / pitch / zoom remains available through compatible BC passive presets**. BC applies that provider-owned manual adjustment over the authored passive composition without making Intro, Attack or Faint into free-camera phases.
-
-`PRESET → EXTERNAL` yields the passive composition completely to whichever compatible host is active; it is not required merely to retain supported provider-owned right-stick input.
-
-### Randy third-person provider control through BC presets
-
-![Randy third-person provider control through BC presets](randy-third-provider-control.gif)
-
-### Randy first-person provider control through BC presets
-
-![Randy first-person provider control through BC presets](media/randy-first-provider-control.gif)
-
----
-
-# Renderer and backend independence
-
-Battle Cinematics is designed to sit **above** the active battle presentation.
-
-It is not a Stadium-model dependency and does not require one particular model package, sprite system or renderer.
-
-BC's Gen 1 backend discovery recognises compatible live 3D `BattleCam` hosts by capability, while dedicated adapters handle presentation hosts such as Stadium2 Importer that expose a different live-camera contract.
-
-## Current validated environments
-
-The following configurations have been directly tested on the current BC line:
-
-- **Dramatic Shape**
-- **Dramaless Shape 2.0.2**
-- **PotatoVoxel 1.7.11**
-- **Voxel Ascendant 0.1.1**
-- **Battle Art Voxel Fork 1.9.4** — use `PLAYER SPRITE → FRONT` with BC's moving cameras
-- **StadiumBattleFX 2.1.7** on compatible Gen 1 hosts — validated; no special BC camera configuration is required
-- **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS`** by randyadr on Gold
-- **Stadium2 Importer / `STADIUM2_IMPORTER` 0.10.13** on Gen 1 and Gold
-- standard and compatible custom 2D sprite presentations
-
-With StadiumBattleFX, BC remains the active camera director for any BC-enabled phase while SBFX effects continue underneath normally. If BC Attack Camera is enabled, BC owns that camera phase; if you prefer the SBFX attack camera, set BC Attack Camera to Off.
-
-These are **presentation systems, not required dependencies**.
-
-> **BC respects what the underlying system provides, then makes the best cinematic use of it.**
-
-### ⚠️ Important 2D sprite note
-
-**2D sprite presentation requirements**
-> 
-> Battle Art: PLAYER SPRITE → FRONT
-> 
-> Back Sprites options in compatible 3D hosts: BACK SPRITES → OFF
->
->  3D model presentations: no sprite-facing restriction
-> 
-BC uses moving world-space cameras. Fixed player-back presentation is intentionally camera-facing/static presentation and will not remain spatially convincing as BC moves around the battle.
-> 
-A forced back-sprite card does not become a world-facing 3D actor simply because BC moves around it. During large camera movements it can therefore appear camera-locked or spatially incorrect even though the camera itself is behaving normally.
-
----
-
-# Camera safety without camera sameness
-
-Recomp battle arenas are not empty Stadium battlefields.
-
-Routes, caves, forests and towns contain narrow paths, ledges, trees, rocks, rooftops, building façades, map boundaries and presentation dead-zones. BC's camera modules all pass through shared protection systems designed to preserve the cinematic shot **without allowing an invalid physical camera**.
-
-BC can:
-
-- prevent invalid camera occupancy / travel;
-- respect map boundaries;
-- protect narrow-route and 3D→2D transitions;
-- recover from sustained subject obstruction;
-- reason about building body / façade / roof structure where evidence exists;
-- substitute an impossible authored movement with a readable cinematic alternative.
-
-But safety is infrastructure — **not a replacement aesthetic**.
-
-A tree beautifully crossing the foreground is allowed.  
-A camera physically travelling through that tree is not.
-
-A rooftop participating in the composition is allowed.  
-A camera occupying the building underneath it is not.
-
-Foreground elements on routes such as 1, 6 and 8 remain positive cinematographic controls rather than obstacles that BC blindly removes.
-
-> **Every BC option produces a good, readable battle everywhere, with BC free to gracefully degrade its physical camera language when the environment cannot support it.**
-
-<details>
-<summary><strong>Some of the environments that shaped BC's safety language</strong></summary>
-
-### Viridian Forest
-
-Canopy can remain cinematic foreground while still acting as a physical surface the camera cannot simply descend through. BC can rise to a readable canopy crest, preserve that useful height during the authored shot and release the correction cleanly at the next cut.
-
-### Power Plant / large structures
-
-Large façades and roofs require a different language from ordinary walls. BC can derive a private semantic understanding of building body ↔ roof/top so structures can participate in path safety and view protection without route-specific hardcoding.
-
-### Route 12 / local roofs
-
-Small local roofs test whether a camera can establish the required viewing height as it reaches a structure rather than reacting too late.
-
-### Open routes / Cerulean
-
-When nothing prevents the authored movement, BC stays out of its own way and allows the full Stadium or DW3 choreography to breathe.
-
-
-</details>
-
-
-![Celadon  APB origin](media/Celadon1.0.gif)
-
----
-
-# Camera Authority
-
-BC camera ownership is **phase-scoped**, not battle-wide.
-
-`CAMERA AUTHORITY` controls how BC behaves when other compatible presentation systems also want to influence the battle camera:
-
-- **BC PRIORITY** — default
-- **COOPERATIVE**
-
-External is the clearest example of this architecture: the host owns passive camera output while BC can still claim configured Send-In, Attack or Faint phases.
-
----
-
-# Configuration reference
-
-## Preset
-
-Selects the passive battle camera:
-
-- **Stadium 64 — Default**
-- DW3 Classic
-- Hero Portrait
-- External
-
-## Configure Preset
-
-### DW3 Classic
-
-- Framing: Standard / Near / Close
+- Framing: Extra Wide / Wide / Standard / Near / Close
 - Orbit Speed: Slowest / Slow / Medium / Fast
 - Height: Low / Standard / High
 - Angle: Shallow / Standard / Strong
-- Reset to Default
 
-### External
+---
 
-Information page:
+## 4. Idle View
 
-> **EXTERNAL CAMERA**  
-> **HOST OWNED**
->
-> **BC PHASE MODULES**  
-> **STILL INDEPENDENT**
+`IDLE VIEW` is a renderer-neutral optical modifier for ordinary BC passive/menu cameras.
 
-## PKMN Intro Cam
+- Standard — default
+- Wide
+- Extra Wide
+- Ultra Wide
 
-- BC Hero
-- Off
+It changes the viewing width without rewriting the authored physical camera path.
 
-### Configure Intro — BC Hero
+---
 
-- Framing: Extra Wide / **Wide** / Near / Close
-- Speed: Slow / Normal / Fast / Faster
-- Hero Tilt: **Off** / On
-- Cancel: B Button / Any Input / On Move/Item / Off
-- Reset to Default
+## 5. Initial Delay
 
-## Attack Camera
-
-- **Stadium — Default**
-- Off
-
-Attack Camera is independent of the passive preset.
-
-## Faint Camera
-
-- **On — Default**
-- Off
-
-## Initial Delay
-
-Controls how long BC waits before passive cinematography begins:
+Controls how long BC waits before beginning passive cinematography after a usable battle camera is established.
 
 - Immediate
-- **2 Seconds — Default**
+- **2 Seconds — default**
 - 4 Seconds
 - 6 Seconds
 - 9 Seconds
 - 12 Seconds
 - 15 Seconds
 
-## Legacy — Reset Camera
+Intro / Attack / Faint remain their own battle-aware phases; this delay is for passive cinematography.
 
-Historical escape-hatch behaviour remains available:
+---
 
-- **Off — Default**
+## 6. Pokémon Intro — BC Hero
+
+<!-- SHOWCASE: Stadium2Importer Stadium.mp4 opening / strongest existing BC Hero clips -->
+
+![Pokémon Intro — Stadium2 Importer / Gold](media/Battle_Cinematics_Pokemon_Intro_Stadium2_Importer_Gold.gif)
+
+
+BC Hero gives newly presented Pokémon a dedicated cinematic send-in before handing cleanly into the passive battle camera.
+
+The lifecycle understands the battle rather than replaying one intro blindly:
+
+- opening Pokémon → **FULL**;
+- enemy replacement → **FULL**;
+- forced player replacement after faint → **FULL**;
+- later voluntary switch against an established opponent → **COMPACT**;
+- battle progression / move commitment immediately wins if the game moves on.
+
+### Configure Intro Cam
+
+- Framing: Extra Wide / Wide / Near / Close
+- Speed: Slow / Normal / Fast / Faster
+- Hero Tilt: Off / On
+- Cancel: B Button / Any Input / On Move/Item / Off
+- Reset to Default
+
+Current intended baseline is **WIDE** framing with **Hero Tilt OFF**.
+
+---
+
+## 7. Stadium Attack Camera
+
+![Attack and Faint example](media/articuno-attack-faint.gif)
+
+The optional **ATTACK CAMERA → STADIUM** follows the actual move presentation rather than forcing every attack through one generic animation.
+
+BC can reason about semantic move roles such as attacker declaration, travel/tracking, recipient/impact, SELF actions, FIELD-style actions and different animation windows. Camera timing follows the real battle presentation and remains compatible with accelerated game speed.
+
+The Attack Camera is independent of the selected idle preset.
+
+---
+
+## 8. Faint Camera
+
+`FAINT CAMERA → ON` gives the defeated Pokémon a dedicated final composition.
+
+It remains phase-scoped and renderer-independent. On provider-owned Gen 2 presentations, BC follows the real visible faint lifecycle rather than artificially keeping an actor alive after the host removes it.
+
+---
+
+## 9. Secondary View PiP
+
+![Continuous Secondary View](media/Battle_Cinematics_Continuous_Secondary_View_Showcase_INLINE.gif)
+
+
+Secondary View is an optional **independent second camera**. It is not a crop of the main view.
+
+`SECOND VIEW PIP` defaults **OFF** so updating BC never silently adds another rendered view.
+
+When enabled, `CONFIG PIP` provides:
+
+### PiP Visibility
+
+- **CONTINUOUS — default:** after the initial player send-in completes and PiP arms, the secondary camera remains a persistent monitor through attacks, reactions, fainting, an empty player side, replacement and subsequent send-in.
+- **DYNAMIC (DW3):** the original authored behavior, where PiP appears only during appropriate battle phases.
+
+### PiP View
+
+- Size: Standard / **Small — default**
+- Framing: **Normal — default** / Close
+- Side: **Left (DW3) — default** / Right
+- Place: Mid Center / Top Right / **Mid Right — default** / Top Left / Mid Left / Custom
+
+Custom placement can be adjusted directly on supported mouse/touch frontends.
+
+Different hosts expose different safe private-render seams. BC therefore does not treat Secondary View as one universal duplicated scene. The provider remains responsible for its world/art/model state while BC owns the alternate camera/composition.
+
+### Performance rule
+
+> **PiP size on screen must not require a second full-resolution world render.**
+
+Heavy 3D Secondary View paths use bounded private targets and conservative draw scheduling where required.
+
+---
+
+## 10. Battle Arena Override
+
+
+![Battle Arena Override — Live Voxel Arena](media/Battle_Cinematics_Live_Voxel_Arena_Override_Showcase_INLINE.gif)
+
+
+`BATTLE ARENA OVERRIDE` controls **environment ownership** for supported Gen 1 Stadium2 Importer compositions.
+
+- **LIVE VOXEL ARENA — default:** use a compatible live voxel/world provider as the battle environment while Stadium2 Importer keeps its genuine Stadium actors, animation and HUD.
+- **HOST DEFAULT:** leave the environment entirely to Stadium2 Importer.
+
+This setting changes the **arena only**. It does not enable Stadium models and it does not turn a 2D battle into a 3D battle.
+
+The intended division of responsibility is simple:
+
+> **Voxel provider → world / arena**  
+> **Stadium2 Importer → Stadium models / animation / HUD**  
+> **Battle Cinematics → camera direction / Secondary View**
+
+Supported BC-managed LIVE VOXEL ARENA providers are listed in the Gen 1 compatibility table above.
+
+---
+
+## 11. Legacy Options
+
+`RESET CAMERA` retains older input-driven escape-hatch behavior:
+
+- **Off — default**
 - Confirmed Action
 - Any Input
 
-`Any Input` remains an explicit legacy opt-in because ordinary menu navigation can otherwise cancel the passive camera.
+Most users should leave this Off. BC's current battle-aware phase lifecycle normally handles camera transitions without needing generic input cancellation.
 
 ---
 
-# Mix and match
+## 12. Diagnostics / Reset
 
-Battle Cinematics is intended to occupy the **camera/director layer** of a modular Recomp setup.
+Diagnostics are intended for compatibility testing and support, not normal play. Keep them **OFF** unless you are deliberately gathering evidence for a problem.
 
-Use whichever presentation you prefer:
-
-- models or sprites;
-- vanilla or custom battle art;
-- supported live 3D battle backends;
-- StadiumBattleFX presentation;
-- Gold Stadium2 presentation;
-- BC Stadium, DW3, Hero or External camera ownership.
-
-None of those visual choices force you to use Stadium 64.
-
-Likewise, Stadium 64 does not require Stadium models.
-
-Use the presentation you prefer and let BC direct the camera around it.
+Reset Defaults restores the current BC defaults for the relevant configuration.
 
 ---
 
-# Showcase
+# Presentation-aware framing — APB
 
-**Latest release / downloads:**  
-https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest
+![Pidgeotto APB origin](media/pidgeotto-apb-origin.gif)
 
-<!-- SHOWCASE MEDIA SLOT
-Recommended: reuse Battle_Cinematics_v1.0.6_APB_Showcase_v2.mp4 or an uploaded GIF preview linked to the release.
-Suggested caption:
-Presentation-aware framing • Gen 1 + Gold • Backend interoperability
--->
-[▶ Watch the full Battle Cinematics APB Showcase](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/download/V1.0.7/Battle_Cinematics_v1.0.6_APB_Showcase_v2.1.mp4)
-> Full showcase: APB / presentation-aware framing across Gen 1 + Gen 2.
-> 
+**Actor Presentation Bounds (APB)** is BC's renderer-neutral language for understanding the Pokémon currently being presented.
+
+Instead of assuming every actor occupies the same volume, compatible adapters can describe facts such as visible top/bottom, visual centre, presented height, elevation and breadth. Each authored camera shot then decides how much of that information it should consume.
+
+> **APB understands the whole presented actor; the authored shot decides how much of that actor it wants to show.**
+
+That distinction matters: Onix can be tall and grounded, Pidgeotto can be genuinely elevated, Articuno can be broad, Snorlax can be bulky, and a classic fixed-card sprite may already fit perfectly without needing dramatic correction.
+
+![Snorlax breadth](media/snorlax-breadth.gif)
+
+![Mew presentation-aware framing](media/mew-presentation-aware.gif)
+
+No Pokémon species, type or model-name camera hardcodes are required for those decisions.
+
 ---
 
-# Installation
+# Camera safety without camera sameness
 
-1. Download the latest `Battle_Cinematics-vX.X.X.zip` from Releases.
-2. Install it using the normal Recomp mod installation workflow.
-3. Enable a compatible 3D battle backend / presentation stack where required by your chosen setup.
-4. Configure BC from the in-game mod options.
+Recomp battle environments are not empty Stadium arenas. Routes, caves, forests and towns contain boundaries, walls, trees, ledges, rocks, façades, roofs and renderer-specific dead zones.
 
-For version-specific changes, migration notes, compatibility updates and showcase footage, see the individual release pages.
+All BC camera modules pass through shared protection systems that can:
+
+- keep the camera inside valid map space;
+- prevent physical traversal through known structural geometry;
+- protect narrow routes and 3D → 2D presentation boundaries;
+- recover from sustained subject obstruction;
+- reason about building body / façade / roof structure where reliable evidence exists;
+- substitute an impossible physical route while preserving the intended cinematic composition.
+
+Safety is infrastructure, **not** a replacement aesthetic.
+
+A tree crossing the foreground can be good cinematography. A camera physically travelling through that tree is not.
+
+![Celadon structural safety](media/Celadon1.0.gif)
+
+![Power Plant structural safety](media/Plant%20(1).gif)
+
+![Open-route Stadium camera](media/Cerulean%201.0.0_1%20(1)%20(1)%20(3).gif)
+
+BC deliberately preserves useful foreground grazing and environmental depth wherever the subject remains readable.
+
+---
+
+# Manual camera ownership
+
+## Gen 1 / RBY
+
+BC owns the established manual-camera contract:
+
+> **grab current BC shot → free orbit / look → release → soft return to authored BC camera**
+
+4-Way Sprite View follows the final camera, so supported flat-card actors remain spatially coherent while the user moves around the battle.
+
+The exact **Dramaless + Stadium2 Importer** composition intentionally uses the provider's bounded native manual behavior rather than unrestricted BC free orbit, because that host combination has its own safe camera envelope.
+
+## Gen 2 / Gold, Silver, Crystal
+
+The active compatible provider owns the right stick. BC does not run the separate Gen 1 manual subsystem on top of it.
+
+![Randy first-person provider control](media/randy-first-provider-control.gif)
+
+![Randy third-person provider control](randy-third-provider-control.gif)
+
+Voxel Ultimate and `STADIUM2_OVERWORLD_MODELS` keep their provider-native manual-camera semantics while BC retains its configured camera phases.
+
+---
+
+# Quick setup guidance
+
+### I want BC cinematography with sprites
+
+Use a supported live battle/world host and leave **4-WAY SPRITE VIEW → DYNAMIC**. Stadium models are not required.
+
+### I want genuine Stadium models
+
+On Gen 1, use **Stadium2 Importer 0.12.0**. BC can direct Stadium 64 / DW3 / Hero, Pokémon Intro, Attack, Faint and Secondary View over the provider presentation.
+
+On current Gen 2, use a validated working host such as **`STADIUM2_OVERWORLD_MODELS` 0.2.81** or **Voxel Ultimate 1.0.7**.
+
+### I want Stadium models in the actual voxel world
+
+On a supported Gen 1 composition, set:
+
+`BATTLE ARENA OVERRIDE → LIVE VOXEL ARENA`
+
+The voxel provider supplies the environment, Stadium2 Importer supplies the actors/HUD, and BC directs the camera.
+
+### I want the host's idle camera but BC's battle cinematics
+
+Set:
+
+`IDLE PRESET → EXTERNAL`
+
+Then leave Pokémon Intro / Attack / Faint enabled as desired.
 
 ---
 
 # Troubleshooting
 
-### A 2D player sprite looks "locked" to the camera
+### My Pokémon looks camera-locked or faces the wrong way
 
-Check whether your sprite / backend configuration has **Back Sprites** forced ON. Fixed back-art presentation can look spatially wrong once BC moves around the battle.
+First check **4-WAY SPRITE VIEW → DYNAMIC** on a supported flat-card path. Older advice to force particular back/front settings is not the general BC model anymore; validated Dynamic adapters should normally own the camera-relative choice themselves.
 
-### A backend has a 3D battle option but BC does not recognise it
+If you deliberately choose HOST DEFAULT, the host's own fixed presentation may naturally look less spatially convincing during large camera movements.
 
-BC requires a compatible **live battle-camera host**, not merely a renderer that happens to draw Pokémon in 3D. Current validated hosts are listed above.
+### A provider says it supports 3D, but BC only sees 2D
 
-`STADIUM2_IMPORTER` is supported through its own live presentation/camera adapter rather than through the Shape-family `BattleCam` contract. On supported versions, BC leaves the importer's Stadium2 presentation intact and directs the camera over it.
+Test the provider **without BC first**. BC can adapt a working presentation path; it does not manufacture a provider's missing 3D battle scene.
 
-### Gold right stick does not behave like RBY
+### Gen 2 right stick behaves differently from Gen 1
 
-That is intentional architecture. RBY has BC's own manual-camera implementation. Gold currently uses the compatible host/provider's native manual input instead of running a second competing BC subsystem.
+That is intentional. Gen 1 uses BC's manual camera. Current supported Gen 2 hosts retain provider-owned manual input.
 
-### A camera shot degrades or substitutes in a constrained arena
+### A camera shot changes in a constrained environment
 
-That can be intentional safety behaviour. BC preserves the authored composition where possible and may alter the physical route when the environment cannot safely support the original movement.
+That can be intentional safety behavior. BC preserves the authored composition where possible and may change the physical route when the environment cannot support it safely.
 
----
+### Voxel Ultimate behaves strangely with several overlapping presentation mods
 
-# Development direction
-
-Battle Cinematics 1.x is a platform for additional camera languages rather than the end of the project.
-
-Current directions include:
-
-- **new passive camera presets / languages drawn from the games themselves**;
-- additional renderer and host presentation adapters;
-- continued Gen 2 interoperability and parity where useful;
-- **Actor Presentation Orientation** research for compatible 2D-in-3D presentation systems;
-- optional source/fidelity research where it adds something genuinely useful;
-- continued compatibility work as the Recomp battle-presentation ecosystem evolves.
-
-New work is developed on top of the last confirmed-good behaviour. Established camera language, safety, lifecycle and backend compatibility are treated as part of BC's contract rather than disposable implementation detail.
+Treat Voxel Ultimate as an integrated host. Avoid stacking standalone equivalents of systems it already includes unless the combination is known-good; duplicate provider ownership can create conflicts outside BC's control.
 
 ---
 
-# Credits
+# Installation
+
+1. Download the latest `BATTLE_CINEMATICS-x.x.x.zip` from [Releases](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest).
+2. Install it through the normal Gen1Recomp mod workflow.
+3. Enable the compatible battle/world/model presentation you want to use.
+4. Configure Battle Cinematics from its structured in-game mod options.
+
+For **what changed in a specific version**, see that version's GitHub Release notes. The README describes the current product and current compatibility state.
+
+---
+
+# Interoperability and credits
 
 **EnterPlayerOne** — Battle Cinematics design and development.
 
-**Darkatek7** — identified and traced the accelerated `input.Step / Game:logicSpeed()` timing issue and supplied the original patch that led to BC's game-speed compatibility implementation.
+Battle Cinematics remains the camera/director layer. The following renderers, providers, sprite systems, effects systems and model projects remain the work of their respective authors:
 
-StadiumBattleFX / Root Beer Ronin — for helping spur Battle Cinematics forward as a cousin Stadium-focused project, and for the shared push toward richer Stadium-style battle presentation and interoperability.
+- **Dramatic Shape**
+- **Dramaless Shape** — artyrambles
+- **Battle Art Voxel Fork** — absol89
+- **PotatoVoxel** — ShaneMcGovernIE
+- **Voxel Ascendant** — Roxas2712
+- **Voxel Ultimate**
+- **Crystal Animated Sprites with Shiny Visuals** — distilledorion-sketch
+- **Stadium2 Importer** — Deftones565
+- **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS`** — randyadr
+- **StadiumBattleFX** — Root Beer Ronin / anxiousintrovert
 
-Thanks to the developers of the Recomp battle renderers, model systems, sprite packs and presentation hosts that BC interoperates with, and to everyone who has tested Battle Cinematics across different routes, generations, backends, presets and increasingly unreasonable camera situations.
+**Darkatek7** — scoped credit for identifying the accelerated `input.Step / Game:logicSpeed()` timing path and supplying the original patch that led to BC's game-speed compatibility implementation.
 
-A great deal of BC exists because somebody found the arena where the camera finally said no.
+**StadiumBattleFX / Root Beer Ronin** is also acknowledged as a cousin Stadium-focused project whose parallel development helped spur Battle Cinematics' continued Stadium interoperability work. This is an inspiration / ecosystem acknowledgement, not Battle Cinematics code authorship.
 
----
+**ZEROstig** — thanks for continued YouTube exposure, encouragement and showcasing Battle Cinematics to the wider Gen1Recomp community.
 
-# Battle Cinematics
+Thanks to everyone who has tested BC across different routes, generations, renderers, presets and increasingly unreasonable camera situations.
 
-**Passives. Intros. Attacks. Faints. One adaptable camera system. Gen 1 + 2.**
-
-
-
----
-
-BC is designed to **protect cinematography, not remove it**.
-
-<img width="3840" height="1644" alt="Battle Cinematics foreground example 1" src="https://github.com/user-attachments/assets/7d8151ac-de82-45b0-888b-c02efe7838ad" />
-
-<img width="3840" height="1644" alt="Battle Cinematics foreground example 2" src="https://github.com/user-attachments/assets/2bf0c90c-def6-4c0e-a864-3d123efce182" />
-
-<img width="3840" height="1644" alt="Battle Cinematics foreground example 3" src="https://github.com/user-attachments/assets/a9fe22ce-17df-4dcf-910b-5595463ab0c9" />
-
-<img width="3840" height="1644" alt="Battle Cinematics foreground example 4" src="https://github.com/user-attachments/assets/ee6703a9-0676-4fe3-a4a6-569230f9c140" />
+> A great deal of Battle Cinematics exists because somebody found the arena where the camera finally said no.
 
 ---
 
+# Permissions / license
 
+Battle Cinematics v1.2.1+ is distributed under the **Battle Cinematics Source-Available License 1.0**.
 
+The source remains available for inspection, learning, private/personal modification and contributions back to the official project. Public redistribution, repackaging, rebranding, successor forks, substantial incorporation into another distributed project, sublicensing or commercial redistribution require prior written permission.
 
-
-
-# Battle Cinematics – Dynamic 3D Battle Camera v1.2.1
-
-## 🔒 v1.2.1 — Permissions & Licensing
-
-Beginning with **Battle Cinematics v1.2.1**, Battle Cinematics is distributed under the **Battle Cinematics Source-Available License 1.0**.
-
-The source remains publicly available for inspection, learning, private/personal modification and contributions back to Battle Cinematics. Public redistribution, repackaging, rebranding, successor forks, substantial incorporation into another distributed project, sublicensing or commercial redistribution require prior written permission.
-
-Historical Battle Cinematics releases distributed before v1.2.1 were released under MIT. Those historical downloads are no longer officially distributed. Copies already obtained under their original license remain governed by the terms that accompanied them.
+Historical copies released under MIT remain governed by the license that accompanied those copies.
 
 See [`LICENSE`](LICENSE) for the complete terms.
 
 ---
-Genuine Stadium2 presentation remains provider-owned. BC controls only its configured camera phases and the optional Secondary View camera/compositor.
 
-### Gen2-3D-Sprites / Randy
-
-Randy genuine-3D presentation, First/Third Person and right-stick behavior remain provider-owned. When Randy presents native Gold/Silver 2D battle art in its live 3D world, BC retains the established Dynamic/Turn and Secondary View paths for vanilla and Crystal artwork.
-
-## Existing Battle Cinematics system
-
-v1.2.0 retains the established camera suite underneath Secondary View:
-
-- Stadium 64, DW3 Classic, Hero Portrait and External presets;
-- BC Hero Intro / Send-In lifecycle;
-- move-aware Stadium Attack Camera;
-- Faint Camera;
-- Actor Presentation Bounds;
-- Camera Authority;
-- Gen 1 manual camera;
-- provider-owned Gen 2 manual camera;
-- Dynamic Sprite Facing;
-- structural wall/facade/roof, floor, boundary, narrow-route and 3D→2D safety.
-
-## Manual camera ownership
-
-### RBY / Gen 1
-
-BC retains the established manual-camera contract:
-
-> **grab current BC shot → free orbit / look → release → soft return to authored BC camera**
-
-DYNAMIC follows the final manual camera and updates supported 2D actors as the user moves around the battle.
-
-### Gold + Silver
-
-Provider-owned right-stick behavior remains provider-owned. Randy and Stadium2 Importer keep their native manual-camera semantics rather than receiving the separate RBY free-camera subsystem.
-
-## External
-
-`PRESET → EXTERNAL` yields passive/idle camera ownership and Sprite Facing to the host. BC Hero, Attack Camera and Faint Camera remain independently configurable. Secondary View remains an independent optional passive presentation when its active provider path is supported.
-
-## Settings / migration
-
-- **SECOND VIEW PIP defaults OFF.** Existing users are not forced into a second renderer/camera.
-- **SPRITE FACING = DYNAMIC** remains the default.
-- `CAMERA AUTHORITY` remains the single top-level enable/ownership control.
-- The legacy ENABLED state remains folded into Camera Authority once; previously disabled users remain disabled.
-- Existing v1.0.6 Battle Intro WIDE / Hero Tilt OFF one-time migration markers remain intact.
-- Structured **Configure Preset**, **Battle Intro** and **Config PiP** screens remain contextual rather than flattening provider-specific controls.
-
-## Compatibility philosophy
-
-> **Every BC option produces a good, readable battle everywhere, with BC free to gracefully degrade its physical camera language when the environment cannot support it.**
-
-> **BC respects what the underlying system provides, then makes the best cinematic use of it.**
-
-
-## Permissions / forking
-
-Battle Cinematics is **source-available, not freely redistributable** from v1.2.1 onward.
-
-You may inspect and study the source, run the official release, make private/personal modifications, and submit proposed changes to the official Battle Cinematics project. You may also link to the official repository or official release downloads.
-
-Without prior written permission from EnterPlayerOne, you may **not** publicly redistribute Battle Cinematics or modified copies, publish a rebranded or successor fork, bundle substantial Battle Cinematics code into another distributed mod/project, sublicense it, sell it, or present a derivative project as an independent continuation of Battle Cinematics.
-
-Third-party renderers, providers, assets and projects referenced by Battle Cinematics remain under their respective authors' own licenses and copyrights. Battle Cinematics grants no rights over those works.
-
-See `LICENSE` for the complete terms.
-
-## Credits / interoperability
-
-Battle Cinematics remains the camera/director layer. Dramatic Shape, PotatoVoxel, Voxel Ascendant, Battle Art Voxel Fork, Dramaless Shape, Crystal Animated Sprites with Shiny Visuals, StadiumBattleFX, Stadium2 Importer and Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` remain the work of their respective authors.
-
-Darkatek7 retains scoped credit for identifying the accelerated `input.Step / Game:logicSpeed()` timing path and supplying the original patch that led to BC's game-speed compatibility implementation.
-
-**StadiumBattleFX / Root Beer Ronin** is also acknowledged as a cousin Stadium-focused project whose parallel development helped spur Battle Cinematics' continued Stadium interoperability work. This acknowledgement is for inspiration/motivation and ecosystem collaboration, not code authorship or ownership of Battle Cinematics.
+**Passives. 4-Way Sprites. Intros. Attacks. Faints. Secondary View. Live Arenas. One adaptable camera system. Gen 1 + Gen 2.**
