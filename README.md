@@ -13,8 +13,7 @@ Optional short looping preview: media/Battle_Cinematics_Prime_Showcase.gif
 The reel should show, in order: 4-Way sprites -> Crystal -> Gen5 animated -> genuine Stadium 3D -> Stadium/Intro/Attack/Faint -> Secondary View -> Live Voxel Arena.
 -->
 
-[▶ Watch the full Battle Cinematics showcase](media/Battle_Cinematics_README_Prime_Showcase(1).mp4)
-
+[▶ Watch the full Battle Cinematics showcase](media/Battle_Cinematics_README_Prime_Showcase_(1).mp4)
 
 **Battle Cinematics (BC)** is the camera/director layer for battles. It brings the cinematic language of Pokémon Stadium into Recomp, then adapts that language around the presentation you choose: classic sprites, animated sprites, voxel worlds, genuine Stadium models and supported live battle hosts.
 
