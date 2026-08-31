@@ -30,10 +30,14 @@ BC does **not** replace those renderers, models, animations or assets. It direct
 
 Stadium models are optional. Battle Cinematics is designed to make the presentation you already use look intentional from a moving cinematic camera.
 
-**Battle Cinematics v1.2.4 has been tested with Gen1Recomp through v0.2.38.**
+**Battle Cinematics v1.2.5 has been tested with Gen1Recomp through v0.2.45.**
+
+v1.2.5 introduces genuine **LIVE VIEW** Secondary View, independent PiP render-resolution control, expanded Gen 2 Stadium-model support and the new **LIVING PORTRAIT** presentation mode.
 
 [**Download the latest release**](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest)
 
+> [!TIP]
+> **New in v1.2.5:** Secondary View now offers genuine **LIVE VIEW**, expressive **LIVING PORTRAIT** and the original **DYNAMIC (DW3)** mode, with independently selectable PiP render resolution from **160x90 to 1280x720**. Gen 2 LIVE VIEW is validated with Stadium2 Overworld Models 0.2.81, Voxel Ultimate 1.0.7 and Stadium2 Importer 0.12.1.
 ---
 
 ## What Battle Cinematics changes during a battle
@@ -47,8 +51,9 @@ BC is modular. Use the complete presentation or only the camera phases you want.
 | **Pokémon send-in** | BC Hero FULL / COMPACT cinematic introductions |
 | **Moves** | Stadium-inspired, move-aware Attack Camera |
 | **Faint** | Dedicated final composition for the defeated Pokémon |
-| **Secondary view** | Optional independent PiP camera, including CONTINUOUS monitor mode |
-| **Stadium2 Importer arena** | Optional **LIVE VOXEL ARENA** override on supported Gen 1 stacks |
+| **Secondary view** | Optional independent PiP camera with **LIVE VIEW**, **LIVING PORTRAIT** or **DYNAMIC (DW3)** presentation |
+| **PiP quality** | Independent internal render resolution from **160x90 through 1280x720** |
+| **Stadium2 Importer arena** | Optional **LIVE VOXEL ARENA** override where a compatible live-world provider is actually available |
 | **Manual camera** | BC-owned on Gen 1; compatible provider-owned control on Gen 2 |
 
 The core rule underneath all of it is:
@@ -73,7 +78,7 @@ The tables below describe the **current tested state**, not every historical ver
 | **Voxel Ascendant 2.0.2 — MAP** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer MAP validated. **LIVE VOXEL ARENA** supported. ARENA / DISCS are not currently claimed. |
 | **PotatoVoxel 1.9.6 — Gen 1 MAP / 2D-3D A** | ✅ | ✅ | ✅ | Gen 1 validated with Stadium2 Importer **LIVE VOXEL ARENA**. |
 | **Voxel Ultimate 1.0.7 — Gen 1** | ✅ | ✅ | ✅ | Integrated host path validated. Avoid stacking duplicate systems that Voxel Ultimate already integrates. |
-| **Stadium2 Importer 0.12.0 — Gen 1** | ✅ | 3D yield | ✅ | Genuine Stadium presentation retained. Can use supported **BATTLE ARENA OVERRIDE** providers below. |
+| **Stadium2 Importer 0.12.1 — Gen 1** | ✅ | 3D yield | ✅ | Genuine Stadium presentation retained. **LIVE VIEW** supported. Can use supported **BATTLE ARENA OVERRIDE** providers below. |
 | **Crystal Animated Sprites 2.0.2** | ✅ | ✅ | ✅ | Animated sprite presentation supported on established compatible host paths. Fixed animated FRONT Secondary View remains independent from the main 4-Way view. |
 | **Compatible vanilla / ROM sprite presentation** | ✅ | ✅ | ✅ where host-supported | BC uses the host's actual sprite presentation rather than replacing the artwork. |
 | **StadiumBattleFX** | ✅* | 3D yield | ✅ | **Gen1 Stadium model presentation supported.** Proven with **Dramaless Shape 2.0.3** when SBFX `BATTLE ARENA` is set to the registered **VOXEL ARENA** provider. Other voxel-provider combinations are provider/version-specific; see notes below. |
@@ -100,14 +105,17 @@ The tables below describe the **current tested state**, not every historical ver
 
 | Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | Current state |
 |---|:---:|:---:|:---:|---|
-| **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ✅ | Genuine Stadium 3D, vanilla 2D and Crystal presentation validated. Provider owns Gen 2 right-stick behavior. |
-| **Voxel Ultimate 1.0.7 — Gen 2** | ✅ | ✅ on supported flat-card path | ✅ | Integrated live-world Gen 2 host validated. Provider-native manual camera retained with BC battle-boundary neutral protection. |
+| **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ✅ **LIVE VIEW** | Genuine Stadium 3D, vanilla 2D and Crystal presentation validated. LIVE VIEW redraws the provider's active Stadium presentation, including attack and faint animation. Provider owns Gen 2 right-stick behavior. |
+| **Voxel Ultimate 1.0.7 — Gen 2** | ✅ | ✅ on supported flat-card path | ✅ **LIVE VIEW** | Integrated live-world Gen 2 host validated. LIVE VIEW follows the provider's actual active presentation. Provider-native manual camera retained with BC battle-boundary neutral protection. |
+| **Stadium2 Importer 0.12.1 — Gen 2** | ✅ | 3D yield | ✅ **LIVE VIEW** | Direct Gen 2 Stadium 3D battle presentation validated. Persistent PiP remains live through attacks, fainting, vacancy and replacement rather than freezing during the provider's authored battle phases. |
+| **PotatoVoxel 1.9.6 + Stadium2 Importer 0.12.1** | ✅ | 3D yield | ✅ **LIVE VIEW** | Combined Gen 2 stack validated. Stadium2 Importer supplies the active 3D battle presentation and circular arena. Potato does not currently attach its own standalone Gen 2 voxel battle world under the tested environment. |
 | **Crystal Animated Sprites 2.0.2** | ✅ | ✅ on compatible world-card paths | ✅ | Crystal artwork/animation remains provider-owned; BC supplies camera-relative orientation and secondary composition where supported. |
 
 > [!NOTE]
-> **Current ecosystem boundary:** direct Stadium2 Importer 0.12.0 Gen 2 3D and PotatoVoxel Gen 2 3D are **not currently claimed**. Fresh Crystal and Silver testing does not establish those providers' own standalone 3D battle path even with BC disabled. BC does not build compatibility workarounds around a provider path that is not presently functioning independently.
+> **PotatoVoxel Gen 2 standalone:** PotatoVoxel 1.9.6 does not currently establish its own standalone Gen 2 voxel battle presentation under the tested Recomp environment. BC therefore has no Potato-native Gen 2 voxel arena to override into. This is a provider/runtime boundary, not a BC camera failure.
 
-`STADIUM2_OVERWORLD_MODELS` 0.4.33 is also not currently claimed; 0.2.81 is the validated compatibility ceiling for this BC line.
+> [!NOTE]
+> **Stadium2 Overworld Models:** `0.2.81` remains the validated and recommended compatibility version for Battle Cinematics v1.2.5. The tested `0.4.33` build suffers severe independent performance problems on the Android validation device, including major slowdown before BC battle rendering begins, so v1.2.5 does not claim support for that version.
 
 ---
 
@@ -280,10 +288,10 @@ It remains phase-scoped and renderer-independent. On provider-owned Gen 2 presen
 
 ---
 
+
 ## 9. Secondary View PiP
 
 ![Continuous Secondary View](media/Battle_Cinematics_Continuous_Secondary_View_Showcase_INLINE.gif)
-
 
 Secondary View is an optional **independent second camera**. It is not a crop of the main view.
 
@@ -291,10 +299,35 @@ Secondary View is an optional **independent second camera**. It is not a crop of
 
 When enabled, `CONFIG PIP` provides:
 
-### PiP Visibility
+### PIP MODE
 
-- **CONTINUOUS — default:** after the initial player send-in completes and PiP arms, the secondary camera remains a persistent monitor through attacks, reactions, fainting, an empty player side, replacement and subsequent send-in.
-- **DYNAMIC (DW3):** the original authored behavior, where PiP appears only during appropriate battle phases.
+- **LIVE VIEW — default:** persistent alternate view of the same active battle presentation. Where the host exposes a safe live presentation seam, BC redraws that state through its second camera rather than running a separate imitation battle timeline.
+- **LIVING PORTRAIT:** persistent independently animated character portrait. This intentionally keeps its own expressive presentation rather than mirroring the main battle frame-for-frame.
+- **DYNAMIC (DW3):** the original authored Secondary View behavior, appearing only during its intended cinematic battle phases.
+
+Persistent **LIVE VIEW** and **LIVING PORTRAIT** begin as soon as the opening player Pokémon Intro / send-out presentation has genuinely cleared. They do **not** wait for the main passive camera's `INITIAL DELAY`.
+
+LIVE VIEW follows the battle state actually exposed by the active provider: idle presentation, move-specific attack animation, fainting, vacancy and replacement where supported.
+
+> **One battle state → two cameras → two views.**
+
+BC does not invent provider presentation that does not exist. If a host does not implement a particular reaction or animation state, Secondary View does not fabricate one.
+
+### PiP Render Resolution
+
+`PIP RENDER RESOLUTION` controls the internal quality of the Secondary View independently from its physical on-screen size.
+
+- 160x90
+- 240x135
+- **320x180 — default**
+- 480x270
+- 640x360
+- 960x540
+- 1280x720
+
+Higher resolutions are intentionally available for stronger phones, handhelds and PCs.
+
+`PIP SIZE` remains purely the physical compositor/window size.
 
 ### PiP View
 
@@ -303,17 +336,22 @@ When enabled, `CONFIG PIP` provides:
 - Side: **Left (DW3) — default** / Right
 - Place: Mid Center / Top Right / **Mid Right — default** / Top Left / Mid Left / Custom
 
-Custom placement can be adjusted directly on supported mouse/touch frontends.
+↖️ Custom placement can be adjusted directly on supported mouse/touch frontends.
 
-Different hosts expose different safe private-render seams. BC therefore does not treat Secondary View as one universal duplicated scene. The provider remains responsible for its world/art/model state while BC owns the alternate camera/composition.
+Different hosts expose different safe private-render seams. BC adapts to those provider boundaries while preserving the same public Secondary View behavior: the provider owns its world, artwork, models and animation state; BC owns the alternate camera and render target.
+
+### Upgrade behavior
+
+v1.2.5 makes **LIVE VIEW** the new default.
+
+Existing installations are migrated to LIVE VIEW **once** when upgrading to the new PIP MODE system. After that migration, the user's own choice is respected normally: LIVE VIEW, LIVING PORTRAIT or DYNAMIC (DW3) all persist across restart.
 
 ### Performance rule
 
-> **PiP size on screen must not require a second full-resolution world render.**
+> **PiP size on screen must not dictate the internal world-render workload.**
 
-Heavy 3D Secondary View paths use bounded private targets and conservative draw scheduling where required.
+Secondary View uses an independent render-resolution setting and backend-appropriate private rendering. Some providers require bounded or aspect-preserving targets and conservative draw scheduling; BC keeps those implementation details provider-specific rather than forcing every renderer through one identical private-scene path.
 
->⚠️ Secondary View maintains its own lightweight presentation of the battle. Current 3D backends mirror battle state and major transitions like fainting, but individual model animation timing may differ from the primary presentation at this stage of development.
 
 ---
 
@@ -323,12 +361,14 @@ Heavy 3D Secondary View paths use bounded private targets and conservative draw 
 ![Battle Arena Override — Live Voxel Arena](media/Battle_Cinematics_Live_Voxel_Arena_Override_Showcase_INLINE.gif)
 
 
-`BATTLE ARENA OVERRIDE` controls **environment ownership** for supported Gen 1 Stadium2 Importer compositions.
+`BATTLE ARENA OVERRIDE` controls **environment ownership** for compatible Stadium2 Importer compositions where an independent live voxel/world provider is actually available.
 
 - **LIVE VOXEL ARENA — default:** use a compatible live voxel/world provider as the battle environment while Stadium2 Importer keeps its genuine Stadium actors, animation and HUD.
 - **HOST DEFAULT:** leave the environment entirely to Stadium2 Importer.
 
-This setting changes the **arena only**. It does not enable Stadium models and it does not turn a 2D battle into a 3D battle.
+This setting changes the **arena only**. It does not enable Stadium models, manufacture a missing 3D provider path or turn a 2D battle into a 3D battle.
+
+If no compatible live voxel battle world exists for the active generation/provider stack, **LIVE VOXEL ARENA** safely has nothing to substitute and the working host presentation remains in control.
 
 The intended division of responsibility is simple:
 
@@ -336,7 +376,9 @@ The intended division of responsibility is simple:
 > **Stadium2 Importer → Stadium models / animation / HUD**  
 > **Battle Cinematics → camera direction / Secondary View**
 
-Supported BC-managed LIVE VOXEL ARENA providers are listed in the Gen 1 compatibility table above.
+Supported BC-managed LIVE VOXEL ARENA providers are listed in the compatibility tables above.
+
+For example, **PotatoVoxel 1.9.6 + Stadium2 Importer 0.12.1** is a valid Gen 2 combination, but the battle remains in Stadium2 Importer's circular arena because Potato does not currently expose an attached Gen 2 voxel battle world for BC to substitute.
 
 ---
 
