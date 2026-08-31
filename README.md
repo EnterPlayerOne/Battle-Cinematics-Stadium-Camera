@@ -22,7 +22,7 @@ https://github.com/user-attachments/assets/c924c8c4-9fda-44be-b7e7-76e48cd88577
 
 **Battle Cinematics (BC)** is the camera/director layer for battles. It brings the cinematic language of Pokémon Stadium into Recomp, then adapts that language around the presentation you choose: classic sprites, animated sprites, voxel worlds, genuine Stadium models and supported live battle hosts.
 
-BC does **not** replace those renderers, models, animations or assets. It directs the camera around them.
+BC does **not** replace those renderers, models, animations or assets. It directs the camera around them, adapts to their presentation boundaries and can compose supported providers together without taking ownership of their content.
 
 > **Stadium supplied the cinematography. BC supplied the camera system.**
 >
