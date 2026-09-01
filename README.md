@@ -329,6 +329,8 @@ Higher resolutions are intentionally available for stronger phones, handhelds an
 
 `PIP SIZE` remains purely the physical compositor/window size.
 
+>320x180 is the recommended default. Higher resolutions increase private-render workload and may have a noticeable performance cost on heavier backends or densely populated scenes.
+
 ### PiP View
 
 - Size: Standard / **Small — default**
