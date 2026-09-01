@@ -30,14 +30,16 @@ BC does **not** replace those renderers, models, animations or assets. It direct
 
 Stadium models are optional. Battle Cinematics is designed to make the presentation you already use look intentional from a moving cinematic camera.
 
-**Battle Cinematics v1.2.5 has been tested with Gen1Recomp through v0.2.45.**
+**Battle Cinematics v1.2.6 has been tested with Gen1Recomp through v0.2.45.**
 
-v1.2.5 introduces genuine **LIVE VIEW** Secondary View, independent PiP render-resolution control, expanded Gen 2 Stadium-model support and the new **LIVING PORTRAIT** presentation mode.
+v1.2.6 improves Attack Camera and PotatoVoxel performance while preserving the established camera, APB, safety and provider ownership contracts introduced through v1.2.5.
 
 [**Download the latest release**](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest)
 
 > [!TIP]
 > **New in v1.2.5:** Secondary View now offers genuine **LIVE VIEW**, expressive **LIVING PORTRAIT** and the original **DYNAMIC (DW3)** mode, with independently selectable PiP render resolution from **160x90 to 1280x720**. Gen 2 LIVE VIEW is validated with Stadium2 Overworld Models 0.2.81, Voxel Ultimate 1.0.7 and Stadium2 Importer 0.12.1.
+> 
+> **New in v1.2.6:** provider presentation bounds are cached for each committed attack instead of being rediscovered every frame. PotatoVoxel + Stadium2 Importer also avoids rendering a second hidden battle scene after the hosted live arena succeeds. The established camera choreography, APB framing, safety and fallback behavior remain intact.
 ---
 
 ## What Battle Cinematics changes during a battle
@@ -72,17 +74,16 @@ The tables below describe the **current tested state**, not every historical ver
 
 | Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | Stadium2 Importer / arena notes |
 |---|:---:|:---:|:---:|---|
-| **Dramaless Shape 2.0.3** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer validated. **LIVE VOXEL ARENA** supported. Provider-native bounded manual fallback retained for the Dramaless + Importer combination. |
-| **Battle Art Voxel Fork 1.9.9** | ✅ | ✅ | ✅ | Vanilla, animated / Gen 5 and Stadium2 Importer presentation validated. Battle Art retains its own Importer environment path; BC keeps narrow projection recovery for strong camera compositions. |
+| **Dramaless Shape 2.0.4** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer validated. **LIVE VOXEL ARENA** supported. Provider-native bounded manual fallback retained for the Dramaless + Importer combination. v1.2.6 performance verified. |
+| **Battle Art Voxel Fork 1.10.0** | ✅ | ✅ | ✅ | Vanilla, animated / Gen 5 and Stadium2 Importer presentation validated. Battle Art retains its own Importer environment path; BC keeps narrow projection recovery for strong camera compositions. v1.2.6 Attack Camera verified. |
 | **Dramatic Shape 1.9.0** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer validated. **LIVE VOXEL ARENA** supported. |
 | **Voxel Ascendant 2.0.2 — MAP** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer MAP validated. **LIVE VOXEL ARENA** supported. ARENA / DISCS are not currently claimed. |
-| **PotatoVoxel 1.9.6 — Gen 1 MAP / 2D-3D A** | ✅ | ✅ | ✅ | Gen 1 validated with Stadium2 Importer **LIVE VOXEL ARENA**. |
+| **PotatoVoxel 1.9.6 — Gen 1 MAP / 2D-3D A** | ✅ | ✅ | ✅ | Gen 1 validated with Stadium2 Importer **LIVE VOXEL ARENA**. v1.2.6 main/PiP APB framing, passive paths and one-world performance verified. |
 | **Voxel Ultimate 1.0.7 — Gen 1** | ✅ | ✅ | ✅ | Integrated host path validated. Avoid stacking duplicate systems that Voxel Ultimate already integrates. |
 | **Stadium2 Importer 0.12.1 — Gen 1** | ✅ | 3D yield | ✅ | Genuine Stadium presentation retained. **LIVE VIEW** supported. Can use supported **BATTLE ARENA OVERRIDE** providers below. |
 | **Crystal Animated Sprites 2.0.2** | ✅ | ✅ | ✅ | Animated sprite presentation supported on established compatible host paths. Fixed animated FRONT Secondary View remains independent from the main 4-Way view. |
 | **Compatible vanilla / ROM sprite presentation** | ✅ | ✅ | ✅ where host-supported | BC uses the host's actual sprite presentation rather than replacing the artwork. |
-| **StadiumBattleFX** | ✅* | 3D yield | ✅ | **Gen1 Stadium model presentation supported.** Proven with **Dramaless Shape 2.0.3** when SBFX `BATTLE ARENA` is set to the registered **VOXEL ARENA** provider. Other voxel-provider combinations are provider/version-specific; see notes below. |
-
+| **StadiumBattleFX 2.1.8.1** | ✅* | 3D yield | ✅ | **Gen1 Stadium model presentation supported.** Proven with **Dramaless Shape 2.0.3** when SBFX `BATTLE ARENA` is set to the registered **VOXEL ARENA** provider. Other voxel-provider combinations are provider/version-specific; see notes below. |
 ### Gen 1 LIVE VOXEL ARENA providers for Stadium 2 Importer
 
 - **Dramaless Shape 2.0.3**
