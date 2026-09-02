@@ -30,9 +30,9 @@ BC does **not** replace those renderers, models, animations or assets. It direct
 
 Stadium models are optional. Battle Cinematics is designed to make the presentation you already use look intentional from a moving cinematic camera.
 
-**Battle Cinematics v1.2.6 has been tested with Gen1Recomp through v0.2.45.**
+**Battle Cinematics v1.2.7 has been tested with Gen1Recomp / Recomp through v0.2.45.**
 
-v1.2.6 improves Attack Camera and PotatoVoxel performance while preserving the established camera, APB, safety and provider ownership contracts introduced through v1.2.5.
+v1.2.7 adds validated **Battle Art Voxel Gen2 2.0.8** compatibility while preserving the v1.2.6 camera, APB, performance, safety and provider-ownership contracts.
 
 [**Download the latest release**](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest)
 
@@ -40,6 +40,9 @@ v1.2.6 improves Attack Camera and PotatoVoxel performance while preserving the e
 > **New in v1.2.5:** Secondary View now offers genuine **LIVE VIEW**, expressive **LIVING PORTRAIT** and the original **DYNAMIC (DW3)** mode, with independently selectable PiP render resolution from **160x90 to 1280x720**. Gen 2 LIVE VIEW is validated with Stadium2 Overworld Models 0.2.81, Voxel Ultimate 1.0.7 and Stadium2 Importer 0.12.1.
 > 
 > **New in v1.2.6:** provider presentation bounds are cached for each committed attack instead of being rediscovered every frame. PotatoVoxel + Stadium2 Importer also avoids rendering a second hidden battle scene after the hosted live arena succeeds. The established camera choreography, APB framing, safety and fallback behavior remain intact.
+> 
+> **New in v1.2.7:** Battle Art Voxel Gen2 2.0.8 is now a validated Gen 2 battle host. BC attaches its passive camera suite, 4-Way Sprite View, Pokémon Intro/send-in and faint lifecycle to Battle Art Gen2 while preserving provider-owned rendering. With Stadium2 Importer 0.12.1 MODELS ON, Secondary View uses the live Stadium actor over the Battle Art voxel world with independent BC framing; with MODELS OFF, Battle Art Gen2 receives the established fixed-FRONT vanilla/animated Secondary View treatment.
+
 ---
 
 ## What Battle Cinematics changes during a battle
@@ -101,22 +104,24 @@ The tables below describe the **current tested state**, not every historical ver
 |---|---|
 | **Dramaless Shape 2.0.3** | ✅ **Validated.** Select its registered voxel arena in SBFX `BATTLE ARENA`. Stadium models + voxel world + BC cameras + Secondary View work correctly. |
 | **Dramatic Shape 1.9.0** | ⚠️ **Partial / not currently recommended.** Its voxel arena is recognised, but current testing can lose the battle UI |
-
 ## Gen 2 / GSC
 
 | Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | Current state |
 |---|:---:|:---:|:---:|---|
-| **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ✅ **LIVE VIEW** | Genuine Stadium 3D, vanilla 2D and Crystal presentation validated. LIVE VIEW redraws the provider's active Stadium presentation, including attack and faint animation. Provider owns Gen 2 right-stick behavior. |
-| **Voxel Ultimate 1.0.7 — Gen 2** | ✅ | ✅ on supported flat-card path | ✅ **LIVE VIEW** | Integrated live-world Gen 2 host validated. LIVE VIEW follows the provider's actual active presentation. Provider-native manual camera retained with BC battle-boundary neutral protection. |
-| **Stadium2 Importer 0.12.1 — Gen 2** | ✅ | 3D yield | ✅ **LIVE VIEW** | Direct Gen 2 Stadium 3D battle presentation validated. Persistent PiP remains live through attacks, fainting, vacancy and replacement rather than freezing during the provider's authored battle phases. |
-| **PotatoVoxel 1.9.6 + Stadium2 Importer 0.12.1** | ✅ | 3D yield | ✅ **LIVE VIEW** | Combined Gen 2 stack validated. Stadium2 Importer supplies the active 3D battle presentation and circular arena. Potato does not currently attach its own standalone Gen 2 voxel battle world under the tested environment. |
+| **Battle Art Voxel Gen2 2.0.8 / `BATTLE_ART_VOXEL_GEN2`** | ✅ | ✅ | ✅ | **Validated in v1.2.7.** Passive presets, Pokémon Intro/send-ins, APB framing and Faint lifecycle are integrated. Importer 0.12.1 MODELS ON provides live Stadium Secondary View over the Battle Art voxel world; MODELS OFF uses the fixed-FRONT vanilla/animated PiP path. |
+| **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ⚠️ **Partial / audit** | Current recommended standalone Gen 2 Stadium basis. Complete continuous LIVE VIEW tracking remains under renewed runtime audit. Provider owns Gen 2 right-stick behavior. |
+| **Voxel Ultimate 1.0.7 — Gen 2** | ⚠️ **Re-audit** | ✅ on supported flat-card path | ⚠️ **Re-audit** | Previously established integrated Gen 2 host. Current 3D attachment and complete continuous LIVE VIEW behavior remain under renewed runtime audit. |
+| **Stadium2 Importer 0.12.1 — direct Gen 2** | ⚠️ **Re-audit** | 3D yield | ⚠️ **Re-audit** | **Hosted with Battle Art Gen2 2.0.8 is validated above.** Direct Gen 2 attachment outside that validated composition remains under audit. |
+| **PotatoVoxel 1.9.6 + Stadium2 Importer 0.12.1** | ⚠️ **Re-audit** | 3D yield | ⚠️ **Re-audit** | Potato standalone Gen 2 3D is not claimed. Any working combined presentation remains Importer-owned. |
 | **Crystal Animated Sprites 2.0.2** | ✅ | ✅ on compatible world-card paths | ✅ | Crystal artwork/animation remains provider-owned; BC supplies camera-relative orientation and secondary composition where supported. |
 
-> [!NOTE]
-> **PotatoVoxel Gen 2 standalone:** PotatoVoxel 1.9.6 does not currently establish its own standalone Gen 2 voxel battle presentation under the tested Recomp environment. BC therefore has no Potato-native Gen 2 voxel arena to override into. This is a provider/runtime boundary, not a BC camera failure.
 
 > [!NOTE]
-> **Stadium2 Overworld Models:** `0.2.81` remains the validated and recommended compatibility version for Battle Cinematics v1.2.5. The tested `0.4.33` build suffers severe independent performance problems on the Android validation device, including major slowdown before BC battle rendering begins, so v1.2.5 does not claim support for that version.
+> **Battle Art Voxel Gen2 + Stadium2 Importer:** use Battle Art `ARENA FILL = OFF` and `STADIUM CIRCLE = OFF` for the validated hosted composition. Importer `MODELS` must be in the desired state when BC initializes; switching between MODELS ON and OFF requires a reload before BC can attach the corresponding Gen2 Secondary View backend.
+>
+> Highly animated Stadium actors can show a brief initial Secondary View settling period while the stable idle presentation envelope is established. Battle Art Gen2 foreground geometry can also occasionally obscure part of Pokémon Intro choreography; these are pinned presentation-polish items rather than lifecycle failures.
+>
+> `STADIUM2_OVERWORLD_MODELS` **0.2.81** remains the recommended BC compatibility basis. The tested `0.4.33` build has severe independent performance problems on the Android validation device before BC battle rendering begins, so v1.2.7 does not claim it.
 
 ---
 
