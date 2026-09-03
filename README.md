@@ -109,7 +109,7 @@ The tables below describe the **current tested state**, not every historical ver
 | Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | Current state |
 |---|:---:|:---:|:---:|---|
 | **Battle Art Voxel Gen2 2.0.9 / `BATTLE_ART_VOXEL_GEN2`** | ✅ | ✅ | ✅ | **Validated in v1.2.7.** Passive presets, Pokémon Intro/send-ins, APB framing and Faint lifecycle are integrated. Importer 0.12.1 MODELS ON provides live Stadium Secondary View over the Battle Art voxel world; MODELS OFF uses the fixed-FRONT vanilla/animated PiP path. |
-| **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ⚠️ **Partial / audit** | Current recommended standalone Gen 2 Stadium basis. Complete continuous LIVE VIEW tracking remains under renewed runtime audit. Provider owns Gen 2 right-stick behavior. |
+| **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ✅ | Current recommended standalone Gen 2 Stadium basis. Complete continuous LIVE VIEW tracking remains under renewed runtime audit. Provider owns Gen 2 right-stick behavior. |
 | **Voxel Ultimate 1.0.7 — Gen 2** | ⚠️ **Re-audit** | ✅ on supported flat-card path | ⚠️ **Re-audit** | Previously established integrated Gen 2 host. Current 3D attachment and complete continuous LIVE VIEW behavior remain under renewed runtime audit. |
 | **Stadium2 Importer 0.12.1 — direct Gen 2** | ✅ | 3D yield | ✅ | **Hosted with Battle Art Gen2 2.0.8 is validated above.** Direct Gen 2 attachment outside that validated composition requires `LIVE ARENA OVERRIDE` to be set to `HOST DEFAULT` and NOT `LIVE VOXEL ARENA` |
 | **PotatoVoxel 1.9.6 + Stadium2 Importer 0.12.1** | ⚠️ **Re-audit** | 3D yield | ⚠️ **Re-audit** | Potato standalone Gen 2 3D is not claimed. Any working combined presentation remains Importer-owned. |
@@ -121,7 +121,7 @@ The tables below describe the **current tested state**, not every historical ver
 >
 > Highly animated Stadium actors can show a brief initial Secondary View settling period while the stable idle presentation envelope is established. Battle Art Gen2 foreground geometry can also occasionally obscure part of Pokémon Intro choreography; these are pinned presentation-polish items rather than lifecycle failures.
 >
-> `STADIUM2_OVERWORLD_MODELS` **0.2.81** remains the recommended BC compatibility basis. The tested `0.4.33` build has severe independent performance problems on the Android validation device before BC battle rendering begins, so v1.2.7 does not claim it.
+> `STADIUM2_OVERWORLD_MODELS` **0.2.81** remains the recommended BC compatibility basis.
 
 ---
 
