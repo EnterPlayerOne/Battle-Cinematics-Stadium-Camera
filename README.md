@@ -108,7 +108,7 @@ The tables below describe the **current tested state**, not every historical ver
 
 | Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | Current state |
 |---|:---:|:---:|:---:|---|
-| **Battle Art Voxel Gen2 2.0.8 / `BATTLE_ART_VOXEL_GEN2`** | ✅ | ✅ | ✅ | **Validated in v1.2.7.** Passive presets, Pokémon Intro/send-ins, APB framing and Faint lifecycle are integrated. Importer 0.12.1 MODELS ON provides live Stadium Secondary View over the Battle Art voxel world; MODELS OFF uses the fixed-FRONT vanilla/animated PiP path. |
+| **Battle Art Voxel Gen2 2.0.9 / `BATTLE_ART_VOXEL_GEN2`** | ✅ | ✅ | ✅ | **Validated in v1.2.7.** Passive presets, Pokémon Intro/send-ins, APB framing and Faint lifecycle are integrated. Importer 0.12.1 MODELS ON provides live Stadium Secondary View over the Battle Art voxel world; MODELS OFF uses the fixed-FRONT vanilla/animated PiP path. |
 | **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ⚠️ **Partial / audit** | Current recommended standalone Gen 2 Stadium basis. Complete continuous LIVE VIEW tracking remains under renewed runtime audit. Provider owns Gen 2 right-stick behavior. |
 | **Voxel Ultimate 1.0.7 — Gen 2** | ⚠️ **Re-audit** | ✅ on supported flat-card path | ⚠️ **Re-audit** | Previously established integrated Gen 2 host. Current 3D attachment and complete continuous LIVE VIEW behavior remain under renewed runtime audit. |
 | **Stadium2 Importer 0.12.1 — direct Gen 2** | ⚠️ **Re-audit** | 3D yield | ⚠️ **Re-audit** | **Hosted with Battle Art Gen2 2.0.8 is validated above.** Direct Gen 2 attachment outside that validated composition remains under audit. |
