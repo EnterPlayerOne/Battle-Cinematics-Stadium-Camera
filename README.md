@@ -125,8 +125,6 @@ CBE PiP uses a live portable actor over a bounded, arena-themed card, not a seco
 
 Direct Importer **0.14.0** is validated with BC on both generations. The Importer's own **BATTLE ENVIRONMENT → KENNEY NATURE** option is provider-owned: BC does not copy or replace those assets. Secondary View reuses the active battle/environment context in a bounded private scene and keeps BC's independent portrait camera.
 
-> [!WARNING]
-> **Gen 2 + Stadium 2 Importer 0.14.0 + separate Colosseum UI:** the current white/native battle overlay reproduces with BC disabled. Treat this as an Importer/UI composition conflict, not a BC camera defect. Direct BC + Importer 0.14.0 is the validated stack.
 
 ### Gen 2 hosted presentation
 
