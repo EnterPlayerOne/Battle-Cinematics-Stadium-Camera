@@ -77,7 +77,7 @@ The core rule underneath all of it is:
 
 Battle Cinematics is a director, not a battle renderer. A supported presentation host still owns the world, sprites, models and animation it provides.
 
-**v1.2.9 compatibility:** CBE 2.0 and Colosseum Overhaul 1.0 are runtime-validated with BC on Gen 1 and Gen 2. DOUBLE BATTLES may remain enabled; an actually admitted CBE doubles presentation remains provider-owned. Phenac Stadium specifically requires **AUTO BATTLE FLOW OFF** and cannot co-run with CBE Boss Intro. The remaining rows retain the release README’s established tested versions, partial / re-audit statuses and known caveats. They are not a claim that every provider or possible combination was re-tested for this release.
+**v1.3.0 compatibility:** direct Stadium 2 Importer **0.14.0** is runtime-validated with BC on Gen 1 and Gen 2, including the **KENNEY NATURE** main presentation and environment-aware live Secondary View. CBE 2.0 and Colosseum Overhaul 1.0 remain runtime-validated on both generations; DOUBLE BATTLES may remain enabled and an actually admitted CBE doubles presentation remains provider-owned. Phenac Stadium specifically requires **AUTO BATTLE FLOW OFF** and cannot co-run with CBE Boss Intro. Other rows retain their established tested versions, partial / re-audit statuses and caveats; they are not silently upgraded to newer provider versions.
 
 **Key:** ✅ = validated within the row’s stated host, generation and setup; ⚠️ = the recorded partial / re-audit status, not a new compatibility pass. **3D yield** means 4-Way Sprite View correctly leaves genuine 3D models alone; it is not a camera failure.
 
@@ -85,18 +85,18 @@ Battle Cinematics is a director, not a battle renderer. A supported presentation
 
 ## Gen 1 / RBY
 
-| Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | Stadium2 Importer / arena notes |
+| Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | Stadium 2 Importer / arena notes |
 |---|:---:|:---:|:---:|---|
 | **Colosseum Battle Environments 2.0 — Gen 1** | ✅ | 3D yield (native models) | ✅ | **BC PRIORITY** works with CBE’s regular camera ON or OFF. **DOUBLE BATTLES may remain ON**; actual CBE doubles remain provider-owned. Phenac requires **AUTO BATTLE FLOW OFF** and CBE Boss Intro OFF; BC shows an in-battle conflict notice if either blocks it. Native-animation-aware Attack timing, manual control and all **11 arena-themed PiP cards**. |
 | **Colosseum Overhaul 1.0 — Gen 1** | ✅ | 3D yield (native models) | ✅ | Exact combined CBE 2.0 + Colosseum UI package validated. Same BC PRIORITY, Attack timing, manual-camera, PiP, Phenac and runtime-doubles arbitration as the standalone CBE 2.0 integration. **AUTO BATTLE FLOW must be OFF for Phenac.** |
 | **Colosseum Battle Environments 1.8.4 — Gen 1** | ✅ | 3D yield (native models) | ✅; reaction caveat | Retained exact-stock adapter (`1.8.4-capture-member-hsd.1`). Keep **COLOSSEUM CAMERA OFF**. Primary cameras, intros, manual control and portable-actor PiP retained; Gen 1 PiP reactions can be less consistent than Gen 2. |
 | **Dramaless Shape 2.0.4** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer validated. **LIVE VOXEL ARENA** supported. Provider-native bounded manual fallback retained for the Dramaless + Importer combination. v1.2.6 performance verified. |
-| **Battle Art Voxel Fork 1.10.0** | ✅ | ✅ | ✅ | Vanilla, animated / Gen 5 and Stadium2 Importer presentation validated. Battle Art retains its own Importer environment path; BC keeps narrow projection recovery for strong camera compositions. v1.2.6 Attack Camera verified. |
+| **Battle Art Voxel Fork 1.10.0** | ✅ | ✅ | ✅ | Vanilla, animated / Gen 5 and Stadium 2 Importer presentation validated. Battle Art retains its own Importer environment path; BC keeps narrow projection recovery for strong camera compositions. v1.2.6 Attack Camera verified. |
 | **Official Dramatic Shape 1.6.1 — Gen 1 MAP / A** | ✅ | Inherited supported flat-card path | Functional; stale-environment concern remains | **LIVE VOXEL ARENA** replaces Importer blue. Hosted world is bounded to 960×540 maximum, preserving aspect; Importer actors/HUD remain full-resolution. Android main-world performance improvement validated. B/disc modes yield to host. |
 | **Voxel Ascendant 2.0.2 — MAP** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer MAP validated. **LIVE VOXEL ARENA** supported. ARENA / DISCS are not currently claimed. |
-| **PotatoVoxel 1.9.6 — Gen 1 MAP / 2D-3D A** | ✅ | ✅ | ✅ | Gen 1 validated with Stadium2 Importer **LIVE VOXEL ARENA**. v1.2.6 main/PiP APB framing, passive paths and one-world performance verified. |
+| **PotatoVoxel 1.9.6 — Gen 1 MAP / 2D-3D A** | ✅ | ✅ | ✅ | Gen 1 validated with Stadium 2 Importer **LIVE VOXEL ARENA**. v1.2.6 main/PiP APB framing, passive paths and one-world performance verified. |
 | **Voxel Ultimate 1.0.7 — Gen 1** | ✅ | ✅ | ✅ | Integrated host path validated. Avoid stacking duplicate systems that Voxel Ultimate already integrates. |
-| **Stadium2 Importer 0.12.1 — Gen 1** | ✅ | 3D yield | ✅ | Genuine Stadium presentation retained. **LIVE VIEW** supported. Can use supported **BATTLE ARENA OVERRIDE** providers below. |
+| **Stadium 2 Importer 0.14.0 — direct Gen 1** | ✅ | 3D yield | ✅ | Direct 0.14 owned-scene path validated. **LIVE VIEW** uses the live Stadium actor in a bounded independent scene. **KENNEY NATURE** is runtime-validated in the main view and PiP; BC preserves its own portrait framing while the provider owns the woodland environment. |
 | **Crystal Animated Sprites 2.0.2** | ✅ | ✅ | ✅ | Animated sprite presentation supported on established compatible host paths. Fixed animated FRONT Secondary View remains independent from the main 4-Way view. |
 | **Compatible vanilla / ROM sprite presentation** | ✅ | ✅ | ✅ where host-supported | BC uses the host's actual sprite presentation rather than replacing the artwork. |
 | **StadiumBattleFX 2.1.8.1** | ✅* | 3D yield | ✅ | **Gen1 Stadium model presentation supported.** Proven with **Dramaless Shape 2.0.3** when SBFX `BATTLE ARENA` is set to the registered **VOXEL ARENA** provider. Other voxel-provider combinations are provider/version-specific; see notes below. |
@@ -108,11 +108,11 @@ Battle Cinematics is a director, not a battle renderer. A supported presentation
 | **Colosseum Battle Environments 2.0 — Gen 2** | ✅ | 3D yield (native models) | ✅ | **BC PRIORITY** works with CBE’s regular camera ON or OFF. **DOUBLE BATTLES may remain ON**; actual CBE doubles remain provider-owned. Phenac requires **AUTO BATTLE FLOW OFF** and CBE Boss Intro OFF; BC shows an in-battle conflict notice if either blocks it. Native-animation-aware Attack timing, BC-owned manual control and all **11 arena-themed PiP cards**. |
 | **Colosseum Overhaul 1.0 — Gen 2** | ✅ | 3D yield (native models) | ✅ | Exact combined CBE 2.0 + Colosseum UI package validated. Same BC PRIORITY, Attack timing, manual-camera, PiP, Phenac and runtime-doubles arbitration as the standalone CBE 2.0 integration. **AUTO BATTLE FLOW must be OFF for Phenac.** |
 | **Colosseum Battle Environments 1.8.4 — Gen 2** | ✅ | 3D yield (native models) | ✅ | Retained exact-stock adapter (`1.8.4-capture-member-hsd.1`). Keep **COLOSSEUM CAMERA OFF**. Primary cameras, intros, manual control and bounded portable-actor PiP retained. |
-| **Battle Art Voxel Gen2 2.0.8 / `BATTLE_ART_VOXEL_GEN2`** | ✅ | ✅ | ✅ | Validated Battle Art Gen2 host. Passive presets, 4-Way, Pokémon Intro/send-ins, faint lifecycle and APB framing retained. With Stadium2 Importer 0.12.1 MODELS ON, LIVE VIEW uses the live Stadium actor over the Battle Art voxel world; with MODELS OFF, Secondary View uses the established fixed-FRONT vanilla portrait path. Native close actor spacing can naturally limit aggressive Attack Camera travel. |
-| **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ✅ | Current recommended standalone Gen 2 Stadium basis. The main Stadium 3D camera route remains available, but complete continuous LIVE VIEW tracking across idle, attack, faint and replacement is entering renewed runtime audit. Provider owns Gen 2 right-stick behavior. |
+| **Battle Art Voxel Gen2 2.0.8 / `BATTLE_ART_VOXEL_GEN2`** | ✅ | ✅ | ✅ | Validated Battle Art Gen2 host. Passive presets, 4-Way, Pokémon Intro/send-ins, faint lifecycle and APB framing retained. With Stadium 2 Importer 0.12.1 MODELS ON, LIVE VIEW uses the live Stadium actor over the Battle Art voxel world; with MODELS OFF, Secondary View uses the established fixed-FRONT vanilla portrait path. Native close actor spacing can naturally limit aggressive Attack Camera travel. |
+| **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ⚠️ **Partial / audit** | Current recommended standalone Gen 2 Stadium basis. The main Stadium 3D camera route remains available, but complete continuous LIVE VIEW tracking across idle, attack, faint and replacement is entering renewed runtime audit. Provider owns Gen 2 right-stick behavior. |
 | **Voxel Ultimate 1.0.7 — Gen 2** | ⚠️ **Re-audit** | ✅ on supported flat-card path | ⚠️ **Re-audit** | Previously established integrated Gen 2 host. Current 3D attachment and complete continuous LIVE VIEW behavior are entering renewed runtime audit. |
-| **Stadium2 Importer 0.12.1 — direct Gen 2** | ⚠️ **Re-audit** | 3D yield | ⚠️ **Re-audit** | **Hosted with Battle Art Gen2 2.0.8 is validated above.** Direct Gen 2 attachment outside that validated composition remains under audit. |
-| **PotatoVoxel 1.9.6 + Stadium2 Importer 0.12.1** | ⚠️ **Re-audit** | 3D yield | ⚠️ **Re-audit** | Potato standalone Gen 2 3D is not claimed. Any working combined presentation remains Importer-owned because Potato does not currently expose an attached Gen 2 live voxel world. |
+| **Stadium 2 Importer 0.14.0 — direct Gen 2** | ✅ | 3D yield | ✅ | Direct Gold/Gen2 0.14 presentation validated with BC. **KENNEY NATURE** is inherited by the private LIVE VIEW scene while BC reasserts the established independent portrait camera after environment selection. The live actor/Attack lifecycle and main Kenney camera remain separate. **Colosseum UI + Importer 0.14 Gen2 currently has an external provider/UI overlay conflict even with BC disabled.** |
+| **PotatoVoxel 1.9.6 + Stadium 2 Importer 0.12.1** | ⚠️ **Re-audit** | 3D yield | ⚠️ **Re-audit** | Potato standalone Gen 2 3D is not claimed. Any working combined presentation remains Importer-owned because Potato does not currently expose an attached Gen 2 live voxel world. |
 | **Crystal Animated Sprites 2.0.2** | ✅ | ✅ on compatible world-card paths | ✅ | Crystal artwork/animation remains provider-owned; BC supplies camera-relative orientation and secondary composition where supported. |
 
 ## Provider setup and limitations
@@ -121,16 +121,23 @@ Battle Cinematics is a director, not a battle renderer. A supported presentation
 
 CBE PiP uses a live portable actor over a bounded, arena-themed card, not a second exact live Colosseum world render. The CBE 2.0 camera setting may remain ON under BC PRIORITY; the legacy 1.8.4 adapter still requires CAMERA OFF. Use only the exact supported, source-checked CBE builds; a later provider update is not automatically certified.
 
+### Stadium 2 Importer 0.14.0 direct presentation
+
+Direct Importer **0.14.0** is validated with BC on both generations. The Importer's own **BATTLE ENVIRONMENT → KENNEY NATURE** option is provider-owned: BC does not copy or replace those assets. Secondary View reuses the active battle/environment context in a bounded private scene and keeps BC's independent portrait camera.
+
+> [!WARNING]
+> **Gen 2 + Stadium 2 Importer 0.14.0 + separate Colosseum UI:** the current white/native battle overlay reproduces with BC disabled. Treat this as an Importer/UI composition conflict, not a BC camera defect. Direct BC + Importer 0.14.0 is the validated stack.
+
 ### Gen 2 hosted presentation
 
 > [!NOTE]
-> **Battle Art Voxel Gen2 + Stadium2 Importer:** use Battle Art `ARENA FILL = OFF` and `STADIUM CIRCLE = OFF` for the validated hosted composition. Importer `MODELS` must be in the desired state when BC initializes. MODELS ON attaches the live Stadium Gen2 backend; MODELS OFF uses Battle Art Gen2's fixed-FRONT vanilla Secondary View. Switching between them requires a reload before BC can discover the other backend.
+> **Battle Art Voxel Gen2 + Stadium 2 Importer:** use Battle Art `ARENA FILL = OFF` and `STADIUM CIRCLE = OFF` for the validated hosted composition. Importer `MODELS` must be in the desired state when BC initializes. MODELS ON attaches the live Stadium Gen2 backend; MODELS OFF uses Battle Art Gen2's fixed-FRONT vanilla Secondary View. Switching between them requires a reload before BC can discover the other backend.
 
 > [!NOTE]
 > **PotatoVoxel Gen 2 standalone:** PotatoVoxel 1.9.6 does not currently establish its own standalone Gen 2 voxel battle presentation under the tested Recomp environment. BC therefore has no Potato-native Gen 2 voxel arena to override into. This is a provider/runtime boundary, not a BC camera failure.
 
 > [!NOTE]
-> **Stadium2 Overworld Models:** `0.2.81` remains the inherited recommended compatibility basis for Battle Cinematics v1.2.9, subject to the audit scope above. The tested `0.4.33` build suffers severe independent performance problems on the Android validation device, including major slowdown before BC battle rendering begins, so v1.2.9 does not claim support for that version.
+> **Stadium2 Overworld Models:** `0.2.81` remains the inherited recommended compatibility basis for Battle Cinematics v1.3.0, subject to the audit scope above. The tested `0.4.33` build suffers severe independent performance problems on the Android validation device, including major slowdown before BC battle rendering begins, so v1.3.0 does not claim support for that version.
 
 ### Gen 1 LIVE VOXEL ARENA providers for Stadium 2 Importer
 
@@ -193,7 +200,7 @@ Unclaimed windows retain the provider's behaviour. With COOPERATIVE and CBE CAME
 
 **DOUBLE BATTLES is permission, not global camera ownership.** It may stay ON: ordinary single encounters can still use BC and Phenac, while an encounter actually admitted into CBE's doubles runtime is handed to CBE.
 
-**AUTO BATTLE FLOW is different:** it synthesizes battle progression and currently conflicts with Phenac's opening/hold contract. Keep it OFF when using **PHENAC STADIUM**. CBE **BOSS INTRO** also cannot co-run with Phenac. If either setting blocks a selected Phenac opening, v1.2.9 shows a six-second top-left **BATTLE CINEMATICS** compatibility notice once per session for that reason instead of failing silently. BC does not modify either provider setting.
+**AUTO BATTLE FLOW is different:** it synthesizes battle progression and currently conflicts with Phenac's opening/hold contract. Keep it OFF when using **PHENAC STADIUM**. CBE **BOSS INTRO** also cannot co-run with Phenac. If either setting blocks a selected Phenac opening, v1.3.0 shows a six-second top-left **BATTLE CINEMATICS** compatibility notice once per session for that reason instead of failing silently. BC does not modify either provider setting.
 
 Other BC cameras remain usable without Phenac under their normal ownership rules.
 ### CBE Secondary View
@@ -220,6 +227,26 @@ The scenery is simplified thematic artwork, not an extracted copy of the ROM are
 
 A provider update can perform its own import/cache work. Updating **BC only** does not require clearing data, reinstalling Recomp or rebuilding imported assets. Leave the working CBE archive and cache in place.
 
+---
+
+# Using Battle Cinematics
+
+The sections below follow the in-game Battle Cinematics menu. New permanent features should be added to this sequence; version-specific history belongs in GitHub Releases instead of being appended to the README.
+
+---
+
+## Menu navigation
+
+The main configurable rows display their current selection and end in `...`:
+
+```text
+IDLE PRESET...
+PKMN INTRO CAM...
+BATTLE INTRO...
+SECOND VIEW PIP...
+```
+
+Left/right changes the main value; A opens that feature's child page, whose first row repeats its principal selector. B returns to the previous root cursor/scroll position. The game's ManagerState and any compatible custom skin still own drawing, navigation and persistence. Separate CONFIGURE rows are no longer needed.
 
 ---
 
