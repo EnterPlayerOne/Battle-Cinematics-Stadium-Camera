@@ -32,7 +32,10 @@ BC does **not** replace those renderers, models, animations or assets. It direct
 
 Stadium models are optional. Battle Cinematics is designed to make the presentation you already use look intentional from a moving cinematic camera.
 
-**Quick links:** [Compatibility chart](#compatibility) · [CBE 2.0 setup](#validated-cbe-20-configuration) · [Using BC](#using-battle-cinematics) · [Installation](#installation)
+**Quick links:** [Compatibility chart](#compatibility) · [CBE 2.0 setup](#validated-cbe-20--colosseum-overhaul-configuration) · [Using BC](#using-battle-cinematics) · [Installation](#installation)
+
+> [!TIP]
+> **v1.4.1 — Desktop PiP Dragging & Prism Sprite Facing:** drag a visible PiP with the left mouse button, including on the tested mouse-camera hosts. Prism's main Dynamic player FRONT orientation is corrected. Touch placement and the established camera/rendering behaviour are unchanged. [Release notes](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/tag/v1.4.1).
 
 ## v1.4.0 — Gen2Recomped
 
@@ -127,65 +130,77 @@ The core rule underneath all of it is:
 
 Battle Cinematics is a director, not a battle renderer. A supported presentation host still owns the world, sprites, models and animation it provides.
 
-**v1.4.0 compatibility:** **Gen2Recomped 0.7.49 + Dramatic Shapes 0.7.47 release payload** is now validated across RBY, GSC/Crystal, Prism and Emerald with the caveats below. **Battle Art Voxel Fork 1.10.8 + the current Legendary visual stack** is runtime-validated on Gen 1, including caves with normal BC choreography. Direct Stadium 2 Importer **0.14.2** retains its accepted Gen 1 + Gen 2 Kenney/custom/native-arena/Phenac coverage; CBE 2.0 and Colosseum Overhaul 1.0 retain their accepted cross-generation support. Other rows keep their own exact version pins and caveats.
+**v1.4.1 compatibility:** **[Gen2Recomped](https://github.com/UNDERdecoded/Gen2Recomped) 0.7.49 + [Dramatic Shapes](https://github.com/UNDERdecoded/Gen2Recomped/releases/tag/v0.7.47) 0.7.47 release payload** is now validated across RBY, GSC/Crystal, Prism and Emerald with the caveats below. **[Battle Art Voxel Fork](https://github.com/absol89/DramaticShapeVoxelMod) 1.10.8 + the current Legendary visual stack** is runtime-validated on Gen 1, including caves with normal BC choreography. Direct [Stadium 2 Importer](https://github.com/Deftones565/gen1recomp-mod-stadium2-importer) **0.14.2** retains its accepted Gen 1 + Gen 2 Kenney/custom/native-arena/Phenac coverage; [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 and [Colosseum Overhaul](https://github.com/HighDrexler/Colosseum-Inspired-UI-Overhaul-V.1.0.0) 1.0 retain their accepted cross-generation support. Other rows keep their own exact version pins and caveats.
 
 **Key:** ✅ = validated within the row’s stated host, generation and setup; ⚠️ = the recorded partial / re-audit status, not a new compatibility pass. **3D yield** means 4-Way Sprite View correctly leaves genuine 3D models alone; it is not a camera failure.
 
-**Main BC Cameras** does not promise full Phenac on every map. Full Phenac is available on supported CBE stages, explicit Importer **HOST DEFAULT** stages, the validated direct Importer 0.14.2 selected environment/native-arena stages, and recognised outdoor live maps. Other live-world interiors and unknown map contexts keep their existing safeguards and ordinary Pokémon Intro/other cameras. A provider-selected cave environment is not the same contract as an unverified live overworld cave.
+**Main BC Cameras** does not promise full Phenac on every map. Full Phenac is available on supported [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) stages, explicit Importer **HOST DEFAULT** stages, the validated direct Importer 0.14.2 selected environment/native-arena stages, and recognised outdoor live maps. Other live-world interiors and unknown map contexts keep their existing safeguards and ordinary Pokémon Intro/other cameras. A provider-selected cave environment is not the same contract as an unverified live overworld cave.
+
+### Desktop mouse PiP placement — v1.4.1
+
+**Desktop:** left-click inside the visible PiP, drag it to a new position, then release to save **CUSTOM** placement. BC captures that gesture even when the presentation provider normally uses the mouse to steer its battle camera. Mouse camera handling outside the PiP is left alone and resumes after release. Existing touch placement is unchanged.
+
+| Desktop runtime / game | Presentation provider | Validation scope |
+|---|---|---|
+| [Gen1Recomp](https://github.com/bryanthaboi/gen1recomp) / Gen 1 | [Dramaless Shape](https://github.com/artyrambles/DRAMALESS_SHAPE) | Mouse grab, drag and saved placement validated. |
+| [Gen1Recomp](https://github.com/bryanthaboi/gen1recomp) **0.2.53** / Crystal | [Stadium2 Overworld Models](https://github.com/randyadr/Gen2-3D-Sprites) **0.2.81** | PiP drag works alongside the provider's mouse-controlled battle camera; provider control resumes after release. |
+| [Gen2Recomped](https://github.com/UNDERdecoded/Gen2Recomped) / Prism | [Dramatic Shapes](https://github.com/UNDERdecoded/Gen2Recomped/releases/tag/v0.7.47) **0.7.47 release payload** | PiP drag and provider mouse-camera coexistence validated. The inherited host validation basis is 0.7.49; the provider manifest reports 0.7.40. |
+
+These are input-interaction checks, not a fresh certification of every provider's renderer, animation or later version. Other compatibility rows and caveats below remain in force. [Stadium2 Overworld Models](https://github.com/randyadr/Gen2-3D-Sprites) 0.4.33 is **not** newly certified by this fix.
 
 ## Gen2Recomped host
 
-The same `BATTLE_CINEMATICS` package is used on Gen2Recomped. Current validation is specifically through UNDERdecoded's bundled **Dramatic Shapes** provider. The provider's 0.7.47 release payload still declares version `0.7.40` internally, so the in-game version label is not a reliable discriminator.
+The same `BATTLE_CINEMATICS` package is used on [Gen2Recomped](https://github.com/UNDERdecoded/Gen2Recomped). Current validation is specifically through UNDERdecoded's bundled **[Dramatic Shapes](https://github.com/UNDERdecoded/Gen2Recomped/releases/tag/v0.7.47)** provider. The provider's 0.7.47 release payload still declares version `0.7.40` internally, so the in-game version label is not a reliable discriminator.
 
 | Cartridge | Main BC Cameras | 4-Way Sprite View | Secondary View | Current state |
 |---|:---:|:---:|:---:|---|
 | **RBY / Gen 1** | ✅ | ✅ | ✅ | Validated. Fixed-FRONT PiP portrait + live voxel world; some location-specific foreground/prop occlusion can remain. |
 | **GSC / Crystal / Gen 2** | ✅ | ✅ | ✅ | Validated. Correct cross-host sprite scaling and PiP handedness. |
-| **Prism / Gen 2** | ✅ | ✅ | ✅ | **Alpha host cartridge.** Structural safety is intentionally conservative, especially in caves; Intro travel may shorten/hold/fallback. Provider send-in delay remains provider-owned. |
+| **Prism / Gen 2** | ✅ | ✅ | ✅ | **Alpha host cartridge.** Structural safety is intentionally conservative, especially in caves; Intro travel may shorten/hold/fallback. Provider send-in delay remains provider-owned. **v1.4.1:** player FRONT handedness is corrected in main Dynamic 4-Way; BACK, enemy and PiP orientation are unchanged. |
 | **Emerald / Gen 3** | ✅ | ✅ | ✅ | **Alpha host cartridge.** Gen3 lifecycle, Dynamic representation, Attack/Faint, structural safety and PiP validated. Native low-resolution sprite art remains pixel art even at higher PiP raster resolutions. |
 | **Polished Crystal** | — | — | — | Not currently claimable/importable in the tested host build. |
 
-**Battle Intro / Phenac Stadium is intentionally unavailable on this host.** This is a host-capability decision, not removal of Phenac from the normal Gen1Recomp / GoldRecomp compatibility matrix.
+**Battle Intro / Phenac Stadium is intentionally unavailable on this host.** This is a host-capability decision, not removal of Phenac from the normal [Gen1Recomp](https://github.com/bryanthaboi/gen1recomp) / GoldRecomp compatibility matrix.
 
 ## Gen 1 / RBY
 
-| Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | Stadium 2 Importer / arena notes |
+| Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | [Stadium 2 Importer](https://github.com/Deftones565/gen1recomp-mod-stadium2-importer) / arena notes |
 |---|:---:|:---:|:---:|---|
-| **Stadium 2 Importer 0.14.2 — direct Gen 1** | ✅ | 3D yield | ✅ | Kenney/custom environments, test fields and gym test arenas validated. Native main-camera height/framing, live battler/APB PiP and matching backgrounds corrected. Gen 1 PiP engagement and Phenac retained. No automatic certification of older mixed-provider stacks. |
-| **Colosseum Battle Environments 2.0 — Gen 1** | ✅ | 3D yield (native models) | ✅ | **BC PRIORITY** works with CBE’s regular camera ON or OFF. **DOUBLE BATTLES may remain ON**; actual CBE doubles remain provider-owned. Phenac requires **AUTO BATTLE FLOW OFF** and CBE Boss Intro OFF; BC shows an in-battle conflict notice if either blocks it. Native-animation-aware Attack timing, manual control and all **11 arena-themed PiP cards**. |
-| **Colosseum Overhaul 1.0 — Gen 1** | ✅ | 3D yield (native models) | ✅ | Exact combined CBE 2.0 + Colosseum UI package validated. Same BC PRIORITY, Attack timing, manual-camera, PiP, Phenac and runtime-doubles arbitration as the standalone CBE 2.0 integration. **AUTO BATTLE FLOW must be OFF for Phenac.** |
-| **Colosseum Battle Environments 1.8.4 — Gen 1** | ✅ | 3D yield (native models) | ✅; reaction caveat | Retained exact-stock adapter (`1.8.4-capture-member-hsd.1`). Keep **COLOSSEUM CAMERA OFF**. Primary cameras, intros, manual control and portable-actor PiP retained; Gen 1 PiP reactions can be less consistent than Gen 2. |
-| **Dramaless Shape 2.0.4** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer validated. **LIVE VOXEL ARENA** supported. Provider-native bounded manual fallback retained for the Dramaless + Importer combination. v1.2.6 performance verified. |
-| **Battle Art Voxel Fork 1.10.8 + Legendary visuals** | ✅ | ✅ | ✅ | **Full tested Gen 1 host compatibility.** Vanilla / animated Gen 5 cards and the current Legendary environment stack are validated with BC. Caves retain normal BC choreography rather than requiring a permanent one-side lock. Battle Art owns its world, cards and environment safety; BC keeps camera direction. The separate cross-host 2D PiP live-state enhancement is pinned for later and is not a Battle Art-specific compatibility patch. |
-| **Official Dramatic Shape 1.6.1 — Gen 1 MAP / A** | ✅ | Inherited supported flat-card path | Functional; stale-environment concern remains | **LIVE VOXEL ARENA** replaces Importer blue. Hosted world is bounded to 960×540 maximum, preserving aspect; Importer actors/HUD remain full-resolution. Android main-world performance improvement validated. B/disc modes yield to host. |
-| **Voxel Ascendant 2.0.2 — MAP** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer MAP validated. **LIVE VOXEL ARENA** supported. ARENA / DISCS are not currently claimed. |
-| **PotatoVoxel 1.9.6 — Gen 1 MAP / 2D-3D A** | ✅ | ✅ | ✅ | Gen 1 validated with Stadium 2 Importer **LIVE VOXEL ARENA**. v1.2.6 main/PiP APB framing, passive paths and one-world performance verified. |
+| **[Stadium 2 Importer](https://github.com/Deftones565/gen1recomp-mod-stadium2-importer) 0.14.2 — direct Gen 1** | ✅ | 3D yield | ✅ | Kenney/custom environments, test fields and gym test arenas validated. Native main-camera height/framing, live battler/APB PiP and matching backgrounds corrected. Gen 1 PiP engagement and Phenac retained. No automatic certification of older mixed-provider stacks. |
+| **[Colosseum Battle Environments](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 — Gen 1** | ✅ | 3D yield (native models) | ✅ | **BC PRIORITY** works with [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA)’s regular camera ON or OFF. **DOUBLE BATTLES may remain ON**; actual [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) doubles remain provider-owned. Phenac requires **AUTO BATTLE FLOW OFF** and [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) Boss Intro OFF; BC shows an in-battle conflict notice if either blocks it. Native-animation-aware Attack timing, manual control and all **11 arena-themed PiP cards**. |
+| **[Colosseum Overhaul](https://github.com/HighDrexler/Colosseum-Inspired-UI-Overhaul-V.1.0.0) 1.0 — Gen 1** | ✅ | 3D yield (native models) | ✅ | Exact combined [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 + Colosseum UI package validated. Same BC PRIORITY, Attack timing, manual-camera, PiP, Phenac and runtime-doubles arbitration as the standalone [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 integration. **AUTO BATTLE FLOW must be OFF for Phenac.** |
+| **[Colosseum Battle Environments](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 1.8.4 — Gen 1** | ✅ | 3D yield (native models) | ✅; reaction caveat | Retained exact-stock adapter (`1.8.4-capture-member-hsd.1`). Keep **COLOSSEUM CAMERA OFF**. Primary cameras, intros, manual control and portable-actor PiP retained; Gen 1 PiP reactions can be less consistent than Gen 2. |
+| **[Dramaless Shape](https://github.com/artyrambles/DRAMALESS_SHAPE) 2.0.4** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer validated. **LIVE VOXEL ARENA** supported. Provider-native bounded manual fallback retained for the Dramaless + Importer combination. v1.2.6 performance verified. |
+| **[Battle Art Voxel Fork](https://github.com/absol89/DramaticShapeVoxelMod) 1.10.8 + Legendary visuals** | ✅ | ✅ | ✅ | **Full tested Gen 1 host compatibility.** Vanilla / animated Gen 5 cards and the current Legendary environment stack are validated with BC. Caves retain normal BC choreography rather than requiring a permanent one-side lock. Battle Art owns its world, cards and environment safety; BC keeps camera direction. The separate cross-host 2D PiP live-state enhancement is pinned for later and is not a Battle Art-specific compatibility patch. |
+| **[Official Dramatic Shape](https://github.com/DramaticShape/DramaticShapeVoxelMod) 1.6.1 — Gen 1 MAP / A** | ✅ | Inherited supported flat-card path | Functional; stale-environment concern remains | **LIVE VOXEL ARENA** replaces Importer blue. Hosted world is bounded to 960×540 maximum, preserving aspect; Importer actors/HUD remain full-resolution. Android main-world performance improvement validated. B/disc modes yield to host. |
+| **[Voxel Ascendant](https://github.com/Roxas2712/voxel-ascendant) 2.0.2 — MAP** | ✅ | ✅ | ✅ | Vanilla / Crystal / Importer MAP validated. **LIVE VOXEL ARENA** supported. ARENA / DISCS are not currently claimed. |
+| **[PotatoVoxel](https://github.com/ShaneMcGovernIE/potato_voxel) 1.9.6 — Gen 1 MAP / 2D-3D A** | ✅ | ✅ | ✅ | Gen 1 validated with [Stadium 2 Importer](https://github.com/Deftones565/gen1recomp-mod-stadium2-importer) **LIVE VOXEL ARENA**. v1.2.6 main/PiP APB framing, passive paths and one-world performance verified. |
 | **Voxel Ultimate 1.0.7 — Gen 1** | ✅ | ✅ | ✅ | Integrated host path validated. Avoid stacking duplicate systems that Voxel Ultimate already integrates. |
-| **Stadium 2 Importer 0.14.0 — direct Gen 1** | ✅ | 3D yield | ✅ | Direct 0.14 owned-scene path validated. **LIVE VIEW** uses the live Stadium actor in a bounded independent scene. **KENNEY NATURE** is runtime-validated in the main view and PiP; BC preserves its own portrait framing while the provider owns the woodland environment. |
-| **Crystal Animated Sprites 2.0.2** | ✅ | ✅ | ✅ | Animated sprite presentation supported on established compatible host paths. Fixed animated FRONT Secondary View remains independent from the main 4-Way view. |
+| **[Stadium 2 Importer](https://github.com/Deftones565/gen1recomp-mod-stadium2-importer) 0.14.0 — direct Gen 1** | ✅ | 3D yield | ✅ | Direct 0.14 owned-scene path validated. **LIVE VIEW** uses the live Stadium actor in a bounded independent scene. **KENNEY NATURE** is runtime-validated in the main view and PiP; BC preserves its own portrait framing while the provider owns the woodland environment. |
+| **[Crystal Animated Sprites](https://github.com/distilledorion-sketch/crystal_animated_sprites_with_shiny_visuals) 2.0.2** | ✅ | ✅ | ✅ | Animated sprite presentation supported on established compatible host paths. Fixed animated FRONT Secondary View remains independent from the main 4-Way view. |
 | **Compatible vanilla / ROM sprite presentation** | ✅ | ✅ | ✅ where host-supported | BC uses the host's actual sprite presentation rather than replacing the artwork. |
-| **StadiumBattleFX 2.1.8.1** | ✅* | 3D yield | ✅ | **Gen1 Stadium model presentation supported.** Proven with **Dramaless Shape 2.0.3** when SBFX `BATTLE ARENA` is set to the registered **VOXEL ARENA** provider. Other voxel-provider combinations are provider/version-specific; see notes below. |
+| **[StadiumBattleFX](https://github.com/anxiousintrovert/StadiumBattleFX) 2.1.8.1** | ✅* | 3D yield | ✅ | **Gen1 Stadium model presentation supported.** Proven with **[Dramaless Shape](https://github.com/artyrambles/DRAMALESS_SHAPE) 2.0.3** when SBFX `BATTLE ARENA` is set to the registered **VOXEL ARENA** provider. Other voxel-provider combinations are provider/version-specific; see notes below. |
 
 ## Gen 2 / GSC
 
 | Presentation / host | Main BC Cameras | 4-Way Sprite View | Secondary View | Current state |
 |---|:---:|:---:|:---:|---|
-| **Stadium 2 Importer 0.14.2 — direct Gen 2** | ✅ | 3D yield | ✅ | Kenney/custom environments, test fields and gym test arenas validated. Native main-camera height/framing, live battler/APB PiP and matching backgrounds corrected. Reported black PiP flicker corrected. **Phenac runs on validated provider-selected environment/native-arena stages**; classic map safety remains intact. No automatic certification of older mixed-provider stacks. |
-| **Colosseum Battle Environments 2.0 — Gen 2** | ✅ | 3D yield (native models) | ✅ | **BC PRIORITY** works with CBE’s regular camera ON or OFF. **DOUBLE BATTLES may remain ON**; actual CBE doubles remain provider-owned. Phenac requires **AUTO BATTLE FLOW OFF** and CBE Boss Intro OFF; BC shows an in-battle conflict notice if either blocks it. Native-animation-aware Attack timing, BC-owned manual control and all **11 arena-themed PiP cards**. |
-| **Colosseum Overhaul 1.0 — Gen 2** | ✅ | 3D yield (native models) | ✅ | Exact combined CBE 2.0 + Colosseum UI package validated. Same BC PRIORITY, Attack timing, manual-camera, PiP, Phenac and runtime-doubles arbitration as the standalone CBE 2.0 integration. **AUTO BATTLE FLOW must be OFF for Phenac.** |
-| **Colosseum Battle Environments 1.8.4 — Gen 2** | ✅ | 3D yield (native models) | ✅ | Retained exact-stock adapter (`1.8.4-capture-member-hsd.1`). Keep **COLOSSEUM CAMERA OFF**. Primary cameras, intros, manual control and bounded portable-actor PiP retained. |
-| **Battle Art Voxel Gen2 2.0.8 / `BATTLE_ART_VOXEL_GEN2`** | ✅ | ✅ | ✅ | Validated Battle Art Gen2 host. Passive presets, 4-Way, Pokémon Intro/send-ins, faint lifecycle and APB framing retained. With Stadium 2 Importer 0.12.1 MODELS ON, LIVE VIEW uses the live Stadium actor over the Battle Art voxel world; with MODELS OFF, Secondary View uses the established fixed-FRONT vanilla portrait path. Native close actor spacing can naturally limit aggressive Attack Camera travel. |
-| **Gen2-3D-Sprites / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ⚠️ **Partial / audit** | Current recommended standalone Gen 2 Stadium basis. The main Stadium 3D camera route remains available, but complete continuous LIVE VIEW tracking across idle, attack, faint and replacement is entering renewed runtime audit. Provider owns Gen 2 right-stick behavior. |
+| **[Stadium 2 Importer](https://github.com/Deftones565/gen1recomp-mod-stadium2-importer) 0.14.2 — direct Gen 2** | ✅ | 3D yield | ✅ | Kenney/custom environments, test fields and gym test arenas validated. Native main-camera height/framing, live battler/APB PiP and matching backgrounds corrected. Reported black PiP flicker corrected. **Phenac runs on validated provider-selected environment/native-arena stages**; classic map safety remains intact. No automatic certification of older mixed-provider stacks. |
+| **[Colosseum Battle Environments](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 — Gen 2** | ✅ | 3D yield (native models) | ✅ | **BC PRIORITY** works with [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA)’s regular camera ON or OFF. **DOUBLE BATTLES may remain ON**; actual [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) doubles remain provider-owned. Phenac requires **AUTO BATTLE FLOW OFF** and [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) Boss Intro OFF; BC shows an in-battle conflict notice if either blocks it. Native-animation-aware Attack timing, BC-owned manual control and all **11 arena-themed PiP cards**. |
+| **[Colosseum Overhaul](https://github.com/HighDrexler/Colosseum-Inspired-UI-Overhaul-V.1.0.0) 1.0 — Gen 2** | ✅ | 3D yield (native models) | ✅ | Exact combined [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 + Colosseum UI package validated. Same BC PRIORITY, Attack timing, manual-camera, PiP, Phenac and runtime-doubles arbitration as the standalone [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 integration. **AUTO BATTLE FLOW must be OFF for Phenac.** |
+| **[Colosseum Battle Environments](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 1.8.4 — Gen 2** | ✅ | 3D yield (native models) | ✅ | Retained exact-stock adapter (`1.8.4-capture-member-hsd.1`). Keep **COLOSSEUM CAMERA OFF**. Primary cameras, intros, manual control and bounded portable-actor PiP retained. |
+| **Battle Art Voxel Gen2 2.0.8 / `BATTLE_ART_VOXEL_GEN2`** | ✅ | ✅ | ✅ | Validated Battle Art Gen2 host. Passive presets, 4-Way, Pokémon Intro/send-ins, faint lifecycle and APB framing retained. With [Stadium 2 Importer](https://github.com/Deftones565/gen1recomp-mod-stadium2-importer) 0.12.1 MODELS ON, LIVE VIEW uses the live Stadium actor over the Battle Art voxel world; with MODELS OFF, Secondary View uses the established fixed-FRONT vanilla portrait path. Native close actor spacing can naturally limit aggressive Attack Camera travel. |
+| **[Gen2-3D-Sprites](https://github.com/randyadr/Gen2-3D-Sprites) / `STADIUM2_OVERWORLD_MODELS` 0.2.81** | ✅ | ✅ on 2D world-card path | ⚠️ **Partial / audit** | Current recommended standalone Gen 2 Stadium basis. The main Stadium 3D camera route remains available, but complete continuous LIVE VIEW tracking across idle, attack, faint and replacement is entering renewed runtime audit. Provider owns Gen 2 right-stick behavior. |
 | **Voxel Ultimate 1.0.7 — Gen 2** | ⚠️ **Re-audit** | ✅ on supported flat-card path | ⚠️ **Re-audit** | Previously established integrated Gen 2 host. Current 3D attachment and complete continuous LIVE VIEW behavior are entering renewed runtime audit. |
-| **Stadium 2 Importer 0.14.0 — direct Gen 2** | ✅ | 3D yield | ✅ | Direct Gold/Gen2 0.14 presentation validated with BC. **KENNEY NATURE** is inherited by the private LIVE VIEW scene while BC reasserts the established independent portrait camera after environment selection. The live actor/Attack lifecycle and main Kenney camera remain separate. **Colosseum UI + Importer 0.14 Gen2 currently has an external provider/UI overlay conflict even with BC disabled.** |
-| **PotatoVoxel 1.9.6 + Stadium 2 Importer 0.12.1** | ⚠️ **Re-audit** | 3D yield | ⚠️ **Re-audit** | Potato standalone Gen 2 3D is not claimed. Any working combined presentation remains Importer-owned because Potato does not currently expose an attached Gen 2 live voxel world. |
-| **Crystal Animated Sprites 2.0.2** | ✅ | ✅ on compatible world-card paths | ✅ | Crystal artwork/animation remains provider-owned; BC supplies camera-relative orientation and secondary composition where supported. |
+| **[Stadium 2 Importer](https://github.com/Deftones565/gen1recomp-mod-stadium2-importer) 0.14.0 — direct Gen 2** | ✅ | 3D yield | ✅ | Direct Gold/Gen2 0.14 presentation validated with BC. **KENNEY NATURE** is inherited by the private LIVE VIEW scene while BC reasserts the established independent portrait camera after environment selection. The live actor/Attack lifecycle and main Kenney camera remain separate. **Colosseum UI + Importer 0.14 Gen2 currently has an external provider/UI overlay conflict even with BC disabled.** |
+| **[PotatoVoxel](https://github.com/ShaneMcGovernIE/potato_voxel) 1.9.6 + [Stadium 2 Importer](https://github.com/Deftones565/gen1recomp-mod-stadium2-importer) 0.12.1** | ⚠️ **Re-audit** | 3D yield | ⚠️ **Re-audit** | Potato standalone Gen 2 3D is not claimed. Any working combined presentation remains Importer-owned because Potato does not currently expose an attached Gen 2 live voxel world. |
+| **[Crystal Animated Sprites](https://github.com/distilledorion-sketch/crystal_animated_sprites_with_shiny_visuals) 2.0.2** | ✅ | ✅ on compatible world-card paths | ✅ | Crystal artwork/animation remains provider-owned; BC supplies camera-relative orientation and secondary composition where supported. |
 
 ## Provider setup and limitations
 
 ### CBE presentation
 
-CBE PiP uses a live portable actor over a bounded, arena-themed card, not a second exact live Colosseum world render. The CBE 2.0 camera setting may remain ON under BC PRIORITY; the legacy 1.8.4 adapter still requires CAMERA OFF. Use only the exact supported, source-checked CBE builds; a later provider update is not automatically certified.
+[CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) PiP uses a live portable actor over a bounded, arena-themed card, not a second exact live Colosseum world render. The [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 camera setting may remain ON under BC PRIORITY; the legacy 1.8.4 adapter still requires CAMERA OFF. Use only the exact supported, source-checked [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) builds; a later provider update is not automatically certified.
 
 ### Stadium 2 Importer 0.14.2 direct presentation
 
@@ -201,30 +216,30 @@ Direct **0.14.0** retains the v1.3.0 Gen 1/Gen 2 validation below the current ro
 ### Gen 2 hosted presentation
 
 > [!NOTE]
-> **Battle Art Voxel Gen2 + Stadium 2 Importer:** use Battle Art `ARENA FILL = OFF` and `STADIUM CIRCLE = OFF` for the validated hosted composition. Importer `MODELS` must be in the desired state when BC initializes. MODELS ON attaches the live Stadium Gen2 backend; MODELS OFF uses Battle Art Gen2's fixed-FRONT vanilla Secondary View. Switching between them requires a reload before BC can discover the other backend.
+> **Battle Art Voxel Gen2 + [Stadium 2 Importer](https://github.com/Deftones565/gen1recomp-mod-stadium2-importer):** use Battle Art `ARENA FILL = OFF` and `STADIUM CIRCLE = OFF` for the validated hosted composition. Importer `MODELS` must be in the desired state when BC initializes. MODELS ON attaches the live Stadium Gen2 backend; MODELS OFF uses Battle Art Gen2's fixed-FRONT vanilla Secondary View. Switching between them requires a reload before BC can discover the other backend.
 
 > [!NOTE]
-> **PotatoVoxel Gen 2 standalone:** PotatoVoxel 1.9.6 does not currently establish its own standalone Gen 2 voxel battle presentation under the tested Recomp environment. BC therefore has no Potato-native Gen 2 voxel arena to override into. This is a provider/runtime boundary, not a BC camera failure.
+> **[PotatoVoxel](https://github.com/ShaneMcGovernIE/potato_voxel) Gen 2 standalone:** [PotatoVoxel](https://github.com/ShaneMcGovernIE/potato_voxel) 1.9.6 does not currently establish its own standalone Gen 2 voxel battle presentation under the tested Recomp environment. BC therefore has no Potato-native Gen 2 voxel arena to override into. This is a provider/runtime boundary, not a BC camera failure.
 
 > [!NOTE]
-> **Stadium2 Overworld Models:** `0.2.81` remains the inherited recommended compatibility basis for Battle Cinematics v1.4.0, subject to the audit scope above. The tested `0.4.33` build suffers severe independent performance problems on the Android validation device, including major slowdown before BC battle rendering begins, so v1.4.0 does not claim support for that version.
+> **[Stadium2 Overworld Models](https://github.com/randyadr/Gen2-3D-Sprites):** `0.2.81` remains the inherited recommended compatibility basis for Battle Cinematics v1.4.1, subject to the audit scope above. The tested `0.4.33` build suffers severe independent performance problems on the Android validation device, including major slowdown before BC battle rendering begins, so v1.4.1 does not claim support for that version.
 
 ### Gen 1 LIVE VOXEL ARENA providers for Stadium 2 Importer
 
-- **Dramaless Shape 2.0.4**
-- **Official Dramatic Shape 1.6.1 — Gen 1 MAP / A**
-- **Voxel Ascendant 2.0.2 — MAP**
-- **PotatoVoxel 1.9.6 — MAP / 2D-3D A**
+- **[Dramaless Shape](https://github.com/artyrambles/DRAMALESS_SHAPE) 2.0.4**
+- **[Official Dramatic Shape](https://github.com/DramaticShape/DramaticShapeVoxelMod) 1.6.1 — Gen 1 MAP / A**
+- **[Voxel Ascendant](https://github.com/Roxas2712/voxel-ascendant) 2.0.2 — MAP**
+- **[PotatoVoxel](https://github.com/ShaneMcGovernIE/potato_voxel) 1.9.6 — MAP / 2D-3D A**
 
-**Battle Art Voxel Fork 1.10.8** supplies its environment through its own established integration rather than BC's arena-override bridge. The current Legendary visual stack is validated on this direct Gen 1 Battle Art path.
+**[Battle Art Voxel Fork](https://github.com/absol89/DramaticShapeVoxelMod) 1.10.8** supplies its environment through its own established integration rather than BC's arena-override bridge. The current Legendary visual stack is validated on this direct Gen 1 Battle Art path.
 
 ### StadiumBattleFX + voxel providers
 
-StadiumBattleFX can provide a separate Gen1 Stadium-model presentation while compatible voxel backends continue to provide the battle environment. This is provider-specific and should not be assumed to work identically across every backend.
+[StadiumBattleFX](https://github.com/anxiousintrovert/StadiumBattleFX) can provide a separate Gen1 Stadium-model presentation while compatible voxel backends continue to provide the battle environment. This is provider-specific and should not be assumed to work identically across every backend.
 
 | Voxel provider | SBFX Stadium model state v2.1.8.1|
 |---|---|
-| **Dramaless Shape 2.0.3** | ✅ **Validated.** Select its registered voxel arena in SBFX `BATTLE ARENA`. Stadium models + voxel world + BC cameras + Secondary View work correctly. |
+| **[Dramaless Shape](https://github.com/artyrambles/DRAMALESS_SHAPE) 2.0.3** | ✅ **Validated.** Select its registered voxel arena in SBFX `BATTLE ARENA`. Stadium models + voxel world + BC cameras + Secondary View work correctly. |
 
 
 Dramatic Shape support targets the official MIT 1.6.1 archive (manifest 1.6.1; its older compatibility export still reads 1.5.5). Later derived builds are not active recommendations here. The 1.6.1 bridge is **Gen 1 only**; its separate PiP stale-environment report is not claimed fixed by the main-world performance improvement.
@@ -233,9 +248,9 @@ Dramatic Shape support targets the official MIT 1.6.1 archive (manifest 1.6.1; i
 
 | Exact provider | Status | Scope |
 |---|---|---|
-| **CBE 1.8.4** (`1.8.4-capture-member-hsd.1`) | Retained runtime-validated support | Legacy exact-stock adapter. Keep **COLOSSEUM CAMERA OFF**. Primary cameras, battle/Pokémon intros, manual control and bounded portable-actor PiP retained; Gen 1 PiP reactions can be less consistent than Gen 2. |
-| **CBE 2.0** | **Runtime-validated on Gen 1 and Gen 2** | BC PRIORITY camera arbitration, native Colosseum-model Attack timing, intros, passive/Attack/Faint cameras, manual control and PiP. All 11 arena cards are present. Double Battles may remain enabled; actual admitted doubles are CBE-owned. |
-| **Colosseum Overhaul 1.0** | **Runtime-validated on Gen 1 and Gen 2** | Exact combined CBE 2.0 + Colosseum UI package. BC recognises the combined manifest directly and supplies the same accepted CBE 2.0 camera/PiP integration without modifying its bundled UI or imported cache. |
+| **[CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 1.8.4** (`1.8.4-capture-member-hsd.1`) | Retained runtime-validated support | Legacy exact-stock adapter. Keep **COLOSSEUM CAMERA OFF**. Primary cameras, battle/Pokémon intros, manual control and bounded portable-actor PiP retained; Gen 1 PiP reactions can be less consistent than Gen 2. |
+| **[CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0** | **Runtime-validated on Gen 1 and Gen 2** | BC PRIORITY camera arbitration, native Colosseum-model Attack timing, intros, passive/Attack/Faint cameras, manual control and PiP. All 11 arena cards are present. Double Battles may remain enabled; actual admitted doubles are CBE-owned. |
+| **[Colosseum Overhaul](https://github.com/HighDrexler/Colosseum-Inspired-UI-Overhaul-V.1.0.0) 1.0** | **Runtime-validated on Gen 1 and Gen 2** | Exact combined [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 + Colosseum UI package. BC recognises the combined manifest directly and supplies the same accepted [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 camera/PiP integration without modifying its bundled UI or imported cache. |
 
 Install one of the exact supported packages. No custom companion, external patch application or separate compatibility mod is required. BC reads and checks the supported provider source during normal load and supplies the camera integration in memory. It does **not** rewrite installed provider files, the imported disc or the generated cache. Unknown provider bytes are left to load normally without a speculative adapter; later provider updates are not automatically certified.
 
@@ -253,31 +268,31 @@ AUTO BATTLE FLOW      OFF
 BOSS INTRO            OFF
 ```
 
-**You no longer need to turn off the provider's regular camera to use BC.** Under BC PRIORITY, an enabled BC shot takes the final camera with no CBE camera or free-look layered over it. BC does not alter the provider's saved camera preference.
+**You no longer need to turn off the provider's regular camera to use BC.** Under BC PRIORITY, an enabled BC shot takes the final camera with no [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) camera or free-look layered over it. BC does not alter the provider's saved camera preference.
 
 Camera ownership remains phase-scoped:
 
-| BC selection | CBE 2.0 / Overhaul behaviour |
+| BC selection | [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 / Overhaul behaviour |
 |---|---|
-| **BC PRIORITY** | BC directs the enabled shot while it owns that phase, whether the regular CBE camera is ON or OFF. |
+| **BC PRIORITY** | BC directs the enabled shot while it owns that phase, whether the regular [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) camera is ON or OFF. |
 | **IDLE PRESET → EXTERNAL** | Native idle camera; enabled BC Pokémon Intro, Attack and Faint cameras can still take their own phases. |
-| **An individual BC event camera OFF** | The released event is available to CBE unless another active BC module owns the frame. |
-| **COOPERATIVE + CBE CAMERA ON** | Native CBE main camera; enabled BC PiP remains available under its normal startup and visibility rules. |
+| **An individual BC event camera OFF** | The released event is available to [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) unless another active BC module owns the frame. |
+| **COOPERATIVE + [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) CAMERA ON** | Native [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) main camera; enabled BC PiP remains available under its normal startup and visibility rules. |
 | **BC DISABLED** | BC yields the main camera and disables its PiP. |
-| **Actual CBE doubles session** | CBE owns its doubles presentation and camera. BC does not run Phenac over an admitted doubles battle. |
+| **Actual [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) doubles session** | [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) owns its doubles presentation and camera. BC does not run Phenac over an admitted doubles battle. |
 
-Unclaimed windows retain the provider's behaviour. With COOPERATIVE and CBE CAMERA OFF, BC retains the established camera-OFF path rather than forcing a native camera that the user disabled.
+Unclaimed windows retain the provider's behaviour. With COOPERATIVE and [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) CAMERA OFF, BC retains the established camera-OFF path rather than forcing a native camera that the user disabled.
 
-**DOUBLE BATTLES is permission, not global camera ownership.** It may stay ON: ordinary single encounters can still use BC and Phenac, while an encounter actually admitted into CBE's doubles runtime is handed to CBE.
+**DOUBLE BATTLES is permission, not global camera ownership.** It may stay ON: ordinary single encounters can still use BC and Phenac, while an encounter actually admitted into [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA)'s doubles runtime is handed to [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA).
 
-**AUTO BATTLE FLOW is different:** it synthesizes battle progression and currently conflicts with Phenac's opening/hold contract. Keep it OFF when using **PHENAC STADIUM**. CBE **BOSS INTRO** also cannot co-run with Phenac. If either setting blocks a selected Phenac opening, v1.4.0 retains the six-second top-left **BATTLE CINEMATICS** compatibility notice once per session for that reason instead of failing silently. BC does not modify either provider setting.
+**AUTO BATTLE FLOW is different:** it synthesizes battle progression and currently conflicts with Phenac's opening/hold contract. Keep it OFF when using **PHENAC STADIUM**. [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) **BOSS INTRO** also cannot co-run with Phenac. If either setting blocks a selected Phenac opening, v1.4.1 retains the six-second top-left **BATTLE CINEMATICS** compatibility notice once per session for that reason instead of failing silently. BC does not modify either provider setting.
 
 Other BC cameras remain usable without Phenac under their normal ownership rules.
 ### CBE Secondary View
 
-CBE PiP combines a **private portable CBE actor**, stable APB-aware composition, gentle independent forward three-quarter pan and a bounded, arena-themed background card. It is **not** a second exact live Colosseum world render or a second battle simulation. The actor animates within the composition; the PiP camera does not chase its animation.
+[CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) PiP combines a **private portable [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) actor**, stable APB-aware composition, gentle independent forward three-quarter pan and a bounded, arena-themed background card. It is **not** a second exact live Colosseum world render or a second battle simulation. The actor animates within the composition; the PiP camera does not chase its animation.
 
-All **11 actual CBE 2.0 arenas** have explicit cards:
+All **11 actual [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) 2.0 arenas** have explicit cards:
 
 | Arena | PiP theme |
 |---|---|
@@ -293,9 +308,9 @@ All **11 actual CBE 2.0 arenas** have explicit cards:
 | Orre Wildlands | Open wildlands |
 | Mt. Battle Summit | Summit arena |
 
-The scenery is simplified thematic artwork, not an extracted copy of the ROM arena. AUTO and RANDOM are arena selectors, not extra stages. BC follows CBE's resolved active arena; manual arena changes apply when CBE acquires the next battle arena. An unknown/unavailable stage retains the defensive Water fallback.
+The scenery is simplified thematic artwork, not an extracted copy of the ROM arena. AUTO and RANDOM are arena selectors, not extra stages. BC follows [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA)'s resolved active arena; manual arena changes apply when [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) acquires the next battle arena. An unknown/unavailable stage retains the defensive Water fallback.
 
-A provider update can perform its own import/cache work. Updating **BC only** does not require clearing data, reinstalling Recomp or rebuilding imported assets. Leave the working CBE archive and cache in place.
+A provider update can perform its own import/cache work. Updating **BC only** does not require clearing data, reinstalling Recomp or rebuilding imported assets. Leave the working [CBE](https://github.com/HighDrexler/Colosseum-Battle-Environments-1.0-BETA) archive and cache in place.
 
 ---
 
@@ -334,7 +349,7 @@ During the moving opening, A cannot advance the encounter underneath it. **B** s
 
 Trainer battles continue from the trainer hold through enemy send-out/Intro and player send-out/Intro. A wild opening replaces the initial enemy Pokémon Intro and continues to the actual player throw/send-out, then player Intro. Ordinary Pokémon Intros retain their own cancel setting.
 
-v1.4.0 keeps the original Phenac choreography and tested outdoor adaptation. The validated direct Importer 0.14.2 provider-selected environment/native-arena stages are now admitted on Gen 2, including the supplied cave showcase. Explicit Importer HOST DEFAULT remains eligible. This does not admit every live-world interior: non-stage interiors and unknown map contexts retain their existing safeguards until the separate room-path fitting is validated. Ordinary cameras and Pokémon Intro are unaffected by this eligibility rule.
+v1.4.1 keeps the original Phenac choreography and tested outdoor adaptation. The validated direct Importer 0.14.2 provider-selected environment/native-arena stages are now admitted on Gen 2, including the supplied cave showcase. Explicit Importer HOST DEFAULT remains eligible. This does not admit every live-world interior: non-stage interiors and unknown map contexts retain their existing safeguards until the separate room-path fitting is validated. Ordinary cameras and Pokémon Intro are unaffected by this eligibility rule.
 
 With CBE 2.0 or Colosseum Overhaul 1.0, **AUTO BATTLE FLOW must be OFF for Phenac Stadium** and CBE Boss Intro must not be selected for the same opening. If either conflict is detected when Phenac was actually selected for the encounter, BC shows a short top-left compatibility notice at the failure point. The notice is informational only: it does not pause the battle, capture input or rewrite provider settings. DOUBLE BATTLES may remain ON; only a battle actually admitted into CBE's doubles runtime is yielded to CBE.
 
@@ -568,7 +583,7 @@ Existing BC configurations keep their previous colour and receive ROUNDED when n
 - Side: **Left (DW3) — default** / Right
 - Place: Mid Center / Top Right / **Mid Right — default** / Top Left / Mid Left / Custom
 
-↖️ Custom placement can be adjusted directly on supported mouse/touch frontends.
+↖️ **Desktop:** left-click inside the visible PiP, drag it to a new position, then release to save **CUSTOM** placement. BC captures that gesture even when the presentation provider normally uses the mouse to steer its battle camera. Mouse camera handling outside the PiP is left alone and resumes after release. Existing touch placement is unchanged.
 
 Different hosts expose different safe private-render seams. BC adapts to those provider boundaries while preserving the same public Secondary View behavior: the provider owns its world, artwork, models and animation state; BC owns the alternate camera and render target.
 
@@ -576,7 +591,7 @@ Different hosts expose different safe private-render seams. BC adapts to those p
 
 The **v1.2.5** PIP MODE migration introduced **LIVE VIEW** as the default.
 
-Existing installations are migrated to LIVE VIEW **once** when first upgrading to that PIP MODE system. After that migration, the user's own choice is respected normally: LIVE VIEW, LIVING PORTRAIT or DYNAMIC (DW3) all persist across restart. v1.4.0 does not reapply a completed mode migration.
+Existing installations are migrated to LIVE VIEW **once** when first upgrading to that PIP MODE system. After that migration, the user's own choice is respected normally: LIVE VIEW, LIVING PORTRAIT or DYNAMIC (DW3) all persist across restart. v1.4.1 does not reapply a completed mode migration.
 
 The separate v1.2.8 frame migration distinguishes a new configuration from an existing one. It preserves existing frame/colour preferences as described above; updating does not switch an existing white or dark frame to grey.
 
@@ -699,9 +714,9 @@ The exact **Dramaless + Stadium 2 Importer** composition intentionally uses the 
 
 The active compatible provider normally owns the right stick. **CBE is an explicit exception:** BC supplies its existing manual orbit in both generations when BC directs the CBE camera. Other Gen 2 providers keep their manual control and are not globally overridden.
 
-![Randy first-person provider control](media/randy-first-provider-control.gif)
+![Stadium2 Overworld Models first-person provider control](media/randy-first-provider-control.gif)
 
-![Randy third-person provider control](randy-third-provider-control.gif)
+![Stadium2 Overworld Models third-person provider control](randy-third-provider-control.gif)
 
 Voxel Ultimate and `STADIUM2_OVERWORLD_MODELS` keep their provider-native manual-camera semantics while BC retains its configured camera phases.
 
@@ -721,7 +736,7 @@ Use a supported live battle/world host and leave **4-WAY SPRITE VIEW → DYNAMIC
 
 Use **Stadium 2 Importer 0.14.2** for the latest validated direct Gen 1 or Gen 2 Stadium presentation. BC directs the enabled Stadium 64 / DW3 / Hero, Pokémon Intro, Attack, Faint and Secondary View phases while Importer owns the models, animation and selected environment. **Kenney/custom environments, native test fields and gym test arenas** are validated on both generations; Phenac also runs on the validated provider-selected stages. Direct 0.14.0 retains its earlier validation.
 
-For the older Battle Art Gen2 hosted composition, keep the separately validated **Stadium 2 Importer 0.12.1** setup described in the compatibility table; v1.4.0 does not silently certify that mixed stack on 0.14.0 or 0.14.2.
+For the older Battle Art Gen2 hosted composition, keep the separately validated **Stadium 2 Importer 0.12.1** setup described in the compatibility table; v1.4.1 does not silently certify that mixed stack on 0.14.0 or 0.14.2.
 
 ### I want Stadium models in the actual voxel world
 
