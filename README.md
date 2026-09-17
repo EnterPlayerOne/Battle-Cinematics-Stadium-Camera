@@ -6,8 +6,7 @@
 **Stadium 64 • Phenac Stadium • 4-Way Sprite View • Pokémon Intro • Attack & Faint Cameras • Secondary View • Live Voxel Arenas • Gen 1 + Gen 2 + Gen 3**
 
 
-
-[![Latest Release](https://img.shields.io/github/v/release/EnterPlayerOne/Battle-Cinematics-Stadium-Camera?label=Latest%20Release)](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest)
+[![Latest Release ↗](https://img.shields.io/github/v/release/EnterPlayerOne/Battle-Cinematics-Stadium-Camera?label=Latest%20Release%20%E2%86%97)](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest)
 [![Downloads since v1.2.1](https://img.shields.io/github/downloads/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/total?label=Downloads%20since%20v1.2.1)](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases)
 
 <!-- PRIME SHOWCASE
