@@ -8,6 +8,7 @@
 
 
 [![Latest Release](https://img.shields.io/github/v/release/EnterPlayerOne/Battle-Cinematics-Stadium-Camera?label=Latest%20Release)](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases/latest)
+[![Downloads since v1.2.1](https://img.shields.io/github/downloads/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/total?label=Downloads%20since%20v1.2.1)](https://github.com/EnterPlayerOne/Battle-Cinematics-Stadium-Camera/releases)
 
 <!-- PRIME SHOWCASE
 Final target: media/Battle_Cinematics_Prime_Showcase.mp4
