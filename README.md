@@ -21,11 +21,14 @@ The reel should show, in order: 4-Way sprites -> Crystal -> Gen5 animated -> gen
 
 https://github.com/user-attachments/assets/c924c8c4-9fda-44be-b7e7-76e48cd88577
 
-### Secondary showcase — Stadium 2 Importer / Kenney Nature
+### Secondary showcases
 
-![Battle Cinematics + Stadium 2 Importer — Kenney Nature on Gen 1](media/Battle_Cinematics_Stadium_2_Importer_014_Kenney_Nature_Gen1.gif)
+<p align="center">
+  <img src="media/Battle_Cinematics_Stadium_2_Importer_014_Kenney_Nature_Gen2.gif" width="49%" alt="Battle Cinematics + Stadium 2 Importer — Kenney Nature on Gen 2">
+  <img src="media/Battle_Cinematics_Orre_CBE_Secondary_Showcase.gif" width="49%" alt="Battle Cinematics + Colosseum Battle Environments — Phenac Stadium">
+</p>
 
-*Kenney Nature on Gen 1: Stadium 2 Importer owns the Stadium models and environment; Battle Cinematics supplies the camera direction.*
+*Stadium 2 Importer / Kenney Nature on Gen 2 · Colosseum Battle Environments / Orre Colosseum — provider presentation, BC camera direction.*
 
 
 
@@ -37,7 +40,7 @@ BC does **not** replace those renderers, models, animations or assets. It direct
 >
 > **BC directs. Providers present. Renderers render. Assets remain theirs.**
 
-Stadium/ Colloseum models are optional. 2d Sprites receive a 4 way sprite view treatment for voxel arenas. Battle Cinematics is designed to make the presentation you already use look intentional from a moving cinematic camera as long as a 3d or voxel battle environment is provided regardless of sprite/model representations.
+Stadium models are optional. Battle Cinematics is designed to make the presentation you already use look intentional from a moving cinematic camera.
 
 **Quick links:** [Compatibility chart](#compatibility) · [CBE 2.0 setup](#validated-cbe-20--colosseum-overhaul-configuration) · [Using BC](#using-battle-cinematics) · [Installation](#installation)
 
