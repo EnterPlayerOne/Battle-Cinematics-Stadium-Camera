@@ -37,7 +37,7 @@ BC does **not** replace those renderers, models, animations or assets. It direct
 >
 > **BC directs. Providers present. Renderers render. Assets remain theirs.**
 
-Stadium models are optional. Battle Cinematics is designed to make the presentation you already use look intentional from a moving cinematic camera.
+Stadium/ Colloseum models are optional. 2d Sprites receive a 4 way sprite view treatment for voxel arenas. Battle Cinematics is designed to make the presentation you already use look intentional from a moving cinematic camera as long as a 3d or voxel battle environment is provided regardless of sprite/model representations.
 
 **Quick links:** [Compatibility chart](#compatibility) · [CBE 2.0 setup](#validated-cbe-20--colosseum-overhaul-configuration) · [Using BC](#using-battle-cinematics) · [Installation](#installation)
 
